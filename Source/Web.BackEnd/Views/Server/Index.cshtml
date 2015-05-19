@@ -1,0 +1,112 @@
+﻿@model Web.BackEnd.Models.ServerListModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script>
+
+
+    $(document).ready(function () {
+        var URL = "/Server/?";
+
+
+        $(".ddlStatus").change(function () {
+            window.location = GetUrl();
+        });
+
+        function GetUrl() {
+            var status = $(".ddlStatus").val();
+
+            if (status != null && status >= 0) {
+                URL += "status=" + status;
+            }
+
+            return URL;
+        }
+
+    });
+</script>
+
+@section TitleSection{
+    Server
+}
+
+@if (TempData["Message"] != null)
+{
+    @Html.Raw(TempData["Message"])
+}
+
+<div id="editable-sample_wrapper" class="dataTables_wrapper form-inline" role="grid">
+    @using (Html.BeginForm("Update", "Server", FormMethod.Post, new { @class = "form-horizontal tasi-form" }))
+    {
+        <div class="row">
+            <div class="col-lg-12">
+
+                <section class="panel">
+                    <header class="panel-heading">
+                        <div class="clearfix">
+                            <div class="btn-group">
+                                <a href="@Url.Action("Edit", "Server")" class="btn green link">Thêm <i class="icon-plus"></i></a>
+                            </div>
+                            <div class="btn-group pull-right">
+                                @*@Html.DropDownListFor(x => x.SelectedStatus, Model.StatusList.ToList(), new { @class = "form-control m-bot15 ddlStatus" })*@
+                            </div>
+                        </div>
+                    </header>
+                    <div class="panel-body">
+                        <table class="table table-striped table-advance table-hover">
+                            <thead>
+                                <tr>
+                                    <th><i></i>ID</th>
+                                    <th><i></i>Tên</th>
+                                    <th><i></i>Kích hoạt</th>
+                                    <th><i></i>Mới</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.ServerList != null)
+                                {
+                                    foreach (var server in Model.ServerList)
+                                    {
+                                        <tr>
+                                            <td class="col-xs-1 col-xs-1 col-md-1">
+                                                @Html.DisplayFor(x => server.ServerId)
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("Edit", "Server", new { serverId = server.ServerId })">
+                                                    @Html.DisplayFor(x => server.ServerName)
+                                                </a>
+                                            </td>
+                                            <td class="col-xs-1 col-xs-1 col-md-1">
+                                                @Html.CheckBoxFor(x => server.IsActive)
+                                            </td>
+                                            <td class="col-xs-1 col-xs-1 col-md-1">
+                                                @Html.CheckBoxFor(x => server.IsNew)
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("Edit", "Server", new { serverId = server.ServerId, status = Model.SelectedStatus })" class="btn btn-primary btn-xs"><i class="icon-pencil"></i></a>
+                                                <a href="@Url.Action("Delete", "Server", new { serverId = server.ServerId, status = Model.SelectedStatus })" class="btn btn-danger btn-xs"><i class="icon-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+
+                            </tbody>
+                        </table>
+
+                        <div class="paging">
+                            @Html.Raw(ViewBag.Paging)
+                        </div>
+                        
+
+                    </div>
+
+                </section>
+            </div>
+        </div>
+    }
+</div>

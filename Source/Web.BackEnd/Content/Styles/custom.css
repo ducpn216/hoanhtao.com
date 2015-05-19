@@ -1,0 +1,90 @@
+﻿body {
+    font-family: Arial !important;
+}
+
+.red {
+    color: red;
+}
+
+.blue {
+    color: blue;
+}
+
+.txt-size-sm {
+    width: 16% !important;
+}
+
+.link {
+    background-color: #DDDDDD;
+}
+
+.form-control {
+    color: inherit;
+}
+
+.form-control, .fileupload-new.thumbnail, .fileupload .btn {
+    border: 1px solid #C3C3C3 !important;
+}
+
+a > img {
+    outline: initial;
+}
+
+.bg_loading {
+    background-color: #511C0B;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    vertical-align: middle;
+    opacity: 0.8;
+}
+
+    .bg_loading img {
+        width: 18%;
+        margin: auto;
+        position: absolute;
+        left: 38%;
+        top: 20%;
+    }
+
+form.tasi-form {
+    position: relative;
+}
+
+.help-block {
+    margin-bottom: 0;
+    font-size: 14px;
+    color: red;
+}
+/*label{
+    font-weight:normal;
+}*/
+
+/********PAGING*******/
+.paging {
+    text-align: center;
+}
+
+    .paging .currentPage {
+        color: red;
+        border: 1px solid;
+        padding: 6px 8px;
+    }
+
+    .paging a {
+        color: black !important;
+        border: 1px solid;
+        padding: 5px 8px;
+    }
+/******END PAGING*****/
+
+#sidebar {
+    overflow: auto;
+}
+
+ul.sidebar-menu li ul.sub li a{
+        line-height: 20px !important;
+  height: inherit !important;
+}

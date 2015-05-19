@@ -1,0 +1,86 @@
+﻿@model Web.FrontEnd.Models.PostListModel
+@using Web.FrontEnd.App_Code;
+
+@{
+    Layout = "~/Views/Shared/_Inside.cshtml";
+}
+
+@section BreadCrumbSection{
+    <li>
+        <a href="@LinkManager.GetPostListLink(Model.PostTypeId)" title="@Core.Utilities.GetPostTypeName(Model.PostTypeId)">
+            @Core.Utilities.GetPostTypeName(Model.PostTypeId)
+        </a>
+    </li>
+}
+
+@section ContentSection{
+
+    <style>
+        #ContentBlock {
+            padding: 30px 0 40px 0px;
+            width: 100% !important;
+        }
+    </style>
+
+    <div class="listtin">
+        <div class="post-wrapper">
+
+            @if (Model.PostList != null)
+            {
+                foreach (var post in Model.PostList)
+                {
+                    <div class="tinconlist">
+                        <div class="title_new">
+                            @*<a href="/News/38" class="baochi"></a>*@
+                            <h3>
+                                <a href="@LinkManager.GetPostDetailLink(post.PostId)" title="@post.Title">
+                                    @post.Title
+                                </a>
+                            </h3>
+                            <span class="date">
+                                @post.CreatedDate.ToString("dd/MM/yyyy")
+                            </span>
+                        </div>
+                        <div class="tintxt">
+                            <div class="imgs">
+                                <a href="@LinkManager.GetPostDetailLink(post.PostId)" title="@post.Title">
+                                    <img src="@Core.FilePathManager.GetPostImagePath(post.PostId, post.ImagePath)">
+                                </a>
+                            </div>
+                            <p>
+                                @post.Summary
+                            </p>
+                        </div>
+                    </div>
+                }
+
+                <div class="paging">
+                    @Html.Raw(ViewBag.Paging)
+                </div>
+
+            }
+
+        </div>
+    </div>
+
+    @*<div class="list_news">
+            <ul>
+                @if (Model.PostList != null)
+                {
+                    foreach (var post in Model.PostList)
+                    {
+                        <li class="tinmoi">
+                            <a style="font-weight:bold;color:#CFD2D2"
+                               href="/ChiTiet/@post.PostId"
+                               title="@post.Title">
+                                @post.Title
+                            </a>
+                            <span>@post.CreatedDate.ToString("dd/MM/yyyy")</span>
+                        </li>
+                    }
+                }
+
+
+            </ul>
+        </div>*@
+}

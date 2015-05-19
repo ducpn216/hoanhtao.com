@@ -1,0 +1,100 @@
+﻿@using System.Collections;
+@using Web.BackEnd.Models;
+
+@model Web.BackEnd.Models.Statistic.ReportPidModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section TitleSection{
+    Marketing
+}
+
+@if (TempData["Message"] != null)
+{
+    @Html.Raw(TempData["Message"])
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal tasi-form", enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    <div class="clearfix">
+                        <div class="btn-group">
+                            @Html.DropDownListFor(x => x.SelectedPid, Model.PidList.ToList(), new { @class = "form-control ddlServerList" })
+                        </div>
+                        <div class="btn-group">
+                            @Html.TextBoxFor(x => x.From, new { @class = "form-control datepicker txtDate", required = "", placeholder = "Từ ngày" })
+                        </div>
+                        <div class="btn-group">
+                            @Html.TextBoxFor(x => x.To, new { @class = "form-control datepicker txtDate", required = "", placeholder = "Đến ngày" })
+                        </div>
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-info">Xác nhận</button>
+                        </div>
+                    </div>
+                </header>
+                <div class="panel-body">
+                    <div class="chart-box" style="overflow:auto; width:100%">
+                        @if (Model.DataList != null && Model.DataList.Tables.Count > 0)
+                        {
+                            <table class="table table-striped table-advance table-hover">
+                                <thead>
+                                    <tr>
+                                        <th><i></i>Ngày</th>
+                                        <th><i></i>NRU</th>
+                                        <th><i></i>NAU</th>
+                                        <th><i></i>AU</th>
+                                        <th><i></i>Số tài khoản</th>
+                                        <th><i></i>Total Role</th>
+                                        <th><i></i>Total Pay</th>
+                                        <th><i></i>Total Money</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @for (int i = 0; i < Model.DataList.Tables[0].Rows.Count; i++)
+                                    {
+                                        System.Data.DataRow row = Model.DataList.Tables[0].Rows[i];
+
+                                        <tr>
+                                            <td width="100px">
+                                                @row["Date"]
+                                            </td>
+                                            <td width="100px">
+                                                @(DBNull.Value == row["NRU"] ? 0 : row["NRU"])
+                                            </td>
+                                            <td width="100px">
+                                                @(DBNull.Value == row["NAU"] ? 0 : row["NAU"])
+                                            </td>
+                                            <td width="100px">
+                                                @(DBNull.Value == row["AU"] ? 0 : row["AU"])
+                                            </td>
+                                            <td width="100px">
+                                                @(DBNull.Value == row["TotalAccount"] ? 0 : row["TotalAccount"])
+                                            </td>
+                                            <td width="100px">
+                                                @(DBNull.Value == row["TotalRole"] ? 0 : row["TotalRole"])
+                                            </td>
+                                            <td width="100px">
+                                                @(DBNull.Value == row["TotalPay"] ? 0 : row["TotalPay"])
+                                            </td>
+                                            <td width="100px">
+                                                @(DBNull.Value == row["TotalMoney"] ? 0 : row["TotalMoney"])
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        }
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+}

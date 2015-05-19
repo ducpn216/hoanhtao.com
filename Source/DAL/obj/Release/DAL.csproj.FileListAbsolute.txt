@@ -1,0 +1,12 @@
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\DAL\bin\Release\DAL.dll.config
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\DAL\bin\Release\DAL.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\DAL\bin\Release\DAL.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\DAL\bin\Release\Core.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\DAL\bin\Release\Newtonsoft.Json.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\DAL\bin\Release\CustomProviders.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\DAL\bin\Release\Core.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\DAL\bin\Release\Newtonsoft.Json.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\DAL\bin\Release\CustomProviders.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\DAL\obj\Release\DAL.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\DAL\obj\Release\DAL.pdb

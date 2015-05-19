@@ -1,0 +1,58 @@
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\bin\Debug\Service.CCU.exe.config
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\bin\Debug\Service.CCU.exe
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\bin\Debug\Service.CCU.pdb
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\bin\Debug\Core.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\bin\Debug\DAL.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\bin\Debug\Newtonsoft.Json.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\bin\Debug\CustomProviders.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\bin\Debug\Core.pdb
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\bin\Debug\DAL.pdb
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\bin\Debug\Newtonsoft.Json.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\bin\Debug\CustomProviders.pdb
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\obj\Debug\Service.CCU.csprojResolveAssemblyReference.cache
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\obj\Debug\Service.CCU.exe
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\obj\Debug\Service.CCU.pdb
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\obj\Debug\Service.CCU.ProjectInstaller.resources
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\obj\Debug\Service.CCU.csproj.GenerateResource.Cache
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Service.CCU\obj\Debug\Service.CCU.csprojResolveAssemblyReference.cache
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Service.CCU\obj\Debug\Service.CCU.ProjectInstaller.resources
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Service.CCU\obj\Debug\Service.CCU.Service1.resources
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Service.CCU\obj\Debug\Service.CCU.csproj.GenerateResource.Cache
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Service.CCU\obj\Debug\Service.CCU.exe
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Service.CCU\bin\Debug\Service.CCU.exe.config
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Service.CCU\bin\Debug\Service.CCU.exe.manifest
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Service.CCU\bin\Debug\Service.CCU.application
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Service.CCU\bin\Debug\Service.CCU.exe
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Service.CCU\bin\Debug\Service.CCU.pdb
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Service.CCU\bin\Debug\Core.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Service.CCU\bin\Debug\DAL.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Service.CCU\bin\Debug\Newtonsoft.Json.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Service.CCU\bin\Debug\CustomProviders.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Service.CCU\bin\Debug\Core.pdb
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Service.CCU\bin\Debug\DAL.pdb
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Service.CCU\bin\Debug\Newtonsoft.Json.xml
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Service.CCU\bin\Debug\CustomProviders.pdb
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Service.CCU\obj\Debug\Service.CCU.exe.manifest
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Service.CCU\obj\Debug\Service.CCU.application
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Service.CCU\obj\Debug\Service.CCU.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Service.CCU\bin\Debug\Service.CCU.exe.config
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Service.CCU\bin\Debug\Service.CCU.exe.manifest
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Service.CCU\bin\Debug\Service.CCU.application
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Service.CCU\bin\Debug\Service.CCU.exe
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Service.CCU\bin\Debug\Service.CCU.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Service.CCU\bin\Debug\Core.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Service.CCU\bin\Debug\DAL.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Service.CCU\bin\Debug\Newtonsoft.Json.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Service.CCU\bin\Debug\CustomProviders.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Service.CCU\bin\Debug\Core.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Service.CCU\bin\Debug\DAL.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Service.CCU\bin\Debug\Newtonsoft.Json.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Service.CCU\bin\Debug\CustomProviders.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Service.CCU\obj\Debug\Service.CCU.csprojResolveAssemblyReference.cache
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Service.CCU\obj\Debug\Service.CCU.ProjectInstaller.resources
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Service.CCU\obj\Debug\Service.CCU.Service1.resources
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Service.CCU\obj\Debug\Service.CCU.csproj.GenerateResource.Cache
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Service.CCU\obj\Debug\Service.CCU.exe.manifest
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Service.CCU\obj\Debug\Service.CCU.application
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Service.CCU\obj\Debug\Service.CCU.exe
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Service.CCU\obj\Debug\Service.CCU.pdb

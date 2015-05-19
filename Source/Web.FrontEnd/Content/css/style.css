@@ -1,0 +1,178 @@
+/*Reset CSS*/
+/*html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}*/
+/*body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}*/
+blockquote, q {
+    quotes: none;
+}
+
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+        content: '';
+        content: none;
+    }
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+.overflow {
+    overflow: hidden;
+}
+
+/*structure*/
+#container {
+    min-height: 1000px;
+}
+
+/**POPUP**/
+.inner-popup {
+    background: url(/Content/images/website/bg_popup_left.png) no-repeat;
+    width: 275px;
+    height: 670px;
+    position: fixed;
+    left: 0px;
+    top: 5px;
+    z-index: 10000;
+}
+
+.content-popup {
+    padding-top: 76px;
+}
+
+.insert {
+    height: 26px;
+    margin: 8px 0px;
+}
+
+    .insert label {
+        width: 97px;
+        float: left;
+        background: url(/Content/images/website/list-style.png) left center no-repeat;
+        font-size: 12px;
+        font-weight: bold;
+        padding-left: 10px;
+        color: #c59083;
+        line-height: 24px;
+    }
+
+    .insert p {
+        line-height: 26px;
+        color: #ffed71;
+        font-size: 15px;
+    }
+
+    .insert img {
+        float: left;
+        margin-right: 2px;
+        width: 90px;
+        height: 26px;
+    }
+
+    .insert input {
+        width: 150px;
+        float: left;
+        margin-right: 10px;
+        padding-left: 8px;
+        background: #cacaca;
+        border: none;
+        display: inline-block;
+        height: 24px;
+        box-shadow: -1px -1px 0px 0px #000;
+    }
+
+        .insert input.shot {
+            width: 50px;
+        }
+
+.close-popup {
+    position: absolute;
+    border: none;
+    top: 0px;
+    right: 0px;
+    width: 53px;
+    height: 53px;
+    background: none;
+    cursor: pointer;
+}
+
+.reg {
+    position: absolute;
+    border: none;
+    top: 241px;
+    left: 41px;
+    width: 193px;
+    height: 48px;
+    background: none;
+    cursor: pointer;
+}
+
+.download {
+    position: absolute;
+    border: none;
+    top: 368px;
+    left: 41px;
+    width: 194px;
+    height: 48px;
+    background: none;
+    cursor: pointer;
+}
+
+.giftcode {
+    position: absolute;
+    border: none;
+    top: 606px;
+    left: 42px;
+    width: 192px;
+    height: 47px;
+    background: none;
+    cursor: pointer;
+}
+
+.popup_mini {
+    background: url(/Content/images/website/button.png) no-repeat;
+    width: 80px;
+    height: 400px;
+    cursor: pointer;
+    position: fixed;
+    left: -80px;
+    top: 100px;
+    z-index: 1;
+}
+
+

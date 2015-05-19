@@ -1,0 +1,130 @@
+﻿@using System.Collections;
+@using Web.BackEnd.Models;
+
+@model LockAccountPageModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section TitleSection{
+
+    Khóa tài khoản
+}
+
+<div id="error_message">
+
+</div>
+@*@if (TempData["Message"] != null)
+{
+    @Html.Raw(TempData["Message"])
+}*@
+
+<script>
+    $(document).ready(function () {
+        $(".ddlServer").change(function () {
+            var accountName = $(".txtAccount").val();
+            var serverId = $(this).val();
+            var ddlRole = $(".ddlRole");
+
+            $.ajax({
+                type: "GET",
+                url: "/Game/GetRoleListApi/?accountName=" + accountName + "&serverId=" + serverId,
+                dataType: "json",
+                beforeSend: function () {
+                    AddLoading();
+                },
+                success: function (response) {
+                    var html = "";
+
+                    $.each(response, function (i) {
+                        html += "<option>" + response[i].szRoleName + "</option>";
+                    });
+
+                    $(ddlRole).html(html);
+                    RemoveLoading();
+                }
+            });
+        });
+
+        $(".txtAccount").change(function () {
+            $(".ddlServer").val("");
+        });
+
+        $(".btnAccept").click(function () {
+            var formData = $(".tasi-form").serialize();
+            AddLoading();
+
+            $.post("/Game/LockAccount", formData, function (data) {
+                SetMessage(data.Message, data.Flag);
+                RemoveLoading();
+            });
+
+            return false;
+        });
+        
+    });
+</script>
+
+@using (Html.BeginForm("LockAccount", "Game", FormMethod.Post, new { @class = "form-horizontal tasi-form" }))
+{
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Tài khoản</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.AccountName, new { @class = "form-control txtAccount", required = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Server</label>
+                        <div class="col-sm-10">
+                            @Html.DropDownListFor(x => x.SelectedServerId, Model.ServerList.ToList(), new { @class = "form-control m-bot15 ddlServer" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Nhân vật</label>
+                        <div class="col-sm-10">
+                            @Html.DropDownListFor(x => x.SelectedRoleId, Model.RoleList.ToList(), new { @class = "form-control m-bot15 ddlRole" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Thời gian</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Time, new { @class = "form-control", required = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Lý do</label>
+                        <div class="col-sm-10">
+                            @Html.TextAreaFor(x => x.Reason, new { @class = "form-control", rows = 4, required = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label"></label>
+                        <div class="col-sm-10">
+                            <img id="img-captcha" src='/Captcha' />
+                            <a class="btn-captcha">
+                                <img src="/Content/images/change.png" alt="Thay hình khác" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Mã xác nhận</label>
+                        <div class="col-sm-10">
+                            @Html.TextBox("Captcha", "", new { @class = "form-control captcha", required = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button class="btn btn-danger btnAccept">Xác nhận</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+}

@@ -1,0 +1,138 @@
+﻿@using System.Collections;
+@using Web.BackEnd.Models;
+
+@model Web.BackEnd.Models.Statistic.CREVModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section TitleSection{
+    Doanh số
+}
+
+@if (TempData["Message"] != null)
+{
+    @Html.Raw(TempData["Message"])
+}
+
+<script src="/Content/Libraries/Highchart-3.0.9/js/highcharts.js"></script>
+<script src="/Content/Libraries/Highchart-3.0.9/js/themes/dark-blue.js"></script>
+
+<script>
+    function trim(string, char) {
+        if (!char) char = ' '; //space by default
+        char = char.replace(/([()[{*+.$^\\|?])/g, '\\$1'); //escape char parameter if needed for regex syntax.
+        var regex_1 = new RegExp("^" + char + "+", "g");
+        var regex_2 = new RegExp(char + "+$", "g");
+        return string.replace(regex_1, '').replace(regex_2, '');
+    }
+
+    function ShowData() {
+        try {
+            var date = $(".txtDate").val();
+
+            $.ajax({
+                type: "POST",
+                url: "/Statistic/GetCREV?date=" + date,
+                //data: "{'date': '" + date + "', 'serverId': " + serverId + "}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (message) {
+                    console.log(message);
+                    ShowChart(message);
+
+                }
+            });
+
+        } catch (e) {
+            console.log(e.message);
+        }
+
+        return false;
+    }
+
+    function ShowChart(result) {
+        if (result != null) {
+            //request = JSON.parse(result);
+
+
+            var options = {
+                title: {
+                    text: 'Doanh số'
+                },
+                xAxis: {
+                    categories: []
+                },
+                yAxis: {
+                    title: {
+                        text: null
+                    }
+                },
+                series: [],
+                tooltip: {
+                    shared: true,
+                    crosshairs: true
+                },
+            };
+
+            var categories1 = {
+                categories: []
+            };
+            $.each(result, function (itemNo, item) {
+                options.xAxis.categories.push(item.Date);
+            });
+            //console.log(categories1);
+
+            var series1 = {
+                data: []
+            };
+            $.each(result, function (itemNo, item) {
+                series1.data.push(parseFloat(item.Total));
+            });
+            series1.name = "Doanh số"
+            series1.lineWidth = 4;
+            options.series.push(series1);
+            console.log(series1);
+
+            $('#chart').highcharts(options);
+        }
+    }
+    $(document).ready(function () {
+        ShowData();
+    });
+</script>
+
+@if (Model != null)
+{
+    using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal tasi-form", enctype = "multipart/form-data" }))
+    {
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        <div class="clearfix">
+                            <div class="btn-group">
+                                @Html.TextBox("date", (Model.GetDate != null) ? Model.GetDate.ToString("dd/MM/yyyy") : DateTime.Now.ToString("dd/MM/yyyy"),
+                                new { @class = "form-control datepicker txtDate", required = "", placeholder = "Ngày" })
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-info" onclick="return ShowData();">Xác nhận</button>
+                            </div>
+                            <div class="btn-group" style="border: 1px solid red;padding: 5px 30px;">
+                                Tổng cộng : <span class="red">@Core.Providers.CommonProvider.FunctionProvider.ConvertToCurrency(Model.GeneralTotal, false)</span>
+                            </div>
+                    </header>
+                    <div class="panel-body">
+                        <div class="chart-box" style="overflow:auto; width:100%">
+                            <div id="chart" style="height: 500px; width: 1800px"></div>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+        </div>
+    }
+
+}

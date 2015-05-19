@@ -1,0 +1,233 @@
+﻿@model Web.FrontEnd.Models.LauncherModel
+@using Web.FrontEnd.App_Code
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Hoành tảo thiên hạ, hoanh tao thien ha, game, game online, web game, webgame" />
+    <meta name="description" content="Tải, cài đặt và chơi ngay game 3D đẳng cấp kiếm hiệp Kim Dung hay nhất 2013. Tham gia để trải nghiệm phiên bản chính thức. Ra mắt 9h30 ngày 16/7/2013" />
+    <title>Hoành Tảo Thiên Hạ - Đẳng cấp kiếm hiệp 3D</title>
+
+    <link href="/Content/css/launcher/screen.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/css/launcher/MyStyle.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/css/myStyle.css" rel="stylesheet" type="text/css" />
+
+    <script src="/Content/js/jquery-1.11.2.min.js"></script>
+    <script src="/Content/js/myFunction.js"></script>
+    <script src="/Content/js/fadegallery.js"></script>
+    <script src="/Content/js/MyLibrary.js"></script>
+    
+    <!--Login-->
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            $('html').keydown(function (e) {
+                if (e.keyCode == '13') {
+                    $('#btnDangNhap').click();
+                }
+            });
+            jQuery('.control-event img').click(function () {
+                $('.act').removeClass('act');
+                $(this).addClass('act');
+                $('.main-content-event a').fadeOut(2000);
+                var show = $(this).attr('alt');
+                $("#" + show).fadeToggle(1000);
+            });
+            //$("#btnDangNhap").click(function () {
+            //    if ($("#inputId").val() == "" || $("#inputPass").val() == "") {
+            //        $(".signinResult").html('Bạn chưa nhập tài khoản hoặc mật khẩu');
+            //    }
+            //    else {
+            //        userName = $("#inputId").val();
+            //        password = $("#inputPass").val();
+            //        return true;
+            //        signIn(userName, password);
+            //    }
+            //    return false;
+            //});
+        });
+
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".launcher_tabs").hover(function () {
+                $(".launcher_tabs").removeClass('active');
+                $(this).addClass('active');
+                $(".news").hide();
+                id = $(this).attr('id');
+                $("." + id).show();
+                if (id == 'all') {
+                    $(".view-more").attr('href', 'http://hoanh.gate.vn/TinTuc/DanhSach/Tintuc/');
+                }
+                else {
+                    $(".view-more").attr('href', 'http://hoanh.gate.vn/TinTuc/DanhSach/SuKien/');
+                }
+            });
+        });
+    </script>
+
+
+</head>
+<body>
+    <div class="wrap-container">
+        <div class="launcher part1">
+            <a href="#" class="logo"></a>
+
+            <span class="phienban">Phiên bản hiện tại:</span>
+
+            <div class="content">
+                <div class="event slide-event block-left">
+                    <div class="Row1_left">
+                        <!--BANNER AREA-->
+                        <div class="block-banner">
+                            <div class="event">
+                                <ul id="img">
+
+                                    @if (Model.BannerList != null)
+                                    {
+                                        for (int i = 0; i < Model.BannerList.Count; i++)
+                                        {
+                                            string className = i == 0 ? "ActiveBanner" : "";
+                                            var banner = Model.BannerList[i];
+
+                                            <li class='@className'>
+                                                <a target="_blank" href="@banner.Link">
+                                                    <img src="@Core.FilePathManager.GetBannerImagePath(banner.BannerId, banner.ImagePath)" alt="" width="235" height="242" />
+                                                </a>
+                                                <div class="des_banner">
+                                                    <h1 class="title_banner">
+                                                        <a target="_blank" href="@banner.Link">
+                                                            @banner.Title
+                                                        </a>
+                                                    </h1>
+                                                    <p style="padding-bottom: 5px; font-size: 9px">
+                                                        @banner.Description
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        }
+                                    }
+
+                                </ul>
+                                <ul id="imgControl">
+                                    @if (Model.BannerList != null)
+                                    {
+                                        for (int i = 0; i < Model.BannerList.Count; i++)
+                                        {
+                                            string className = i == 0 ? "ActiveBanner" : "";
+                                            <li class='@className'><a style="cursor: pointer"></a></li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+
+                        </div>
+                        <!--END BANNER AREA-->
+                    </div>
+                </div>
+
+                <div class="content-right block-right">
+                    <h3>
+                        <a id="all" href="@LinkManager.GetPostListLink((int)Core.Enums.PostType.News)" target="_blank" class="launcher_tabs active">Tin Tức</a>
+                        <a id="levent" href="@LinkManager.GetPostListLink((int)Core.Enums.PostType.Event)" target="_blank" class="launcher_tabs">Sự Kiện</a>
+                    </h3>
+                    <div class="news levent" style="display: none">
+
+                        @if (Model.NewsList != null)
+                        {
+                            foreach (var post in Model.NewsList)
+                            {
+                                <a target='_blank' href="@LinkManager.GetPostDetailLink(post.PostId)">
+                                    <span class='display-time'>@post.CreatedDate.ToString("dd/MM")</span>
+                                    @post.Title
+                                </a>
+                            }
+                        }
+
+                    </div>
+                    <div class="news all">
+
+                        @if (Model.EventList != null)
+                        {
+                            foreach (var post in Model.EventList)
+                            {
+                                <a target='_blank' href="@LinkManager.GetPostDetailLink(post.PostId)">
+                                    <span class='display-time'>@post.CreatedDate.ToString("dd/MM")</span>
+                                    @post.Title
+                                </a>
+                            }
+                        }
+
+                    </div>
+                    <a href="@LinkManager.GetPostListLink((int)Core.Enums.PostType.News)" target="_blank" class="view-more">Xem thêm</a>
+                </div>
+                <!--End Content-->
+
+                <div class="login-control">
+                    <div class="dangky">
+                        <a href="@(LinkManager.HOME_PAGE + "/Account/Register")" target="_blank"></a>
+                    </div>
+
+                    @using (Html.BeginForm("Index", "Launcher", FormMethod.Post, new { @class = "dangnhap" }))
+                    {
+                        <p class="user">
+                            <label></label>
+                            @Html.TextBoxFor(x => x.Username, new { id = "inputId", required = "" })
+                        </p>
+                        <p class="pass">
+                            <label></label>
+                            @Html.PasswordFor(x => x.Password, new { id = "inputPass", required = "" })
+                        </p>
+                        <p>
+                            <span class="label"></span>
+                            <img id="img-captcha-register" src='/Captcha/' style="width:120px" />
+                            <a class="btn-captcha-register" onclick="return ReloadCaptcha('img-captcha-register', '/Captcha/');">
+                                <img src="/Content/images/website/change.png" alt="Thay hình khác" />
+                            </a><br />
+                        </p>
+                        <p>
+                            <span class="label">Mã xác nhận</span>
+                            @Html.TextBoxFor(x => x.Captcha, new { @class = "form-control shot popup_register_captcha", required = "" })
+                        </p>
+                        <button style="cursor:pointer;border:0px" id="btnDangNhap" class="btn-dangnhap" type="submit"></button>
+
+                        <p class="check">
+                            <a href="@LinkManager.FORGET_PASSWORD" class="first" target="_blank">Quên mật khẩu</a>
+                            <a href="@LinkManager.PAYMENT" target="_blank">Nạp tiền</a>
+                        </p>
+                        <p class="signinResult" style="text-align:center;color:red">
+                            @Model.Message
+                        </p>
+                    }
+
+                    <div class="nav">
+                        <a href="@LinkManager.HOME_PAGE" target="_blank" class="back-home">Trang chủ</a>
+                        <a href="@LinkManager.FANPAGE" target="_blank" class="view-trailer">Cộng đồng</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .label {
+            width: 88px;
+            height: 25px;
+            display: inline-block;
+            float: left;
+            color: #FF972C;
+            font-size: 12px;
+        }
+
+        .dangnhap p {
+            margin-bottom: 8px !important;
+        }
+
+        .check {
+            padding-left: 108px !important;
+        }
+    </style>
+</body>
+
+</html>

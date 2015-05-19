@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{654A0D01-CAD6-4806-9153-AF8044CEF278}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Core</RootNamespace>
+    <AssemblyName>Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CustomProviders, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\My Library\MyLibrary 2.0 ver3.5\CustomProviders\bin\Debug\CustomProviders.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config.cs" />
+    <Compile Include="Constants\FolderPathConstansts.cs" />
+    <Compile Include="Constants\GlobalConstants.cs" />
+    <Compile Include="Constants\MarketingTrackingConstants.cs" />
+    <Compile Include="Constants\OauthConstants.cs" />
+    <Compile Include="Constants\PaymentConstants.cs" />
+    <Compile Include="GameAPI\ApiEnums.cs" />
+    <Compile Include="GameAPI\ApiHelper.cs" />
+    <Compile Include="GameAPI\GameAPI.cs" />
+    <Compile Include="GameAPI\Requests\ChargeRequest.cs" />
+    <Compile Include="GameAPI\Requests\SendNoticeRequest.cs" />
+    <Compile Include="GameAPI\Requests\ModifyMallRequest.cs" />
+    <Compile Include="GameAPI\Requests\CharDetailRequest.cs" />
+    <Compile Include="GameAPI\Requests\SendMailRequest.cs" />
+    <Compile Include="GameAPI\Requests\KickOfflineRequest.cs" />
+    <Compile Include="GameAPI\Requests\AddExpRequest.cs" />
+    <Compile Include="GameAPI\Requests\DeleteItemRequest.cs" />
+    <Compile Include="GameAPI\Requests\BanChatRequest.cs" />
+    <Compile Include="GameAPI\Requests\JumpMapRequest.cs" />
+    <Compile Include="GameAPI\Requests\LockAccountRequest.cs" />
+    <Compile Include="GameAPI\Requests\OnlineNumberRequest.cs" />
+    <Compile Include="GameAPI\Requests\QueryItemRequest.cs" />
+    <Compile Include="GameAPI\Requests\RoleListRequest.cs" />
+    <Compile Include="GameAPI\Responses\ChargeResponse.cs" />
+    <Compile Include="GameAPI\Responses\SendNoticeResponse.cs" />
+    <Compile Include="GameAPI\Responses\SendMailResponse.cs" />
+    <Compile Include="GameAPI\Responses\CharDetailResponse.cs" />
+    <Compile Include="GameAPI\Responses\KickOfflineResponse.cs" />
+    <Compile Include="GameAPI\Responses\BanChatResponse.cs" />
+    <Compile Include="GameAPI\Responses\JumpMapResponse.cs" />
+    <Compile Include="GameAPI\Responses\DeleteItemResponse.cs" />
+    <Compile Include="GameAPI\Responses\AddExpResponse.cs" />
+    <Compile Include="GameAPI\Responses\LockAccountResponse.cs" />
+    <Compile Include="GameAPI\Responses\ModifyMallResponse.cs" />
+    <Compile Include="GameAPI\Responses\OnlineNumberResponse.cs" />
+    <Compile Include="GameAPI\Responses\QueryItemResponse.cs" />
+    <Compile Include="GameAPI\Responses\RoleListResponse.cs" />
+    <Compile Include="Constants\GameApiConstants.cs" />
+    <Compile Include="Constants\ConfigConstants.cs" />
+    <Compile Include="Constants\FilePathConstants.cs" />
+    <Compile Include="Constants\BackendPageConstants.cs" />
+    <Compile Include="Constants\ServicesConstants.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="FileLog.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="FilePathManager.cs" />
+    <Compile Include="LinkManager.cs" />
+    <Compile Include="MVC\Attributes\BasicAuthenticationAttribute.cs" />
+    <Compile Include="MVC\Attributes\ValidateCaptchaAttribute.cs" />
+    <Compile Include="MVC\Attributes\ValidateCardTypeAttribute.cs" />
+    <Compile Include="MVC\Attributes\ValidateIsNumericAttribute.cs" />
+    <Compile Include="MVC\Attributes\ValidateSpecialCharAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\CommonProvider.cs" />
+    <Compile Include="Providers\Facebook\FacebookProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Providers\Google\GoogleProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Providers\Google\Requests\AccessTokenRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Providers\Google\Requests\TokenRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Providers\Google\Responses\AccessTokenResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Providers\Google\Responses\ProfileResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Providers\Payment\PaymentProvider.cs" />
+    <Compile Include="Providers\Payment\PaymentRequest.cs" />
+    <Compile Include="Providers\Payment\PaymentResponse.cs" />
+    <Compile Include="Providers\UploadProvider.cs" />
+    <Compile Include="SingleTon.cs" />
+    <Compile Include="Utilities.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Context\" />
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

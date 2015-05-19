@@ -1,0 +1,143 @@
+﻿@using System.Collections;
+@using Web.BackEnd.Models;
+
+@model Web.BackEnd.Models.Statistic.ReportModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section TitleSection{
+    Report
+}
+
+@if (TempData["Message"] != null)
+{
+    @Html.Raw(TempData["Message"])
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal tasi-form", enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    <div class="clearfix">
+                        <div class="btn-group">
+                            @Html.DropDownListFor(x => x.SelectedServerId, Model.ServerList.ToList(), new { @class = "form-control ddlServerList" })
+                        </div>
+                        <div class="btn-group">
+                            @Html.TextBoxFor(x => x.From, new { @class = "form-control datepicker txtDate", required = "", placeholder = "Từ ngày" })
+                        </div>
+                        <div class="btn-group">
+                            @Html.TextBoxFor(x => x.To, new { @class = "form-control datepicker txtDate", required = "", placeholder = "Đến ngày" })
+                        </div>
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-info">Xác nhận</button>
+                        </div>
+                    </div>
+                </header>
+                <div class="panel-body">
+                    <div class="chart-box" style="overflow:auto; width:100%">
+                        @if (Model.DataList != null && Model.DataList.Tables.Count > 0)
+                        {
+                            <table class="table table-striped table-advance table-hover">
+                                <thead>
+                                    <tr>
+                                        <th ><i></i>Doanh số</th>
+                                        <th ><i></i>Lượt nạp</th>
+                                        <th ><i></i>PU</th>
+                                        <th ><i></i>NPU</th>
+                                        <th ><i></i>SPU</th>
+                                        <th ><i></i>ARPU</th>
+                                        <th ><i></i>ARPPU</th>
+                                        <th ><i></i>NRU</th>
+                                        <th ><i></i>NAU</th>
+                                        <th ><i></i>A1</th>
+                                        <th ><i></i>A7</th>
+                                        <th ><i></i>A30</th>
+                                        <th ><i></i>LU1</th>
+                                        <th ><i></i>LU7</th>
+                                        <th ><i></i>LU30</th>
+                                        <th ><i></i>%PR</th>
+                                        <th ><i></i>%LU1</th>
+                                        <th ><i></i>%LU7</th>
+                                        <th ><i></i>%LU30</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @for (int i = 0; i < Model.DataList.Tables[0].Rows.Count; i++)
+                                    {
+                                        System.Data.DataRow row = Model.DataList.Tables[0].Rows[i];
+
+                                        <tr>
+                                            <td width="100px" >
+                                                @row["Doanhso"]
+                                            </td>
+                                            <td width="100px">
+                                                @row["LuotNap"]
+                                            </td>
+                                            <td width="100px">
+                                                @row["PU"]
+                                            </td>
+                                            <td width="100px">
+                                                @row["NPU"]
+                                            <td width="100px">
+                                                @row["SPU"]
+                                            </td>
+                                            <td width="100px">
+                                                @row["ARPU"]
+                                            </td>
+                                            <td width="100px">
+                                                @row["ARPPU"]
+                                            </td>
+                                            <td width="100px">
+                                                @row["NRU"]
+                                            </td>
+                                            <td width="100px">
+                                                @row["NAU"]
+                                            </td>
+                                            <td width="100px">
+                                                @row["A1"]
+                                            </td>
+                                            <td width="100px">
+                                                @row["A7"]
+                                            </td>
+                                            <td width="100px">
+                                                @row["A30"]
+                                            </td>
+                                            <td width="100px">
+                                                @row["LU1"]
+                                            </td>
+                                            <td width="100px">
+                                                @row["LU7"]
+                                            </td>
+                                            <td width="100px">
+                                                @row["LU30"]
+                                            </td>
+                                            <td width="100px">
+                                                @row["%PR"]
+                                            </td>
+                                            <td width="100px">
+                                                @row["%LU1"]
+                                            </td>
+                                            <td width="100px">
+                                                @row["%LU7"]
+                                            </td>
+                                            <td width="100px">
+                                                @row["%LU30"]
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        }
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+}

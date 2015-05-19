@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="/Content/Styles/bootstrap.min.css" rel="stylesheet">
+    <link href="/Content/Styles/bootstrap-reset.css" rel="stylesheet">
+    <!--external css-->
+    <link href="/Content/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="/Content/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen" />
+    <link rel="stylesheet" href="/Content/Styles/owl.carousel.css" type="text/css">
+    <!-- Custom styles for this template -->
+    <link href="/Content/Styles/style.css" rel="stylesheet">
+    <link href="/Content/Styles/style-responsive.css" rel="stylesheet" />
+    <link href="/Content/assets/bootstrap-fileupload/bootstrap-fileupload.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/Content/assets/bootstrap-datepicker/css/datepicker.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/assets/bootstrap-colorpicker/css/colorpicker.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/assets/bootstrap-daterangepicker/daterangepicker.css" />
+
+    <link href="/Content/Scripts/ckeditor/contents.css" rel="stylesheet" />
+    <link href="/Content/Styles/custom.css" rel="stylesheet" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    @*@Styles.Render("~/Content/mobileCss", "~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="/Content/Scripts/jquery/jquery-1.11.1.min.js"></script>
+    @*<script src="/Content/Scripts/jquery/jquery.js"></script>*@
+    <script src="/Content/Scripts/Bootstrap/bootstrap.min.js"></script>
+    <script src="/Content/Scripts/jquery/jquery.dcjqaccordion.2.7.js" class="include" type="text/javascript"></script>
+
+    <script src="/Content/Scripts/jquery/jquery.scrollTo.min.js"></script>
+    <script src="/Content/Scripts/jquery/jquery.nicescroll.js" type="text/javascript"></script>
+
+    <script src="/Content/assets/jquery-knob/js/jquery.knob.js"></script>
+    <script src="/Content/Scripts/jquery/jquery.sparkline.js" type="text/javascript"></script>
+    @*<script src="/Content/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>*@
+    <script src="/Content/Scripts/owl.carousel.js"></script>
+    <script src="/Content/Scripts/jquery/jquery.customSelect.min.js"></script>
+    <script src="/Content/Scripts/respond.min.js"></script>
+
+    <!--script for this page-->
+    @*<script src="/Content/Scripts/sparkline-chart.js"></script>
+        <script src="/Content/Scripts/easy-pie-chart.js"></script>
+        <script src="/Content/Scripts/count.js"></script>*@
+
+    <!--custom checkbox & radio-->
+    <script src="/Content/assets/bootstrap-inputmask/bootstrap-inputmask.min.js" type="text/javascript"></script>
+    <!--custom switch-->
+    <script src="/Content/Scripts/Bootstrap/bootstrap-switch.js"></script>
+    <script src="/Content/assets/bootstrap-fileupload/bootstrap-fileupload.js" type="text/javascript"></script>
+
+    <!--custom tagsinput-->
+    <script src="/Content/Scripts/jquery/jquery.tagsinput.js"></script>
+    <script src="/Content/assets/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="/Content/assets/bootstrap-daterangepicker/date.js" type="text/javascript"></script>
+    <script src="/Content/assets/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script>
+    <script src="/Content/assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js" type="text/javascript"></script>
+    <script src="/Content/Scripts/ga.js" type="text/javascript"></script>
+    <script src="/Content/Scripts/form-component.js"></script>
+
+
+    <!--common script for all pages-->
+    <script src="/Content/Scripts/common-scripts.js"></script>
+    @*<script src="/Content/Scripts/ckeditor/adapters/jquery.js"></script>*@
+    <script src="/Content/Scripts/ckeditor/ckeditor.js"></script>
+    <script src="/Content/Scripts/ckeditor/adapters/jquery.js"></script>
+    <script src="/Content/Scripts/ckfinder/ckfinder.js"></script>
+
+    <script src="/Content/Scripts/MyLibrary.js"></script>
+
+    <script>
+
+        //owl carousel
+
+        $(document).ready(function () {
+            $("#owl-demo").owlCarousel({
+                navigation: true,
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                singleItem: true,
+                autoPlay: true
+
+            });
+
+            //CKEDITOR.replace('editor1');
+            //CKEDITOR.config.height = 500;
+
+            //var config = {
+            //    height: 180,
+            //    width: 515,
+            //    linkShowAdvancedTab: false,
+            //    scayt_autoStartup: true,
+            //    enterMode: Number(2),
+            //    toolbar_Full: [['Styles', 'Bold', 'Italic', 'Underline', 'SpellChecker', 'Scayt', '-', 'NumberedList', 'BulletedList'],
+            //                    ['Link', 'Unlink'], ['Undo', 'Redo', '-', 'SelectAll']]
+
+            //};
+
+            $('#editor').ckeditor();
+            CKFinder.setupCKEditor(null, '/Content/Scripts/ckfinder/');
+            $('.datepicker').datepicker({ format: 'dd/mm/yyyy' });
+        });
+
+        //custom select box
+        $(function () {
+            $('select.styled').customSelect();
+        });
+
+        //$('.ckeditor').ckeditor();
+    </script>
+</head>
+<body>
+
+    <section id="container">
+        <!--header start-->
+        <header class="header white-bg">
+            <div class="sidebar-toggle-box">
+                <div data-original-title="Toggle Navigation" data-placement="right" class="icon-reorder tooltips"></div>
+            </div>
+            <!--logo start-->
+            @*<a href="/" class="logo">FAST<span>NOOD</span></a>*@
+            <!--logo end-->
+            <div class="nav notify-row" id="top_menu">
+            </div>
+            <div class="top-nav ">
+                <!--search & user info start-->
+                <ul class="nav pull-right top-menu">
+                    <li>
+                        <input type="text" class="form-control search" placeholder="Search">
+                    </li>
+                    <!-- user login dropdown start-->
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            @*<img alt="" src="img/avatar1_small.jpg">*@
+                            <span class="username">
+                                @User.Identity.Name
+                            </span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu extended logout">
+                            <div class="log-arrow-up"></div>
+                            <li><a href="/Account/ChangePassword"><i class="icon-cog"></i>Đổi mật khẩu</a></li>
+                            <li><a href="/Account/Logout"><i class="icon-key"></i>THOÁT</a></li>
+                        </ul>
+                    </li>
+                    <!-- user login dropdown end -->
+                </ul>
+                <!--search & user info end-->
+            </div>
+        </header>
+        <!--header end-->
+        <!--sidebar start-->
+        <aside>
+            @Html.Partial("_NavigationPartial")
+            @*@Html.Partial("~/Views/Shared/_NavigationPartial.cshtml")*@
+        </aside>
+        <!--sidebar end-->
+        <!--main content start-->
+        <section id="main-content">
+
+            <section class="wrapper">
+                <h4>@RenderSection("TitleSection", false)</h4>
+
+                @RenderBody()
+            </section>
+        </section>
+        <!--main content end-->
+        <!--footer start-->
+        @*<footer class="site-footer">
+            <div class="text-center">
+                2015 &copy; Hoanh
+                <a href="#" class="go-top">
+                    <i class="icon-angle-up"></i>
+                </a>
+            </div>
+        </footer>*@
+        <!--footer end-->
+    </section>
+
+    <script>
+        $(document).ready(function () {
+            $(".knob").knob();
+        });
+
+    </script>
+
+    <script type="text/javascript">
+        //var editor = CKEDITOR.replace('PostModel.Content', {
+        //    filebrowserBrowseUrl: '/Content/Scripts/ckfinder/ckfinder.html',
+        //    filebrowserImageBrowseUrl: '/Content/Scripts/ckfinder/ckfinder.html?type=Images',
+        //    filebrowserFlashBrowseUrl: '/Content/Scripts/ckfinder/ckfinder.html?type=Flash',
+        //    filebrowserUploadUrl: '/Content/Scripts/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+        //    filebrowserImageUploadUrl: '/Content/Scripts/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+        //    filebrowserFlashUploadUrl: '/Content/Scripts/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+        //});
+        //CKFinder.setupCKEditor(editor, '../');
+    </script>
+</body>
+</html>

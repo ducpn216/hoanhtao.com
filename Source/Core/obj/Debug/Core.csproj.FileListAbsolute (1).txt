@@ -1,0 +1,40 @@
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Core\bin\Debug\Core.dll.config
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Core\bin\Debug\Core.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Core\bin\Debug\Core.pdb
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Core\bin\Debug\CustomProviders.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Core\bin\Debug\Newtonsoft.Json.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Core\bin\Debug\CustomProviders.pdb
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Core\bin\Debug\Newtonsoft.Json.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Core\obj\Debug\Core.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Core\obj\Debug\Core.pdb
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Core\obj\Debug\Core.csprojResolveAssemblyReference.cache
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Core\bin\Debug\Core.dll.config
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Core\bin\Debug\Core.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Core\bin\Debug\Core.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Core\bin\Debug\CustomProviders.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Core\bin\Debug\Newtonsoft.Json.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Core\bin\Debug\CustomProviders.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Core\bin\Debug\Newtonsoft.Json.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Core\obj\Debug\Core.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Core\obj\Debug\Core.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Core\obj\Debug\Core.csprojResolveAssemblyReference.cache
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Core\obj\Debug\Core.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Core\obj\Debug\Core.pdb
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Core\bin\Debug\Core.dll.config
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Core\bin\Debug\Core.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Core\bin\Debug\Core.pdb
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Core\bin\Debug\CustomProviders.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Core\bin\Debug\Newtonsoft.Json.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Core\bin\Debug\CustomProviders.pdb
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Core\bin\Debug\Newtonsoft.Json.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Core\bin\Debug\Core.dll.config
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Core\bin\Debug\Core.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Core\bin\Debug\Core.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Core\bin\Debug\CustomProviders.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Core\bin\Debug\Newtonsoft.Json.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Core\bin\Debug\CustomProviders.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Core\bin\Debug\Newtonsoft.Json.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Core\obj\Debug\Core.csprojResolveAssemblyReference.cache
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Core\obj\Debug\Core.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Core\obj\Debug\Core.pdb
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Core\obj\Debug\Core.csprojResolveAssemblyReference.cache

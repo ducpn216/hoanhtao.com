@@ -1,0 +1,53 @@
+﻿@model Web.FrontEnd.Models.HomeModel
+
+<style>
+    .ActiveBanner{
+        opacity:1 !important;
+    }
+</style>
+
+<div class="block-banner">
+    <!--Banner Event-->
+    <div class="event">
+        @if (Model.BannerList != null && Model.BannerList.Count > 0)
+        {
+            int count = 0;
+
+            <ul id="img">
+
+                @foreach (var banner in Model.BannerList)
+                {
+                    string className = count == 0 ? "ActiveBanner" : "";
+                    <li class="@className" style="opacity: 1;">
+                        <a href="@banner.Link" target="_blank" title="">
+                            <img src="@Core.FilePathManager.GetBannerImagePath(banner.BannerId, banner.ImagePath)" alt="" width="360" height="365">
+                        </a>
+                        <div class="des_banner">
+                            <h1 class="title_banner">
+                                <a href="@banner.Link">
+                                    @banner.Title
+                                </a>
+                            </h1>
+                            <p>
+                                @banner.Description
+                            </p>
+                        </div>
+                    </li>
+
+                    count++;
+                }
+            </ul>
+
+            <ul id="imgControl">
+                @for (int i = 0; i < Model.BannerList.Count; i++)
+                {
+                    string className = i == 0 ? "ActiveBanner" : "";
+                    <li class="@className">
+                        <a style="cursor: pointer"></a>
+                    </li>
+                }
+            </ul>
+        }
+    </div>
+    <!--End Banner Event-->
+</div>

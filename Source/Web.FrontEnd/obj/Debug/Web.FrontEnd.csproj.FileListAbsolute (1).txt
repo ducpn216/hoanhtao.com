@@ -1,0 +1,132 @@
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\bin\Web.FrontEnd.dll.config
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\bin\Web.FrontEnd.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\bin\Web.FrontEnd.pdb
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\bin\Core.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\bin\CustomProviders.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\bin\DAL.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\bin\Facebook.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\bin\Microsoft.Web.Infrastructure.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\bin\Newtonsoft.Json.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\bin\System.Web.Helpers.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\bin\System.Web.Mvc.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\bin\System.Web.Razor.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\bin\System.Web.Webpages.Deployment.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\bin\System.Web.Webpages.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\bin\System.Web.Webpages.Razor.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\bin\Core.pdb
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\bin\DAL.pdb
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\bin\CustomProviders.pdb
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\bin\Facebook.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\bin\Newtonsoft.Json.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\bin\System.Web.Razor.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\bin\System.Web.Webpages.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\bin\System.Web.Webpages.Deployment.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\bin\System.Web.Webpages.Razor.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\bin\System.Web.Helpers.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\bin\System.Web.Mvc.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\obj\Debug\Web.FrontEnd.csprojResolveAssemblyReference.cache
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\obj\Debug\Web.FrontEnd.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.FrontEnd\obj\Debug\Web.FrontEnd.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\bin\Web.FrontEnd.dll.config
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\bin\Web.FrontEnd.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\bin\Web.FrontEnd.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\bin\Core.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\bin\CustomProviders.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\bin\DAL.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\bin\Facebook.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\bin\Microsoft.Web.Infrastructure.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\bin\Newtonsoft.Json.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\bin\System.Web.Helpers.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\bin\System.Web.Mvc.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\bin\System.Web.Razor.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\bin\System.Web.Webpages.Deployment.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\bin\System.Web.Webpages.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\bin\System.Web.Webpages.Razor.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\bin\Core.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\bin\DAL.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\bin\CustomProviders.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\bin\Facebook.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\bin\Newtonsoft.Json.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\bin\System.Web.Razor.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\bin\System.Web.Webpages.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\bin\System.Web.Webpages.Deployment.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\bin\System.Web.Webpages.Razor.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\bin\System.Web.Helpers.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\bin\System.Web.Mvc.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\obj\Debug\Web.FrontEnd.csprojResolveAssemblyReference.cache
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\obj\Debug\Web.FrontEnd.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.FrontEnd\obj\Debug\Web.FrontEnd.pdb
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\Web.FrontEnd.dll.config
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\Web.FrontEnd.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\Web.FrontEnd.pdb
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\Core.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\CustomProviders.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\DAL.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\Facebook.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\Microsoft.Web.Infrastructure.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\Newtonsoft.Json.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Helpers.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Mvc.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Razor.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Webpages.Deployment.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Webpages.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Webpages.Razor.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\Core.pdb
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\DAL.pdb
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\CustomProviders.pdb
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\Facebook.xml
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\Newtonsoft.Json.xml
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Razor.xml
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Webpages.xml
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Webpages.Deployment.xml
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Webpages.Razor.xml
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Helpers.xml
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Mvc.xml
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\obj\Debug\Web.FrontEnd.csprojResolveAssemblyReference.cache
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\obj\Debug\Web.FrontEnd.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\obj\Debug\Web.FrontEnd.pdb
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\Antlr3.Runtime.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Optimization.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\WebGrease.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\WebMarkupMin.Core.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\WebMarkupMin.Mvc.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\WebMarkupMin.Web.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\Antlr3.Runtime.pdb
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Optimization.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\Web.FrontEnd.dll.config
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\Web.FrontEnd.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\Web.FrontEnd.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\Antlr3.Runtime.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\Core.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\CustomProviders.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\DAL.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\Facebook.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\Microsoft.Web.Infrastructure.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\Newtonsoft.Json.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Helpers.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Mvc.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Optimization.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Razor.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Webpages.Deployment.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Webpages.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Webpages.Razor.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\WebGrease.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\WebMarkupMin.Core.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\WebMarkupMin.Mvc.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\WebMarkupMin.Web.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\Core.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\DAL.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\Antlr3.Runtime.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\CustomProviders.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\Facebook.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\Newtonsoft.Json.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Optimization.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Razor.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Webpages.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Webpages.Deployment.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Webpages.Razor.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Helpers.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\bin\System.Web.Mvc.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\obj\Debug\Web.FrontEnd.csprojResolveAssemblyReference.cache
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\obj\Debug\Web.FrontEnd.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\Web.FrontEnd\obj\Debug\Web.FrontEnd.pdb

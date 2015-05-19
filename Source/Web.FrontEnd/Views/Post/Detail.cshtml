@@ -1,0 +1,72 @@
+﻿@model Web.FrontEnd.Models.PostDetailModel
+@using Web.FrontEnd.App_Code
+
+@{
+    Layout = "~/Views/Shared/_Inside.cshtml";
+}
+
+@section BreadCrumbSection{
+    <li>
+        <a href="@LinkManager.GetPostListLink(Model.PostTypeId)" title="@Core.Utilities.GetPostTypeName(Model.PostTypeId)">
+            @Core.Utilities.GetPostTypeName(Model.PostTypeId)
+        </a>
+    </li>
+    <li class="active">
+        <a href="@LinkManager.GetPostDetailLink(Model.PostId)" title="@Model.Title">
+            @Model.Title
+        </a>
+    </li>
+}
+
+@section ContentSection{
+    <style>
+        .title {
+            padding: 0px 0 8px 0px;
+            margin: 0px 0px 15px 0px;
+            font-weight: bold;
+            font-size: 22px;
+            color: #fffdfb;
+            font-family: Arial;
+            display: block;
+        }
+    </style>
+
+    <div class="detail_content">
+
+        @if (Model != null)
+        {
+            <span class="title">
+                @Model.Title
+            </span>
+
+            @Html.Raw(Model.Content)
+
+            <div style="margin-left: 40px;">
+                &nbsp;
+            </div>
+            <div>
+                &nbsp;
+            </div>
+            <div>
+                &nbsp;
+            </div>
+
+            if (Model.OtherPostList != null && Model.OtherPostList.Count > 0)
+            {
+                <div>
+                    <strong>Bài Liên Quan</strong>
+                </div>
+                <ul style="margin-left: 40px;">
+
+                    @foreach (var post in Model.OtherPostList)
+                    {
+                        <li>
+                            <a href="@LinkManager.GetPostDetailLink(post.PostId)" title="@post.Title">@post.Title</a>
+                        </li>
+                    }
+
+                </ul>
+            }
+        }
+    </div>
+}

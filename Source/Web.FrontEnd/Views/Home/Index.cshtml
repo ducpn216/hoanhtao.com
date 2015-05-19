@@ -1,0 +1,176 @@
+﻿@model Web.FrontEnd.Models.HomeModel
+@using Web.FrontEnd.App_Code;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home Page";
+}
+
+@section LeftColumnSection{
+    <!--TAB TIN TUC-SU KIEN-->
+    <div class="block-tintuc">
+        <span class="email-support">Email hỗ trợ: hoanhtao_hotro@yahoo.com</span>
+        @*<a href="https://www.facebook.com/hoanhtao2015" target="_blank" class="guihotro_btn"></a>
+        <a href="/event/giftcode/" class="giftcode_btn"></a>*@
+
+        <div id="list_tab">
+            <ul>
+                <li class="link_news">
+                    <a href="#content_tintuc" class="">
+                        <img src="/Content/images/website/blank.gif" alt="" class="tab_new tab_new1">
+                    </a>
+                </li>
+                <li class="link_event">
+                    <a href="#content_event" class="active">
+                        <img src="/Content/images/website/blank.gif" alt="" class="tab_new tab_new2">
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="Content_block-tintuc">
+            <div id="content_tintuc" class="content_tab" style="display: none;">
+                <div class="listtin">
+                    <div class="post-wrapper">
+
+                        @foreach (var post in Model.NewsList)
+                        {
+                            <div class="tinconlist">
+                                <div class="title_new">
+                                    <a href="@LinkManager.GetPostListLink(post.PostTypeId)" class="baochi"></a>
+                                    <h3>
+                                        <a href="@LinkManager.GetPostDetailLink(post.PostId)" title="@post.Title">
+                                            @post.Title
+                                        </a>
+                                    </h3>
+                                    <span class="date">
+                                        @post.CreatedDate.ToString("dd/MM/yyyy")
+                                    </span>
+                                </div>
+                                <div class="tintxt">
+                                    <div class="imgs">
+                                        <a href="@LinkManager.GetPostDetailLink(post.PostId)" title="@post.Title">
+                                            <img src="@Core.FilePathManager.GetPostImagePath(post.PostId, post.ImagePath)">
+                                        </a>
+                                    </div>
+                                    <p>
+                                        @post.Summary
+                                    </p>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                    <div class="loadmore_news loadNews">
+                        <p style="text-align: center;">
+                            <a style="cursor: pointer" href="@LinkManager.GetPostListLink((int)Core.Enums.PostType.News)">xem thêm</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="content_event" class="content_tab" style="display: block;">
+                <div class="listtin">
+                    <div class="post-wrapper">
+
+                        @foreach (var post in Model.EventList)
+                        {
+                            <div class="tinconlist">
+                                <div class="title_new">
+                                    <a href="@LinkManager.GetPostListLink(post.PostTypeId)" class="baochi"></a>
+                                    <h3>
+                                        <a href="@LinkManager.GetPostDetailLink(post.PostId)" title="@post.Title">
+                                            @post.Title
+                                        </a>
+                                    </h3>
+                                    <span class="date">
+                                        @post.CreatedDate.ToString("dd/MM/yyyy")
+                                    </span>
+                                </div>
+                                <div class="tintxt">
+                                    <div class="imgs">
+                                        <a href="@LinkManager.GetPostDetailLink(post.PostId)" title="@post.Title">
+                                            <img src="@Core.FilePathManager.GetPostImagePath(post.PostId, post.ImagePath)">
+                                        </a>
+                                    </div>
+                                    <p>
+                                        @post.Summary
+                                    </p>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                    <div class="loadmore_news loadNews">
+                        <p style="text-align: center;">
+                            <a style="cursor: pointer" href="@LinkManager.GetPostListLink((int)Core.Enums.PostType.Event)">xem thêm</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/Content/js/nanotabs.js"></script>
+
+    <script type="text/javascript">
+        nanotabs({ c: "list_tab", e: "mouseover", s: "active" });
+    </script>
+
+    <!--END TAB TIN TUC-SU KIEN-->
+}
+
+@section RightColumnSection{
+
+<div class="fancybox-wrap fancybox-desktop fancybox-type-iframe fancybox-opened" tabindex="-1" style="width: 330px; height: auto; position: fixed; top: 239px; left: 373px; opacity: 1; overflow: visible;"><div class="fancybox-skin" style="padding: 15px; width: auto; height: auto;"><div class="fancybox-outer"><div class="fancybox-inner" style="overflow: auto; width: 300px; height: 250px;"><iframe id="fancybox-frame1431624162922" name="fancybox-frame1431624162922" class="fancybox-iframe" frameborder="0" vspace="0" hspace="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" scrolling="auto" src="//www.youtube.com/embed/crWmkg0t5Vo?autoplay=1&amp;autohide=1&amp;fs=1&amp;rel=0&amp;hd=1&amp;wmode=opaque&amp;enablejsapi=1" __idm_id__="664577"></iframe></div></div><a title="Close" class="fancybox-item fancybox-close" href="javascript:;"></a></div></div>
+
+
+    <!--Block Nhân Vật-->
+    <div class="nv_container">
+        <div class="block_nv">
+            <a href="#" id="img_nv1" class="img_nv" style="display: block;">
+                <img src="/Content/images/temp/nv1.png" alt="">
+            </a>
+
+            <a href="#" id="img_nv3" class="img_nv" style="display: none;">
+                <img src="/Content/images/temp/nv3.png" alt="">
+            </a>
+            <a href="#" id="img_nv4" class="img_nv" style="display: none;">
+                <img src="/Content/images/temp/nv4.png" alt="">
+            </a>
+            <a href="#" id="img_nv2" class="img_nv" style="display: none;">
+                <img src="/Content/images/temp/nv2.png" alt="">
+            </a>
+        </div>
+        <div id="list_tab_nv">
+            <ul>
+                <li>
+                    <a href="#img_nv1" class="active">
+                        <img src="/Content/images/website/blank.gif" alt="" class="tab_nv tab_nv1">
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#img_nv3" class="">
+                        <img src="/Content/images/website/blank.gif" alt="" class="tab_nv tab_nv3">
+                    </a>
+                </li>
+                <li>
+                    <a href="#img_nv4" class="">
+                        <img src="/Content/images/website/blank.gif" alt="" class="tab_nv tab_nv4">
+                    </a>
+                </li>
+                <li>
+                    <a href="#img_nv2" class="">
+                        <img src="/Content/images/website/blank.gif" alt="" class="tab_nv tab_nv2">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        nanotabs({ c: "list_tab_nv", e: "mouseover", s: "active" });
+    </script>
+
+    <!--End Block Nhan vat-->
+}

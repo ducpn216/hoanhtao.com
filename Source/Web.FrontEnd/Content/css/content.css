@@ -1,0 +1,74 @@
+/* Content */
+#ContentBlock{line-height: 20px; font-size: 13px; width: 613px; margin: 10px auto;}
+#ContentBlock h1.title_h1{font-size: 18px; font-weight: bold; padding-bottom: 12px;}
+#ContentBlock h2 { font-weight:bold; border-bottom:#ccccca dotted 1px; padding:0 0 10px 0; margin-bottom:10px;}
+.content h1.title { font-weight:bold; font-family: Arial; font-size: 20px; color: #b10000; margin-bottom: 15px;}
+#ContentBlock h4 { background:url(../images/bullet-h4.png) left center no-repeat; padding: 8px 0 8px 30px; margin: 15px 0 5px 0; font-weight: bold; font-size:16px; color: #c3c3c3; font-family: Arial;}
+	#ContentBlock h4 span { border-bottom:#ccccca dotted 1px; display:block; padding-bottom:5px;}
+#ContentBlock h5 { background: url(../images/bullet-h5.png) 0 10px no-repeat; padding: 5px 0 5px 20px;font-size: 14px;font-weight: bold;margin-left: 30px;color: #c3c3c3; font-family: Arial;}
+#ContentBlock .dropcap {display: block; float: left; font-size: 28px; font-weight: bold; line-height: 34px; margin: 0px 5px 0 0; color: #7a8594; font-family: Arial;}
+#ContentBlock p {line-height:20px;	margin-bottom:10px;}
+#ContentBlock .bor { border:#041123 solid 10px;}
+
+#ContentBlock .fc {float: left; font-size:16px;font-weight:bold; padding:0 2px 0 0; line-height:18px;}
+
+#ContentBlock ul { overflow:hidden;}
+#ContentBlock ul li {background:url(../images/bullet_small2.png) 0 8px no-repeat; padding-left:10px; margin: 5px 0 5px 0; line-height:20px;}
+
+#ContentBlock a {color: #e89844; font-weight: bold;}
+#ContentBlock a:hover {	text-decoration:underline;}
+
+#ContentBlock .content-h4{margin-left: 30px;}
+#ContentBlock .content-h5{margin-left: 50px;}
+
+#ContentBlock fieldset {
+	background: #f5dcc1;
+	border: 1px solid #d4bb96;
+	padding: 15px;
+	color:#000;
+}
+#ContentBlock legend {
+	background: #950000;
+	border: none;
+	color:#fff;
+	padding: 3px 10px;
+	font-weight: bold;
+}
+
+/**TIN LIEN QUAN**/
+#ContentBlock .tin_lienquan{margin: 0 0 10px 0;}
+#ContentBlock .tin_lienquan ul li{background: none; line-height: 14px;}
+#ContentBlock .tin_lienquan ul li a{color: #b5ae92;font-weight: normal; background: url(../images/bullet_link_inside.png) no-repeat left center; padding-left: 10px; font-size: 11px;}
+
+/* Tables */
+#ContentBlock table {color: #361e15; margin: 0 auto;}
+#ContentBlock table tr{background: #eed8b8;}
+#ContentBlock table tr.color_bg{background: #f5e0c2;}
+#ContentBlock table tr th {color: #fff;background: #ba9074;padding: 6px 5px; font-weight: bold; font-size: 12px; border: 1px solid #fff;}
+#ContentBlock table tr td {	color:#361e15;	padding: 5px 5px; vertical-align: middle; text-align: center; border: 1px solid #fff;}
+
+#ContentBlock .tag{width: 100%; background: #041123; padding: 10px 0 0 0; position: relative; overflow: hidden; margin-top: 20px;}
+#ContentBlock .tag .tag_title{position: absolute; top: 0; left: 0; display: block; width: 50px; height: 32px; background: url(../images/tag.png) no-repeat 0 0;}
+#ContentBlock .tag p{padding: 0 10px 0 55px; line-height: 1;}
+#ContentBlock .tag p a{background: none; color: #7a8594;}
+#ContentBlock .tag p a:hover{text-decoration: underline;}
+
+#ContentBlock .fb_share{height: 30px; width: 100%; overflow: hidden; position: relative; margin-top: 20px;}
+#ContentBlock .fb_share a{background: none; padding: 0;}
+#ContentBlock .fb_share_btn{ width: 218px; height: 30px; background: url(../images/share_fb.png) no-repeat 0 0;}
+#ContentBlock .fb_share_btn:hover{background-position: 0 -31px;}
+#ContentBlock .fb_share p.kinhbut{text-align: right; position: absolute; bottom: -15px; right: 0; color: #464f5c;}
+
+#ContentBlock .other_news{width: 100%; overflow: hidden; margin-top: 50px;}
+#ContentBlock .list_news_inside{margin-top: 0;}
+#ContentBlock .other_news .top_other_news{height:40px; overflow:hidden; background: url(../images/bg_title_top.jpg) no-repeat 0 0; line-height: 40px;}
+#ContentBlock .other_news .top_other_news h4{background: none; margin: 0; padding: 0 0 0 15px; color: #d3d6da; font-size: 14px; font-weight: bold;}
+#ContentBlock .other_news .list_news{width: 100%; overflow: hidden; padding: 0;}
+#ContentBlock .other_news .list_news ul li{position: relative; width: 100%; line-height: 40px; list-style:none; margin: 0; padding:0; position: relative; overflow: hidden; border-bottom: 1px dotted #3c4654; background: none;} 
+#ContentBlock .other_news .list_news ul li.tinmoi{background: url(../images/bg_noibat_fot.png)repeat 0 0;}
+#ContentBlock .other_news .list_news ul li.last{border: none;}          
+#ContentBlock .other_news .list_news ul li a{padding-left: 15px; margin-left: 10px; color: #7a8594; font-weight: normal; font-size: 12px; background: url(../images/bullet-noibat-fot.png) no-repeat left center; display: block;}
+#ContentBlock .other_news .list_news ul li.tinmoi a{font-weight: bold; color: #d2d2d2;}
+#ContentBlock .other_news .list_news ul li a:hover{text-decoration: underline;}
+#ContentBlock .other_news .list_news ul li span{position: absolute; top: 0; right: 10px; font-weight: normal; font-size: 12px; color: #5d5f63;}
+#ContentBlock .other_news .list_news ul li.tinmoi span{color: #95979a;}

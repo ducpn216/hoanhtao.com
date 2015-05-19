@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document */
+@import url(reset.css);
+body{background:#000;}
+#wrap{width:1420px; margin:0 auto; position:relative;}
+#wrap .startBtn{width:318px; height:146px; position:absolute; top:32%; left:44%;}
+#wrap .tips{width:400px; height:146px; position:absolute; top:60%; left:48%;font-family:΢���ź�;font-size:14px;color:#fff;display:none}
+#wrap .tips a{font-family:΢���ź�;font-size:16px;color:#f00; text-decoration:underline;}
+#wrap .startBtn a{display:block; width:318px; height:146px; background:url(../images/bg.png) no-repeat;}
+#wrap .startBtn a:hover{background-position:left -165px;}
+#wrap .startBtn a:active{background-position:1px 1px;}
+#wrap .vBtn{width:230px; height:145px; position:absolute; top:70%; left:76%;}
+#wrap .vBtn a{display:block; width:224px; height:66px; background:url(../images/bg.png) no-repeat left -493px; margin-top:5px;}
+#wrap .vBtn a:hover{background-position:left -566px;}
+#wrap .vBtn a:active{background-position:1px -492px;}
+#wrap .vBtn h2{color:#df7319}
+#wrap .vBtn p{width:224px; height:60px; background:url(../images/bg.png) no-repeat left -720px;}
+#wrap .footer{width:400px; height:36px; background:url(../images/bg.png) no-repeat left -784px; position:absolute; top:94%; left:42%;}
+
+
+/**Lodaing Screen**/
+#container{width: 100%; background: url(../images/LoadingScreen.jpg) no-repeat 50% 0; height: 1000px;}
+.wrap-main{width: 1000px; margin: 0 auto; position: relative;}
+.logo{width: 233px; height: 90px; display: block; position:absolute; top: 30px; left: 770px;}
+.download_plugin{position: absolute; top: 254px; left: 760px;}

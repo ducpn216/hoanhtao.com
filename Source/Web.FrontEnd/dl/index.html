@@ -1,0 +1,245 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="overflow:hidden">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>Hoành Tảo Thiên Hạ webgame 3D</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="http://hoanhtao.com/Content/images/logo/logo.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8" />
+    <meta name="description" content="Hoành Tảo Thiên Hạ (Hoành Tảo) - webgame kiếm hiệp 3D hay nhất 2015 nay đã trở lại với phiên bản mới nhất" />
+    <meta name="keywords" content="game online,game,game mới,web game,webgame,game kiếm hiệp,webgame kiếm hiệp,game 3D,web game 3D,Hoanh,Hoành,Hoanh Tao,Hoành Tảo,Hoành Tảo Giang Hồ" />
+    <meta name="author" content="Hoành Tảo Thiên Hạ" />
+
+    <link href="css/first.css" rel="stylesheet" />
+    <script language="javascript" src="js/DD_belatedPNG_0.0.8a.js"></script>
+    <script language="javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script language="javascript" src="js/myjs.js"></script>
+    <script language="javascript" src="js/getos.js"></script>
+    <!--<script language="javascript" src="gameres/config.js"></script>-->
+    <script language="javascript">
+        game_dept = 65;
+        game_UInfourl = "http://111.65.254.239:8888/DataService/postapi/user_info.htm";
+        game_id = 48;
+        game_oldsid = 0;
+        game_name = "HoanhTao";
+        game_respath = "static.hoanhtao.com/gameres/";
+        game_liburl = "herogame-loader-131009.zip";
+        game_libmd5 = "474db878f4bae003bfe039a787b3927a";
+        game_port = 80;
+        game_resname = "YNHstxGame-10327_14.zip";
+        game_logintype = 1;
+    </script>
+    <style type="text/css" media="screen">
+        html, body, .global, center {
+            height: 100%;
+            width: 100%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #000;
+        }
+
+        iframe {
+            display: none;
+        }
+
+        .global {
+            width: 100%;
+            height: 100%;
+        }
+
+        #main {
+            height: 100%;
+            width: 100%;
+        }
+
+        #fancy3d {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <!--配置相关js-->
+    <script language="javascript">
+        var p_dept = game_dept; //平台id
+        var p_url = game_UInfourl; //跟踪提交的地址
+        var sid = "";
+        var uid = "";
+        var gid = game_id; //游戏ID
+        var p_oldsid = game_oldsid;
+
+        var game = game_name;//游戏名
+        var respath = game_respath; //资源地址 loader所在服务器
+        var liburl = respath + game_liburl;//资源信息
+        var libmd5 = game_libmd5;
+        var param1 = "foaurl=http://" + respath + game_resname;    //游戏包地址
+        var param2;
+        param2 = PraseUrl(); //运营
+        var isIE = !navigator.plugins || !navigator.plugins.length;
+        var obj = isIE ? 'classid="clsid:b2e8d85e-c0c5-48df-8dbc-1359b339ae32"' : 'type="application/fancy-npruntime-fancy3d-plugin"';
+        var inst = navigator.userAgent.match(/.NET CLR [2-9]/g) ? 'Fancy3DClick.application' : 'fancysetup.exe';
+        var pluginPath = "http://static.hoanhtao.com/plugin/fancysetup.exe";
+        var objStr = '<div class="global">' +
+             '<div id="main">' +
+                '<object id="fancy3d" ' + obj + '>' +
+                    '<param name="game" value="' + game + '" />' +
+                    '<param name="nprver" value="0.0.2.17" />' +
+                    '<param name="ocxver" value="0.0.2.17" />' +
+                    '<param name="liburl" value="' + liburl + '" />' +
+                    '<param name="libmd5" value="' + libmd5 + '" />' +
+                    '<param name="unsafelib" value="allow" />' +
+                    '<param name="param1" value="' + param1 + '" />' +
+                    '<param name="param2" value="' + param2 + '" />' +
+                '</object>' +
+             '</div>' +
+          '</div>';
+        //<!--页面函数js-->
+        /*发送http请求*/
+        function sendUserState(dwState) {
+            var p_op = "activex";
+            var p_webtype = getOBV();
+            var timestamp = new Date().getTime();
+            timestamp = (timestamp + "").substring(0, 10);
+            var pp_url = p_url + "?sid=" + sid + "&roleid=0" + "&user=" + uid + "&state=" + dwState + "&webtype=" + p_webtype + "&uf=" + uf
+                        + "&time=" + timestamp + "&gid=" + gid + "&dept=" + p_dept + "&oldsid=" + p_oldsid + "&op=" + p_op;
+
+            document.getElementById('trace' + dwState).src = pp_url;
+        }
+
+        function set_link() {//根据控件是否安装设置，《进入连接》的具体连接。i
+            if (f3d_test()) {//如果安装了
+                start_game();
+            } else {
+                $("#wrap").show();
+                $("#wrap .startBtn a").attr("href", pluginPath).bind("click", click_down); //进入游戏
+                $("#container a.download_plugin").attr("href", pluginPath).bind("click", click_down); //进入游戏
+                $("#wrap .vBtn a").attr("href", pluginPath).bind("click", click_down); //微端下载
+                $("#container").show();
+            }
+
+        }
+        var checkTimer = null;
+        var showTipTimer = null;
+        function click_down() {
+            sendUserState(2);
+            checkTimer = setInterval(function () {
+                if (f3d_test()) {
+                    clearInterval(checkTimer);
+                    start_game();
+                }
+            }, 1000);
+
+            showTipTimer = setInterval(function () {
+                clearInterval(showTipTimer);
+                $("#wrap #tips").fadeIn("slow");
+            }, 10000);
+        }
+
+        function start_game() {
+            checkTimer = setInterval(function () {
+                clearInterval(checkTimer);
+                $("#wrap").hide();
+                $("body").html("");
+                $("body").html(objStr);
+            }, 2000);
+        }
+
+        function ParamRequest(argname, url) {
+            var arrStr = url.substring(url.indexOf("?") + 1).split("&");
+            for (var i = 0; i < arrStr.length; i++) {
+                var loc = arrStr[i].indexOf(argname + "=");
+                if (loc != -1) {
+                    return arrStr[i].replace(argname + "=", "").replace("?", "");
+                    break;
+                }
+            }
+            return null;
+        }
+        function PraseUrl() {
+            var url = document.location.href;
+            //gid = ParamRequest("gid",url);
+            sid = ParamRequest("sid", url); //    alert(sid);
+            gw = ParamRequest("gw", url); //0 未成年 ,1成年
+            uf = ParamRequest("uf", url);
+            time = ParamRequest("time", url);
+            uid = ParamRequest("uid", url);
+            sign = ParamRequest("sign", url);
+
+            if (uid == null || uid == "") {
+                window.location.href = "err.html";
+            } else {
+                var nSid = parseInt(sid);
+                var hostid = "123.30.173.61:80";
+            }
+            return 'foaparam=check|true|hostid|' + hostid + '|time|' + time + '|sign|' + sign + '|uid|' + uid + '|gw|' + gw + '|sid|' + sid + '|site|http://hoanh.gate.vn';
+        }
+
+        // for micro client test
+        function SetClientDesk() {
+            client = "desk";
+        }
+        function GetWindowWidth() {
+            return 1000;
+        }
+        function GetWindowHeight() {
+            return 700;
+        }
+        function IsFancyGame() {
+            return 1;
+        }
+        function showPlayer() {
+            playerButton('openplayer');
+        } //*/
+
+        function flushWin() {
+            location.reload();
+        }
+    </script>
+</head>
+<body>
+    <div id="container" style="display:none">
+        <div class="wrap-main">
+
+            <a href="http://hoanhtao.com/TinTuc/ChiTiet/150" target="_blank" style="
+    display: block;
+    position: absolute;
+    top: 26px;
+    left: 365px;
+    width: 347px;
+    height: 88px;
+"></a>
+
+            <iframe frameborder="0" vspace="0" hspace="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" scrolling="auto" src="//www.youtube.com/embed/crWmkg0t5Vo?autoplay=1&amp;autohide=1&amp;fs=1&amp;rel=0&amp;hd=1&amp;wmode=opaque&amp;enablejsapi=1" __idm_id__="664577"
+                    style="display: block;
+    position: absolute;
+    top: 312px;
+    left: -10px;
+    width: 441px;
+    height: 300px;
+"></iframe>
+
+            <a href="http://hoanhtao.com" class="logo"><img src="images/blank.gif" alt="" width="233" height="90" /></a>
+            <a href="#" class="download_plugin"><img src="images/tai-plugin.gif" alt="" width="240" height="100" /></a>
+        </div>
+    </div>
+    <div style="display:none">
+    </div>
+</body>
+<iframe id="trace1" name="trace1" src="about:blank"></iframe>
+<iframe id="trace2" name="trace2" src="about:blank"></iframe>
+<iframe id="trace3" name="trace3" src="about:blank"></iframe>
+<script type="text/javascript" charset="utf-8">
+    $(function () {
+        //		sendUserState(1);
+        $("#wrap").hide();
+        windowResize();
+        set_link();//*/
+    });
+</script>
+</html>

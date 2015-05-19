@@ -1,0 +1,42 @@
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\bin\Release\Service.CCU.exe.config
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\bin\Release\Service.CCU.exe
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\bin\Release\Service.CCU.pdb
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\bin\Release\Core.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\bin\Release\DAL.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\bin\Release\Newtonsoft.Json.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\bin\Release\CustomProviders.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\bin\Release\Core.pdb
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\bin\Release\DAL.pdb
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\bin\Release\Newtonsoft.Json.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\bin\Release\CustomProviders.pdb
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\obj\Release\Service.CCU.csprojResolveAssemblyReference.cache
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\obj\Release\Service.CCU.exe
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\obj\Release\Service.CCU.pdb
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\obj\Release\Service.CCU.ProjectInstaller.resources
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\obj\Release\Service.CCU.csproj.GenerateResource.Cache
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\obj\Release\Service.CCU.Service1.resources
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Service.CCU\bin\Release\Service.CCU.exe.config
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Service.CCU\bin\Release\Service.CCU.exe.manifest
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Service.CCU\bin\Release\Service.CCU.application
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Service.CCU\bin\Release\Service.CCU.exe
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Service.CCU\bin\Release\Service.CCU.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Service.CCU\bin\Release\Core.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Service.CCU\bin\Release\DAL.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Service.CCU\bin\Release\Newtonsoft.Json.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Service.CCU\bin\Release\CustomProviders.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Service.CCU\bin\Release\Core.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Service.CCU\bin\Release\DAL.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Service.CCU\bin\Release\Newtonsoft.Json.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Service.CCU\bin\Release\CustomProviders.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Service.CCU\obj\Release\Service.CCU.csprojResolveAssemblyReference.cache
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Service.CCU\obj\Release\Service.CCU.ProjectInstaller.resources
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Service.CCU\obj\Release\Service.CCU.Service1.resources
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Service.CCU\obj\Release\Service.CCU.csproj.GenerateResource.Cache
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Service.CCU\obj\Release\Service.CCU.exe.manifest
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Service.CCU\obj\Release\Service.CCU.application
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Service.CCU\obj\Release\Service.CCU.exe
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Service.CCU\obj\Release\Service.CCU.pdb
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\bin\Release\Service.CCU.exe.manifest
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\bin\Release\Service.CCU.application
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\obj\Release\Service.CCU.exe.manifest
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Service.CCU\obj\Release\Service.CCU.application

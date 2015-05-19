@@ -1,0 +1,128 @@
+﻿@using System.Collections;
+@using Web.BackEnd.Models;
+
+@model RoleListPageModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section TitleSection{
+
+    Tra cứu thông tin
+}
+
+@if (TempData["Message"] != null)
+{
+    @Html.Raw(TempData["Message"])
+}
+
+<script>
+    $(document).ready(function () {
+        $(".ddlPostTypeList").change(function () {
+            var postTypeId = $(this).val();
+            var url = "/Post/?postTypeId=" + postTypeId;
+
+            var gameId = $(".ddlGameList").val();
+            if (gameId != "") {
+                url += "&gameId=" + gameId;
+            }
+
+            window.location = url;
+        });
+
+        $(".ddlGameList").change(function () {
+            var gameId = $(this).val();
+            var url = "/Post/?gameId=" + gameId;
+
+            var postTypeId = $(".ddlPostTypeList").val();
+            if (postTypeId != "") {
+                url += "&postTypeId=" + postTypeId;
+            }
+
+            window.location = url;
+        });
+
+        $(".btn").click(function () {
+            var url = "/Game/RoleList/?";
+
+            var accountName = $(".txtAccountName").val();
+            if (accountName != "") {
+                url += "accountName=" + accountName + "&";
+            }
+
+            var serverId = $(".ddlServer").val();
+            if (serverId != "") {
+                url += "serverId=" + serverId;
+            }
+
+            window.location = url;
+        });
+    });
+</script>
+
+<div class="row">
+    <div class="col-lg-12">
+
+        <section class="panel">
+            <header class="panel-heading">
+                <div class="clearfix">
+                    <div class="btn-group">
+                        @Html.TextBoxFor(x => x.AccountName, new { @class = "form-control txtAccountName", required = "", placeholder = "Tài khoản" })
+                    </div>
+                    <div class="btn-group">
+                        @Html.DropDownListFor(x => x.SelectedServerId, Model.ServerList.ToList(), new { @class = "form-control ddlServer" })
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info">Xác nhận</button>
+                    </div>
+                </div>
+            </header>
+            <div class="panel-body">
+                <table class="table table-striped table-advance table-hover">
+                    <thead>
+                        <tr>
+                            <th><i></i>AccountId</th>
+                            <th><i></i>CharacterId</th>
+                            <th><i></i>CharacterName</th>
+                            <th><i></i>Level</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.RoleDataList != null)
+                        {
+                            foreach (var role in Model.RoleDataList)
+                            {
+                                <tr>
+                                    <td class="col-xs-1 col-xs-1 col-md-1">
+                                        @Html.DisplayFor(x => role.dwAccountID)
+                                    </td>
+                                    <td class="col-xs-1 col-xs-1 col-md-1">
+                                        @Html.DisplayFor(x => role.dwRoleID)
+                                    </td>
+                                    <td class="col-xs-1 col-xs-1 col-md-1">
+                                        @Html.DisplayFor(x => role.szRoleName)
+                                    </td>
+                                    <td class="col-xs-1 col-xs-1 col-md-1">
+                                        @Html.DisplayFor(x => role.dwLevel)
+                                    </td>
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+                </table>
+
+
+
+            </div>
+        </section>
+    </div>
+</div>
+
+
+@using (Html.BeginForm("Edit", "Post", FormMethod.Post, new { @class = "form-horizontal tasi-form" }))
+{
+
+}

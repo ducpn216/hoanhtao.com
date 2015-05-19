@@ -1,0 +1,8 @@
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Core\bin\Release\Core.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Core\bin\Release\Core.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Core\bin\Release\CustomProviders.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Core\bin\Release\Newtonsoft.Json.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Core\bin\Release\CustomProviders.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Core\bin\Release\Newtonsoft.Json.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Core\obj\Release\Core.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Core\obj\Release\Core.pdb

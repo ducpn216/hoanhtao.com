@@ -1,0 +1,84 @@
+﻿@model Web.FrontEnd.Models.TransferModel
+@using Web.FrontEnd.App_Code;
+
+@{
+    Layout = "~/Views/Shared/_Inside.cshtml";
+}
+
+@section BreadCrumbSection{
+    <li class="active">
+        <a href="@LinkManager.TRANSFER_GOLD">
+            Chuyển tiền vào game
+        </a>
+    </li>
+}
+
+@section ContentSection{
+
+    <div class="detail_content">
+
+        @if (Model != null)
+        {
+            using (Html.BeginForm(null, null, FormMethod.Post))
+            {
+                @*<span class="message red" style="font-weight: bold; font-size: 15px; color: white; margin-bottom: 15px;display:block;text-align:center;">
+        CHỨC NĂNG ĐANG BẢO TRÌ</span>*@
+                <table class="tbForm">
+                    <tr>
+                        <td colspan="2" align="center">
+                            @if (Model.IsValid)
+                            {
+                                <span class="message" style="font-weight:bold;font-size:15px;color:white;margin-bottom:15px">@Html.Raw(Model.Message)</span>
+                            }
+                            else
+                            {
+                                <span class="message red" style="font-weight:bold">@Html.Raw(Model.Message)</span>
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left">Số KNB hiện có: </td>
+                        <td>
+                            <span style="color:red; font-size:15px;">@Model.CurrentKNB</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left">Số KNB muốn chuyển: </td>
+                        <td>
+                            @Html.DropDownListFor(x => x.SelectedKNB, Model.KNBList.ToList(), new { @class = "form-control m-bot15", required = "" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left">Chọn server</td>
+                        <td>
+                            @Html.DropDownListFor(x => x.SelectedServerId, Model.ServerList.ToList(), new { @class = "form-control m-bot15", required = "" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left"></td>
+                        <td>
+                            <img id="img-captcha-register" src='/Captcha/' />
+                            <a class="btn-captcha-register" onclick="return ReloadCaptcha('img-captcha-register', '/Captcha/');">
+                                <img src="/Content/images/website/change.png" alt="Thay hình khác" width="20px" />
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left">Mã xác nhận</td>
+                        <td>@Html.TextBoxFor(x => x.Captcha, new { @class = "form-control shot popup_register_captcha", required = "" })</td>
+                    </tr>
+                    <tr>
+                        <td class="left"></td>
+                        <td>
+                            <input type="submit" value="Xác nhận " class="btn-accept" />
+                        </td>
+                    </tr>
+                </table>
+
+            <a href="@LinkManager.PAYMENT" style="display:block; text-align: center; color: red; font-size: 15px;margin-top:10px;">
+                    *** Click vào đây để NẠP THẺ ***
+                </a>
+            }
+        }
+    </div>
+}

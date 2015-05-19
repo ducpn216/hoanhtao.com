@@ -1,0 +1,68 @@
+﻿@using System.Collections;
+@using Web.BackEnd.Models;
+
+@model Web.BackEnd.Models.Marketing.PidFormModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section TitleSection{
+<div class="btn-group">
+    <a href="@Url.Action("Index")" class="btn btn-danger"><i class="icon-backward"></i> Trở lại</a>
+</div>
+    PID
+}
+
+@if (TempData["Message"] != null)
+{
+    @Html.Raw(TempData["Message"])
+}
+
+@using (Html.BeginForm(null, null, new { pid = Model.Pid }, FormMethod.Post, new { @class = "form-horizontal tasi-form" }))
+{
+    <div class="row">
+        <div class="col-lg-12">
+
+            <section class="panel">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Tiêu đề</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Title, new { @class = "form-control", required = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Link</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Link, new { @class = "form-control", required = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label"></label>
+                        <div class="col-sm-10">
+                            <img id="img-captcha" src='/Captcha' />
+                            <a class="btn-captcha">
+                                <img src="/Content/images/change.png" alt="Thay hình khác" />
+                            </a>
+                        </div>
+                    </div>
+                    @*<div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Mã xác nhận</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Captcha, new { @class = "form-control captcha", required = "" })
+                        </div>
+                    </div>*@
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button class="btn btn-danger" type="submit">@(Model.Pid != null && Model.Pid != Guid.Empty ? "Xác nhận" : "Thêm")</button>
+                            @Html.HiddenFor(x => x.Pid)
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </div>
+}

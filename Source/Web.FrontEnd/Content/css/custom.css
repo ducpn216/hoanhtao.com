@@ -1,0 +1,264 @@
+﻿/******************/
+a {
+    cursor: pointer;
+}
+
+/*******COMMING SOON********/
+.commingsoon_modal .modal-body {
+    padding: 45px;
+}
+
+.commingsoon_modal .modal-content {
+    background-color: #630A01 !important;
+    color: #FFDE8B;
+}
+
+.commingsoon_modal .modal-dialog {
+    width: 350px !important;
+}
+
+.commingsoon_modal .modal-content a {
+    color: #FFDE8B;
+}
+
+.commingsoon_modal .commingsoon-text {
+    font-size: 30px;
+    text-align: center;
+    display: block;
+}
+
+.commingsoon_modal .close {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    color: white;
+    opacity: 1;
+}
+/***************************/
+
+.fast_modal .modal-content {
+    background-color: #630A01 !important;
+    color: #FFDE8B;
+}
+
+.fast_modal .modal-title {
+    font-size: 22px;
+}
+
+.fast_modal .modal-dialog {
+    width: 350px !important;
+}
+
+.fast_modal .modal-content a {
+    color: #FFDE8B;
+}
+
+.msg_popup {
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+.dk_nhanh_block {
+    display: block;
+    height: 60px;
+    background: none;
+    background-color: #300100;
+    border: 1px solid #781708;
+    padding: 8px 17px;
+    font-size: 13px;
+}
+
+.bg_loading {
+    background-color: #511C0B;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    vertical-align: middle;
+    opacity: 0.8;
+    display: none;
+}
+
+    .bg_loading img {
+        width: 30%;
+        margin: auto;
+        position: absolute;
+        left: 38%;
+        top: 30%;
+    }
+
+ul.listSever li a {
+    cursor: pointer;
+}
+
+div#SmallCaptcha_CaptchaDiv {
+    position: absolute;
+    right: -23px;
+    top: 186px;
+}
+
+.fb-login {
+    cursor: pointer;
+}
+
+.google-login {
+    cursor: pointer;
+}
+
+/*#accordion ul.sub-nav{
+    height: inherit !important;
+}*/
+#choingay_flash a {
+    position: absolute;
+    display: block;
+    width: 276px;
+    height: 176px;
+}
+
+
+.green {
+    color: green !important;
+}
+
+.red {
+    color: red !important;
+}
+
+
+.btn-accept {
+    background-color: red;
+    border-color: transparent;
+    color: #FFFFFF;
+    display: inline-block;
+    padding: 2px 10px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 0px;
+}
+
+.form-control {
+    display: block;
+    width: 250px;
+    height: 30px;
+    padding: 5px 12px 5px 10px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: none;
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.tbForm tr {
+    background-color: transparent !important;
+}
+
+.tbForm td {
+    text-align: left !important;
+    color: #77979E !important;
+    border: none !important;
+}
+
+.tbForm .left {
+    text-align: right !important;
+    color: white !important;
+}
+
+.message {
+    text-align: center !important;
+    display: block;
+}
+
+.info-inside {
+    position: absolute;
+    top: 397px;
+    right: 15px;
+    z-index: 1;
+    color: white;
+}
+
+.yahoo {
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+}
+
+/*.content .ContentLeft {
+    position: relative;
+}
+
+.block-tanthu .first_item {
+    position: absolute;
+    top: 147px;
+    left: 370px;
+    width: 330px !important;
+}
+
+.pay {
+    display: block;
+    cursor: pointer;
+    text-align: center;
+}
+
+*/
+
+.block-tanthu .first_item a.title_tanthu {
+    font-size: 14px !important;
+text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+      color: #99FF00;
+  line-height: 22px;
+    /*text-shadow: 0px 0px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;*/
+}
+
+.footer{
+      font-size: 20px !important;
+}
+.email-support {
+    color: yellow;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 15px;
+}
+  .wrap-footer{
+      height:110px;
+              }
+
+  .clear{
+      clear:both;
+  }

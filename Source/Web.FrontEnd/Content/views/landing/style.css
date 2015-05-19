@@ -1,0 +1,132 @@
+﻿html, body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    cursor: pointer;
+}
+
+body {
+    /*background-image: url(/Content/views/landing/imgs/bg.gif);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-color: black;
+    transition: opacity 1s;*/
+    background-color: black;
+}
+
+
+.wrapper-top {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+      min-height: 750px;
+      cursor:pointer;
+
+      background-image: url(/Content/views/landing/imgs/bg.gif);
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-color: black;
+  transition: opacity 1s;
+    z-index: 100;
+}
+
+.wrapper {
+    background-image: url(/Content/views/landing/imgs/bg_dk.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-color: black;
+    transition: opacity 1s;
+    opacity: 0;
+}
+
+#container {
+    width: 1000px;
+    min-height: 750px;
+    margin: auto;
+    position: relative;
+}
+
+.register {
+    position: absolute;
+    display: block;
+    top: 563px;
+    left: 440px;
+    width: 117px;
+    height: 53px;
+}
+
+#register-box {
+    position: absolute;
+    top: 285px;
+    left: 297px;
+    width: 408px;
+    height: 210px;
+}
+
+.txt {
+    position: absolute;
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-size: 13px;
+}
+
+.txt-username {
+    right: 55px;
+    top: 40px;
+}
+
+.txt-password {
+    right: 55px;
+    top: 70px;
+}
+
+.txt-repassword {
+    right: 55px;
+    top: 101px;
+}
+
+.txt-captcha {
+    right: 176px;
+    top: 131px;
+    width: 51px;
+}
+
+.submit {
+    right: 135px;
+    top: 176px;
+    display: block;
+    width: 141px;
+    height: 32px;
+    position: absolute;
+}
+
+.close {
+    right: 0px;
+    top: 0px;
+    display: block;
+    width: 21px;
+    height: 21px;
+    position: absolute;
+}
+
+#img-captcha {
+    position: absolute;
+    right: 108px;
+    top: 130px;
+    width: 54px;
+    height: 31px;
+}
+
+#btn-captcha img {
+    position: absolute;
+    right: 67px;
+    top: 131px;
+    width: 32px;
+    height: 30px;
+}

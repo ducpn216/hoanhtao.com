@@ -1,0 +1,185 @@
+﻿@model Web.FrontEnd.Models.LauncherServerModel
+@using Web.FrontEnd.App_Code
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Hoành tảo thiên hạ, hoanh tao thien ha, game, game online, web game, webgame" />
+    <meta name="description" content="Tải, cài đặt và chơi ngay game 3D đẳng cấp kiếm hiệp Kim Dung hay nhất 2013. Tham gia để trải nghiệm phiên bản chính thức. Ra mắt 9h30 ngày 16/7/2013" />
+    <title>
+        Hoành Tảo Thiên Hạ - Đẳng cấp kiếm hiệp 3D
+    </title>
+    <link href="/Content/css/launcher/screen.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/css/launcher/myStyle.css" rel="stylesheet" type="text/css" />
+
+    <script src="/Content/js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="/Content/js/slidebar.tab.js"></script>
+    <script src="/Content/js/MyLibrary.js"></script>
+
+    <!--Slider Tab-->
+    <style type="text/css">
+        a {
+            cursor: pointer;
+        }
+
+        .inputVaonhanh {
+            background: transparent;
+            width: 40px;
+            color: #fff;
+            border: 0px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrap-container">
+        <div class="launcher part2">
+
+            <div class="content">
+                <div class="nav2">
+                    <a href="#" class="trangchu"></a><a href="#" class="naptiennhanh"></a>
+                </div>
+                <p class="thongbao">
+                    Xin chào @AuthHelper.GetUsername() !
+                    @*<a target="_blank" href="https://id.fpt.net/">Quản lý tài khoản khoản</a>*@
+                    <a id="linkSignOut" href="/Launcher/Logout">Thoát</a>
+                </p>
+                <a href="#" class="capnhattaikhoan">&nbsp;</a>
+                <p style="color: #fff; margin-left: 20px;">
+                    Thời gian đăng nhập gần nhất: <span class="recent_day"></span>
+                </p>
+
+                @if (Model.RecentServer != null)
+                {
+                    <div class="recent-login">
+                        <p>
+                            <span class="trangthai trangthai1"></span>
+                            <a style="font-weight:bold" id="entergame" href="javascript:;"
+                               onclick="return checkLogin('/Game/@(Model.RecentServer.ServerId)');" class="236">
+                                [@Model.RecentServer.ServerId] @Model.RecentServer.ServerName
+                            </a>
+                        </p>
+                    </div>
+                }
+
+                <a href="/Game/" class="vaogame"></a>
+                <p class="vaonhanh">
+                    <span>
+                        <input type="text" style="text-align: center" class="inputVaonhanh" />
+                    </span>
+                    <button id="vaonhanh" style="border: 0px; cursor: pointer; background-image: url(/Content/images/launcher/button.png); background-position: 0px -302px; background-color: transparent;"></button>
+                </p>
+            </div>
+            <!--End Content-->
+            <div id="server-tab">
+                <div class="tab-show">
+                    <ul class="tab">
+                        @{
+                            var serverList = Model.ServerList;
+
+                            int per = 10;
+                            int segment = 0;
+                            int start = 1;
+
+                            if (serverList.Count % per == 0)
+                            {
+                                segment = serverList.Count / per;
+                            }
+                            else if (serverList.Count % per > 5)
+                            {
+                                segment = serverList.Count / per;
+                            }
+                            else
+                            {
+                                segment = (serverList.Count / per) + 1;
+                            }
+                        }
+
+                        @for (int i = 0; i < segment; i++)
+                        {
+                            string activeClass = i == 0 ? "active" : "";
+                            string selectedClass = i == 0 ? "selected" : "tab_active";
+
+                        <li>
+                            <a style='text-align:center' href="#server-group@(i)" class='@selectedClass'>
+                                <br />
+                                <b>@start - @(start + per)</b>
+                            </a>
+                        </li>
+                        }
+
+                    </ul>
+                    <div class="control-tab">
+                        <a href="javascript:;" class="prev"></a><a href="jafascript:;" class="next"></a>
+                    </div>
+
+                    @for (int i = 0; i < segment; i++)
+                    {
+                        int skip = i * per;
+                        var list = serverList.Skip(skip).Take(per).ToList();
+
+                    <div class="server-group" id="server-group1" style="display: block;">
+                        <ul style='height:150px'>
+
+                            @for (int j = 0; j < list.Count; j++)
+                                {
+                                    int num = (j + 1) * (i + 1);
+                                    string className = j == list.Count - 1 ? "no-right" : "";
+                                    var server = list[j];
+
+                                <p>
+                                    <span class='trangthai trangthai1'></span>
+                                    <a href='javascript:;' onclick="return checkLogin('/Game/@(server.ServerId)');">
+                                        [@server.ServerId] @server.ServerName
+                                    </a>
+                                </p>
+                                }
+
+                        </ul>
+                    </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <style type="text/css">
+        #server-tab ul.tab {
+            width: 2000px;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //Tab - Container
+            margin = 0;
+            $(".prev").click(function () {
+                if (margin > 0) {
+                    margin = margin - 108;
+                    $(".tab-show ul.tab").animate({ "margin-left": -margin });
+                }
+            });
+            $(".next").click(function () {
+                if (margin <= 424) {
+                    margin = margin + 108;
+                    $(".tab-show ul.tab").animate({ "margin-left": -margin });
+                }
+            });
+            $("#server-tab ul").idTabs("server-group1");
+            $(".tab_active").click();
+            $(".tab_active").bind('click');
+
+            $("#vaonhanh").click(function () {
+                var serverId = $(".inputVaonhanh").val();
+                if (serverId == "") {
+                    alert("Nhập Server Id");
+                }
+                else {
+                    window.open("@LinkManager.HOME_PAGE/Game/" + serverId, '_blank');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

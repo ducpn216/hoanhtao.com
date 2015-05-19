@@ -1,0 +1,181 @@
+﻿@using System.Collections;
+@using Web.BackEnd.Models;
+
+@model SendMailModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section TitleSection{
+    Gửi thư
+}
+
+<div id="error_message"></div>
+
+<script>
+    $(document).ready(function () {
+
+        $(".txtAccount").change(function () {
+            $(".ddlServer").val("");
+        });
+
+        $(".btnAccept").click(function () {
+            var formData = $(".tasi-form");
+            formData = formData.serialize();
+            AddLoading();
+
+            $.post("/Game/SendMail", formData, function (data) {
+                SetMessage(data.Message, data.Flag);
+                RemoveLoading();
+
+            });
+
+            ReloadCaptcha();
+            event.preventDefault();
+
+            return false;
+        });
+    });
+</script>
+
+@using (Html.BeginForm("SendMail", "Game", FormMethod.Post, new { @class = "form-horizontal tasi-form" }))
+{
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Tài khoản</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.AccountName, new { @class = "form-control txtAccount", required = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Server</label>
+                        <div class="col-sm-10">
+                            @Html.DropDownListFor(x => x.SelectedServerId, Model.ServerList.ToList(), new { @class = "form-control m-bot15 ddlServer" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Nhân vật</label>
+                        <div class="col-sm-10">
+                            @Html.DropDownListFor(x => x.SelectedRoleId, Model.RoleList.ToList(), new { @class = "form-control m-bot15 ddlRole" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Tiêu đề</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Title, new { @class = "form-control", required = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Nội dung</label>
+                        <div class="col-sm-10">
+                            @Html.TextAreaFor(x => x.Content, new { @class = "form-control", rows = 4, required = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">KNB</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Gold, new { @class = "form-control", required = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Lễ kim</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.BindGold, new { @class = "form-control", required = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Ngân lượng</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Money, new { @class = "form-control", required = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Item ID (1)</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.ItemId1, new { @class = "form-control", required = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Số lượng Item (1)</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.NumberOfItem1, new { @class = "form-control", required = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Item ID (2)</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.ItemId2, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Số lượng Item (2)</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.NumberOfItem2, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Item ID (3)</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.ItemId3, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Số lượng Item (3)</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.NumberOfItem3, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Item ID (4)</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.ItemId4, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Số lượng Item (4)</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.NumberOfItem4, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Item ID (5)</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.ItemId5, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Số lượng Item (5)</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.NumberOfItem5, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label"></label>
+                        <div class="col-sm-10">
+                            <img id="img-captcha" src='/Captcha' />
+                            <a class="btn-captcha">
+                                <img src="/Content/images/change.png" alt="Thay hình khác" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Mã xác nhận</label>
+                        <div class="col-sm-10">
+                            @Html.TextBox("Captcha", "", new { @class = "form-control captcha", required = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button class="btn btn-danger btnAccept">Xác nhận</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+}

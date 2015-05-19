@@ -1,0 +1,81 @@
+﻿@using System.Collections;
+@using Web.BackEnd.Models;
+
+@model Web.BackEnd.Models.Statistic.ReportPaymentGameModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section TitleSection{
+    Tra cứu chuyển tiền trong GAME
+}
+
+@if (TempData["Message"] != null)
+{
+    @Html.Raw(TempData["Message"])
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal tasi-form", enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    <div class="clearfix">
+                        <div class="btn-group">
+                            @Html.TextBoxFor(x => x.UserId, new { @class = "form-control", required = "", placeholder = "UserId" })
+                        </div>
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-info">Xác nhận</button>
+                        </div>
+                    </div>
+                </header>
+                <div class="panel-body">
+                    <div class="chart-box" style="overflow:auto; width:100%">
+                        @if (Model.DataList != null && Model.DataList.Tables.Count > 0)
+                        {
+                            <table class="table table-striped table-advance table-hover">
+                                <thead>
+                                    <tr>
+                                        <th><i></i>UserID</th>
+                                        <th><i></i>OrderID</th>
+                                        <th><i></i>KNB</th>
+                                        <th><i></i>Thời gian</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @for (int i = 0; i < Model.DataList.Tables[0].Rows.Count; i++)
+                                    {
+                                        System.Data.DataRow row = Model.DataList.Tables[0].Rows[i];
+
+                                        <tr>
+                                            @*<td width="100px">
+                                                @Convert.ToDateTime(row["Date"].ToString()).ToString("dd/MM/yyyy hh:mm:ss")
+                                            </td>*@
+                                            <td width="100px">
+                                                @row["UserID"]
+                                            </td>
+                                            <td width="100px">
+                                                @row["OrderID"]
+                                            </td>
+                                            <td width="100px">
+                                                @row["KNB"]
+                                            </td>
+                                            <td width="100px">
+                                                @row["Time"]
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        }
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+}

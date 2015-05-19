@@ -1,0 +1,142 @@
+﻿@using System.Collections;
+@using Web.BackEnd.Models;
+
+@model CCUModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section TitleSection{
+    CCU
+}
+
+@if (TempData["Message"] != null)
+{
+    @Html.Raw(TempData["Message"])
+}
+
+<script src="/Content/Libraries/Highchart-3.0.9/js/highcharts.js"></script>
+<script src="/Content/Libraries/Highchart-3.0.9/js/themes/dark-blue.js"></script>
+
+<script>
+    function trim(string, char) {
+        if (!char) char = ' '; //space by default
+        char = char.replace(/([()[{*+.$^\\|?])/g, '\\$1'); //escape char parameter if needed for regex syntax.
+        var regex_1 = new RegExp("^" + char + "+", "g");
+        var regex_2 = new RegExp(char + "+$", "g");
+        return string.replace(regex_1, '').replace(regex_2, '');
+    }
+
+    function ShowData() {
+        try {
+            var date = $(".txtDate").val();
+            var serverId = $(".ddlServerList").val();
+
+            if (serverId != "") {
+                $.ajax({
+                    type: "POST",
+                    url: "/Statistic/GetCCU?date=" + date + "&serverId=" + serverId,
+                    //data: "{'date': '" + date + "', 'serverId': " + serverId + "}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (message) {
+                        console.log(message);
+                        ShowChart(message);
+
+                    }
+                });
+            }
+
+        } catch (e) {
+            console.log(e.message);
+        }
+
+        return false;
+    }
+
+    function ShowChart(result) {
+        if (result != null) {
+            //request = JSON.parse(result);
+
+
+            var options = {
+                title: {
+                    text: 'CCU'
+                },
+                xAxis: {
+                    categories: []
+                },
+                yAxis: {
+                    title: {
+                        text: null
+                    }
+                },
+                series: [],
+                tooltip: {
+                    shared: true,
+                    crosshairs: true
+                },
+            };
+
+            var categories1 = {
+                categories: []
+            };
+            $.each(result, function (itemNo, item) {
+                options.xAxis.categories.push(item.Time);
+            });
+            //console.log(categories1);
+
+            var series1 = {
+                data: []
+            };
+            $.each(result, function (itemNo, item) {
+                series1.data.push(parseFloat(item.CCU));
+            });
+            series1.name = "CCU"
+            series1.lineWidth = 4;
+            options.series.push(series1);
+            console.log(series1);
+
+            $('#chart').highcharts(options);
+        }
+    }
+    $(document).ready(function () {
+        ShowData();
+    });
+</script>
+
+@if (Model != null)
+{
+    using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal tasi-form", enctype = "multipart/form-data" }))
+    {
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        <div class="clearfix">
+                            <div class="btn-group">
+                                @Html.TextBox("date", (Model.Date != null) ? Model.Date.ToString("dd/MM/yyyy") : DateTime.Now.ToString("dd/MM/yyyy"),
+                                new { @class = "form-control datepicker txtDate", required = "", placeholder = "Ngày" })
+                            </div>
+                            <div class="btn-group">
+                                @Html.DropDownListFor(x => x.SelectedServerId, Model.ServerList.ToList(), new { @class = "form-control ddlServerList" })
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-info" onclick="return ShowData();">Xác nhận</button>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="panel-body">
+                        <div class="chart-box" style="overflow:auto; width:100%">
+                            <div id="chart" style="height: 500px; width: 1800px"></div>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+        </div>
+    }
+
+}

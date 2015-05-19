@@ -1,0 +1,101 @@
+﻿@using System.Collections;
+@using Web.BackEnd.Models;
+@using Web.BackEnd.App_Code;
+
+@model AddExpModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section TitleSection{
+
+    Thêm kinh nghiệm
+}
+
+<div id="error_message"></div>
+
+<script>
+    $(document).ready(function () {
+
+        $(".txtAccount").change(function () {
+            $(".ddlServer").val("");
+        });
+
+        $(".btnAccept").click(function () {
+            var formData = $(".tasi-form");
+            formData = formData.serialize();
+            AddLoading();
+
+            $.post("/Game/AddExp", formData, function (data) {
+                SetMessage(data.Message, data.Flag);
+                RemoveLoading();
+
+                ReloadCaptcha();
+
+            });
+
+            event.preventDefault();
+
+            return false;
+        });
+    });
+</script>
+
+@using (Html.BeginForm("AddExp", "Game", FormMethod.Post, new { @class = "form-horizontal tasi-form" }))
+{
+    <div class="row">
+        <div class="col-lg-12">
+
+            <section class="panel">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Account</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.AccountName, new { @class = "form-control txtAccount", required = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Server</label>
+                        <div class="col-sm-10">
+                            @Html.DropDownListFor(x => x.SelectedServerId, Model.ServerList.ToList(), new { @class = "form-control m-bot15 ddlServer" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Nhân vật</label>
+                        <div class="col-sm-10">
+                            @Html.DropDownListFor(x => x.SelectedRoleId, Model.RoleList.ToList(), new { @class = "form-control m-bot15 ddlRole" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Kinh nghiệm</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Exp, new { @class = "form-control", required = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label"></label>
+                        <div class="col-sm-10">
+                            <img id="img-captcha" src='/Captcha' />
+                            <a class="btn-captcha">
+                                <img src="/Content/images/change.png" alt="Thay hình khác" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Mã xác nhận</label>
+                        <div class="col-sm-10">
+                            @Html.TextBox("Captcha", "", new { @class = "form-control captcha", required = "" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button class="btn btn-danger btnAccept">Xác nhận</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+}

@@ -1,0 +1,48 @@
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\DAL\bin\Debug\DAL.dll.config
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\DAL\bin\Debug\DAL.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\DAL\bin\Debug\DAL.pdb
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\DAL\bin\Debug\Core.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\DAL\bin\Debug\Newtonsoft.Json.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\DAL\bin\Debug\CustomProviders.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\DAL\bin\Debug\Core.pdb
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\DAL\bin\Debug\Newtonsoft.Json.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\DAL\bin\Debug\CustomProviders.pdb
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\DAL\obj\Debug\DAL.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\DAL\obj\Debug\DAL.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\DAL\bin\Debug\DAL.dll.config
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\DAL\bin\Debug\DAL.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\DAL\bin\Debug\DAL.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\DAL\bin\Debug\Core.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\DAL\bin\Debug\Newtonsoft.Json.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\DAL\bin\Debug\CustomProviders.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\DAL\bin\Debug\Core.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\DAL\bin\Debug\Newtonsoft.Json.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\DAL\bin\Debug\CustomProviders.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\DAL\obj\Debug\DAL.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\DAL\obj\Debug\DAL.pdb
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\DAL\bin\Debug\DAL.dll.config
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\DAL\bin\Debug\DAL.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\DAL\bin\Debug\DAL.pdb
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\DAL\bin\Debug\Core.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\DAL\bin\Debug\Newtonsoft.Json.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\DAL\bin\Debug\CustomProviders.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\DAL\bin\Debug\Core.pdb
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\DAL\bin\Debug\Newtonsoft.Json.xml
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\DAL\bin\Debug\CustomProviders.pdb
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\DAL\obj\Debug\DAL.dll
+C:\DATA\CLOUD\Copy\Games\SANGPT\Source\HT\DAL\obj\Debug\DAL.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\DAL\bin\Debug\DAL.dll.config
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\DAL\bin\Debug\DAL.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\DAL\bin\Debug\DAL.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\DAL\bin\Debug\Core.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\DAL\bin\Debug\Newtonsoft.Json.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\DAL\bin\Debug\CustomProviders.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\DAL\bin\Debug\Core.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\DAL\bin\Debug\Newtonsoft.Json.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\DAL\bin\Debug\CustomProviders.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\DAL\obj\Debug\DAL.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\SANGPT\Source\HT\DAL\obj\Debug\DAL.pdb

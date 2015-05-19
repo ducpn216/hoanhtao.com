@@ -1,0 +1,76 @@
+﻿@model Web.FrontEnd.Models.CamNangListModel
+@using Web.FrontEnd.App_Code;
+
+@{
+    Layout = "~/Views/Shared/_Inside.cshtml";
+}
+
+@section BreadCrumbSection{
+    <li>
+        <a href="#">
+            @Core.Utilities.GetPostTypeName(Model.PostTypeId)
+        </a>
+    </li>
+    <li class="active">
+        <a href="#">
+            @Model.Title
+        </a>
+    </li>
+}
+
+@section ContentSection{
+    @if (Model.PostList != null)
+    {
+        if (Model.PostList.Count > 1)
+        {
+            <div id="sMenu" class="menu_on_content">
+                <div id="submen">
+
+                    @foreach (var post in Model.PostList)
+                    {
+                        string className = post.PostId == Model.PostId ? "active" : "";
+
+                        <a class="@className" style="margin-right:5px" href="@LinkManager.GetCamNangDetailLink(post.PostId)">
+                            @post.Title
+                        </a>
+                    }
+                </div>
+            </div>
+        }
+    }
+
+    <!--NOI DUNG CHI TIET BAI VIET-->
+    <div class="detail_content">
+
+        @Html.Raw(Model.Content)
+
+        <div style="margin-left: 40px;">
+            &nbsp;
+        </div>
+        <div>
+            &nbsp;
+        </div>
+        <div>
+            &nbsp;
+        </div>
+
+        @*@if (Model.OtherPostList != null && Model.OtherPostList.Count > 0)
+            {
+                <div>
+                    <strong>Bài Liên Quan</strong>
+                </div>
+                <ul style="margin-left: 40px;">
+
+                    @foreach (var post in Model.OtherPostList)
+                    {
+                        <li>
+                            <a href="/ChiTiet/@post.PostId" title="@post.Title">@post.Title</a>
+                        </li>
+                    }
+
+                </ul>
+            }*@
+
+    </div>
+    <!--NOI DUNG CHI TIET BAI VIET-->
+}

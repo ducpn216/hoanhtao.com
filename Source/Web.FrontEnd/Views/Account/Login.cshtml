@@ -1,0 +1,73 @@
+﻿@model Web.FrontEnd.Models.LoginModel
+@using Web.FrontEnd.App_Code;
+
+@{
+    Layout = "~/Views/Shared/_Inside.cshtml";
+}
+
+@section BreadCrumbSection{
+    <li class="active">
+        <a href="/Account/Login">
+            Đăng nhập
+        </a>
+    </li>
+}
+
+@section ContentSection{
+
+    <div class="detail_content">
+
+        @if (Model != null)
+        {
+            using (Html.BeginForm(null, null, FormMethod.Post))
+            {
+                <table class="tbForm">
+                    <tr>
+                        <td colspan="2" align="center">
+                            <span class="message red">
+                                @Html.Raw(TempData["Message"])
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left">Tài khoản</td>
+                        <td>
+                            @Html.TextBoxFor(x => x.Username, new { @class = "form-control m-bot15" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left">Mật khẩu</td>
+                        <td>@Html.PasswordFor(x => x.Password, new { @class = "form-control m-bot15" })</td>
+                    </tr>
+
+                    <tr>
+                        <td class="left"></td>
+                        <td>
+                            <img id="img-captcha-register" src='/Captcha/' />
+                            <a class="btn-captcha-register" onclick="return ReloadCaptcha('img-captcha-register', '/Captcha/');">
+                                <img src="/Content/images/website/change.png" alt="Thay hình khác" width="20px" />
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left">Mã xác nhận</td>
+                        <td>@Html.TextBoxFor(x => x.Captcha, new { @class = "form-control shot popup_register_captcha" })</td>
+                    </tr>
+
+                    @if (Model.ShowCaptcha)
+                    {
+                        
+                    }
+
+                    <tr>
+                        <td class="left"></td>
+                        <td>
+                            <input type="submit" value="Đăng nhập" class="btn-accept" />
+                        </td>
+                    </tr>
+                </table>
+            }
+        }
+    </div>
+}
+

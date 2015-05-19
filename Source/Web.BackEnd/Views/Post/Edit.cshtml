@@ -1,0 +1,122 @@
+﻿@using System.Collections;
+@using Web.BackEnd.Models;
+
+@model PostFormModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var post = Model.PostModel;
+}
+
+@section TitleSection{
+    <div class="btn-group">
+        <a href="@Url.Action("Index", new { postTypeId = Model.SelectedPostTypeId, categoryId = Model.SelectedCategoryId })" class="btn btn-danger"><i class="icon-backward"></i> Trở lại</a>
+    </div>
+
+    Tin tức
+}
+
+@if (TempData["Message"] != null)
+{
+    @Html.Raw(TempData["Message"])
+}
+
+<script>
+    $(document).ready(function () {
+        ShowCategoryList();
+
+        $(".ddlPostType").change(function () {
+            ShowCategoryList();
+        });
+
+        function ShowCategoryList() {
+            var postTypeId = $(".ddlPostType").val();
+            if (postTypeId == '@Convert.ToInt32(Core.Enums.PostType.CamNang)') {
+                $(".category-list").show();
+            }
+            else {
+                $(".category-list").hide();
+            }
+        }
+
+    });
+</script>
+
+@using (Html.BeginForm(null, null, new { postId = post.PostId }, FormMethod.Post, new { @class = "form-horizontal tasi-form", enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-lg-12">
+
+            <section class="panel">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Tiêu đề</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.PostModel.Title, new { @class = "form-control", required = "", maxlength = "100" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Tóm tắt</label>
+                        <div class="col-sm-10">
+                            @Html.TextAreaFor(x => x.PostModel.Summary, new { @class = "form-control", rows = 4, maxlength = "299" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Loại tin</label>
+                        <div class="col-sm-10">
+                            @Html.DropDownListFor(x => x.SelectedPostTypeId, Model.PostTypeList.ToList(), new { @class = "form-control m-bot15 ddlPostType" })
+                        </div>
+                    </div>
+                    <div class="form-group category-list">
+                        <label class="col-sm-2 col-sm-2 control-label" style="display:block;">Danh mục</label>
+                        <div class="col-sm-10">
+                            @Html.DropDownListFor(x => x.SelectedCategoryId, Model.CategoryList.ToList(), new { @class = "form-control m-bot15" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Hình đại diện</label>
+                        <div class="col-sm-10">
+                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                                <input type="hidden">
+                                <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                                    <img src="@Model.PostModel.Image" alt="">
+                                </div>
+                                <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 10px;"></div>
+                                <div>
+                                    <span class="btn btn-white btn-file">
+                                        <span class="fileupload-new"><i class="icon-paper-clip"></i> Select image</span>
+                                        <span class="fileupload-exists"><i class="icon-undo"></i> Change</span>
+                                        <input name="image" type="file" class="default" accept="file_extension|image/*">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Trạng thái</label>
+                        <div class="col-sm-10">
+                            Hiện @Html.RadioButtonFor(x => x.PostModel.Status, (int)Core.Enums.Status.Active) -
+                            Ẩn @Html.RadioButtonFor(x => x.PostModel.Status, (int)Core.Enums.Status.InActive)
+                            @*@Html.CheckBoxFor(x => x.PostModel.Status, new { name = "chkIsActive", @class = "checkbox form-control", style = "width: 20px" })*@
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Nội dung</label>
+                        <div class="col-sm-10">
+                            @Html.TextAreaFor(x => x.PostModel.Content, new { id = "editor", @class = "form-control ckeditor" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button class="btn btn-danger" type="submit">@(Model.PostModel.PostId > 0 ? "Xác nhận" : "Thêm")</button>
+                            @Html.HiddenFor(x => x.PostModel.PostId)
+                            @Html.HiddenFor(x => x.PostModel.Image)
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </div>
+}

@@ -1,0 +1,119 @@
+﻿@model Web.FrontEnd.Models.CamNangListModel
+@using Web.FrontEnd.App_Code;
+
+@{
+    Layout = "~/Views/Shared/_Inside.cshtml";
+}
+
+@section CamNangSection{
+    <style>
+        .SidebarLeft, .ContentRight {
+            display: none;
+        }
+    </style>
+
+    <div class="block_bikip">
+        <h1>Bí Kíp Hành Tẩu</h1>
+        <div class="detail_bikip">
+            <ul>
+                <li>
+                    <a href="@LinkManager.GetCamNangLink(60)">
+                        <img src="/Content/images/inside/blank.gif" alt="" class="bikip bikip1">
+                    </a>
+                </li>
+                <li>
+                    <a href="@LinkManager.GetCamNangLink(61)">
+                        <img src="/Content/images/inside/blank.gif" alt="" class="bikip bikip2">
+                    </a>
+                </li>
+                <li>
+                    <a href="@LinkManager.GetCamNangLink(62)">
+                        <img src="/Content/images/inside/blank.gif" alt="" class="bikip bikip3">
+                    </a>
+                </li>
+                <li>
+                    <a href="@LinkManager.GetCamNangLink(63)">
+                        <img src="/Content/images/inside/blank.gif" alt="" class="bikip bikip4">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="block_tangkinhcat">
+        <div class="block_top">
+            <h1>Tàng Kinh Các</h1>
+            <div class="content_tangkinhcat">
+                <div class="col col1">
+                    <div class="title_icon">
+                        <h2>Thông Tin Cơ Bản</h2>
+                        <span class="icon"></span>
+                    </div>
+                    <ul class="list_bikip">
+                        @foreach (var category in Model.CamNang.ThongTin)
+                        {
+                            <li>
+                                <a href="@LinkManager.GetCamNangLink(category.CategoryId)">@category.CategoryName</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div class="col col2">
+                    <div class="title_icon">
+                        <h2>Võ Lâm Sơ Nhập</h2>
+                        <span class="icon"></span>
+                    </div>
+                    <ul class="list_bikip">
+                        @foreach (var category in Model.CamNang.VoLamSoNhap)
+                        {
+                            <li>
+                                <a href="@LinkManager.GetCamNangLink(category.CategoryId)">@category.CategoryName</a>
+                            </li>
+                        }
+                    </ul>
+                </div><div class="col col3">
+                    <div class="title_icon">
+                        <h2>Hướng Dẫn Luyện Cấp</h2>
+                        <span class="icon"></span>
+                    </div>
+                    <ul class="list_bikip">
+                        @foreach (var category in Model.CamNang.HuongDan)
+                        {
+                            <li>
+                                <a href="@LinkManager.GetCamNangLink(category.CategoryId)">@category.CategoryName</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div class="col col4">
+                    <div class="title_icon">
+                        <h2>Gia Tăng Sức Mạnh</h2>
+                        <span class="icon"></span>
+                    </div>
+                    <ul class="list_bikip">
+                        @foreach (var category in Model.CamNang.GiaTangSucManh)
+                        {
+                            <li>
+                                <a href="@LinkManager.GetCamNangLink(category.CategoryId)">@category.CategoryName</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div class="col col5">
+                    <div class="title_icon">
+                        <h2>Tính Năng</h2>
+                        <span class="icon"></span>
+                    </div>
+                    <ul class="list_bikip">
+                        @foreach (var category in Model.CamNang.TinhNang)
+                        {
+                            <li>
+                                <a href="@LinkManager.GetCamNangLink(category.CategoryId)">@category.CategoryName</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

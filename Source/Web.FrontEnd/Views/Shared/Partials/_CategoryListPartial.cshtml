@@ -1,0 +1,131 @@
+﻿@model Web.FrontEnd.Models.Abstracts.InsideModel
+@using Web.FrontEnd.App_Code;
+
+@if (Model.CamNang != null)
+{
+    var camnang = Model.CamNang;
+    <ul id="accordion" class="nav">
+
+        <li>
+            <a title='Bí Kíp Hành Tẩu' class='item item1'></a>
+            <ul class='sub-nav' style="display:@(Model.SelectedCategoryId == (int)Core.Enums.CamNang.BiKipHanhTau ? "block !important" : "none")">
+                @if (camnang.BiKip != null)
+                {
+                    int count = 0;
+                    string id = "";
+                    foreach (var category in camnang.BiKip)
+                    {
+                        id = count == 0 ? "first_item_sub" : "";
+
+                        <li id='@id'>
+                            <a href='@LinkManager.GetCamNangLink(category.CategoryId)'>@category.CategoryName</a>
+                        </li>
+
+                        count++;
+                    }
+                }
+            </ul>
+        <li>
+        <li>
+            <a title='Thông tin cơ bản' class='item item2'></a>
+            <ul class='sub-nav' style="display:@(Model.SelectedCategoryId == (int)Core.Enums.CamNang.ThongTinCoBan ? "block !important" : "none")">
+                @if (camnang.ThongTin != null)
+                {
+                    int count = 0;
+                    string id = "";
+                    foreach (var category in camnang.ThongTin)
+                    {
+                        id = count == 0 ? "first_item_sub" : "";
+
+                        <li id='@id'>
+                            <a href='@LinkManager.GetCamNangLink(category.CategoryId)'>@category.CategoryName</a>
+                        </li>
+
+                        count++;
+                    }
+                }
+            </ul>
+        <li>
+        <li>
+            <a title='Võ lâm sơ nhập' class='item item3'></a>
+            <ul class='sub-nav' style="display:@(Model.SelectedCategoryId == (int)Core.Enums.CamNang.VoLamSoNhap ? "block !important" : "none")">
+                @if (camnang.VoLamSoNhap != null)
+                {
+                    int count = 0;
+                    string id = "";
+                    foreach (var category in camnang.VoLamSoNhap)
+                    {
+                        id = count == 0 ? "first_item_sub" : "";
+
+                        <li id='@id'>
+                            <a href='@LinkManager.GetCamNangLink(category.CategoryId)'>@category.CategoryName</a>
+                        </li>
+
+                        count++;
+                    }
+                }
+            </ul>
+        <li>
+        <li>
+            <a title='Hướng Dẫn Luyện Cấp' class='item item4'></a>
+            <ul class='sub-nav' style="display:@(Model.SelectedCategoryId == (int)Core.Enums.CamNang.HuongDanLuyenCap ? "block !important" : "none")">
+                @if (camnang.HuongDan != null)
+                {
+                    int count = 0;
+                    string id = "";
+                    foreach (var category in camnang.HuongDan)
+                    {
+                        id = count == 0 ? "first_item_sub" : "";
+
+                        <li id='@id'>
+                            <a href='@LinkManager.GetCamNangLink(category.CategoryId)'>@category.CategoryName</a>
+                        </li>
+
+                        count++;
+                    }
+                }
+            </ul>
+        <li>
+        <li>
+            <a title='Gia Tăng Sức Mạnh' class='item item5'></a>
+            <ul class='sub-nav' style="display:@(Model.SelectedCategoryId == (int)Core.Enums.CamNang.GiaTangSucManh ? "block !important" : "none")">
+                @if (camnang.GiaTangSucManh != null)
+                {
+                    int count = 0;
+                    string id = "";
+                    foreach (var category in camnang.GiaTangSucManh)
+                    {
+                        id = count == 0 ? "first_item_sub" : "";
+
+                        <li id='@id'>
+                            <a href='@LinkManager.GetCamNangLink(category.CategoryId)'>@category.CategoryName</a>
+                        </li>
+
+                        count++;
+                    }
+                }
+            </ul>
+        <li>
+        <li>
+            <a title='Tính Năng' class='item item6'></a>
+            <ul class='sub-nav' style="display:@(Model.SelectedCategoryId == (int)Core.Enums.CamNang.TinhNang ? "block !important" : "none")">
+                @if (camnang.TinhNang != null)
+                {
+                    int count = 0;
+                    string id = "";
+                    foreach (var category in camnang.TinhNang)
+                    {
+                        id = count == 0 ? "first_item_sub" : "";
+
+                        <li id='@id'>
+                            <a href='@LinkManager.GetCamNangLink(category.CategoryId)'>@category.CategoryName</a>
+                        </li>
+
+                        count++;
+                    }
+                }
+            </ul>
+        <li>
+
+    </ul>
+}

@@ -1,0 +1,114 @@
+﻿@model Web.BackEnd.Models.BannerListModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script>
+
+
+    $(document).ready(function () {
+        var URL = "/Banner/?";
+
+
+        $(".ddlStatus").change(function () {
+            window.location = GetUrl();
+        });
+
+        function GetUrl() {
+            var status = $(".ddlStatus").val();
+
+            if (status != null && status > 0) {
+                URL += "status=" + status;
+            }
+
+            return URL;
+        }
+
+    });
+</script>
+
+@section TitleSection{
+    Banner
+}
+
+@if (TempData["Message"] != null)
+{
+    @Html.Raw(TempData["Message"])
+}
+
+<div id="editable-sample_wrapper" class="dataTables_wrapper form-inline" role="grid">
+    @using (Html.BeginForm("Update", "Banner", FormMethod.Post, new { @class = "form-horizontal tasi-form" }))
+    {
+        <div class="row">
+            <div class="col-lg-12">
+
+                <section class="panel">
+                    <header class="panel-heading">
+                        <div class="clearfix">
+                            <div class="btn-group">
+                                <a href="@Url.Action("Edit", "Banner")" class="btn green link">Thêm <i class="icon-plus"></i></a>
+                            </div>
+                            @*<div class="btn-group">
+                                    <button type="submit" class="btn btn-info "><i class="icon-refresh"></i> Cập nhật</button>
+                                </div>*@
+                            <div class="btn-group pull-right">
+                                @Html.DropDownListFor(x => x.SelectedStatus, Model.StatusList.ToList(), new { @class = "form-control m-bot15 ddlStatus" })
+                            </div>
+                        </div>
+                    </header>
+                    <div class="panel-body">
+                        <table class="table table-striped table-advance table-hover">
+                            <thead>
+                                <tr>
+                                    <th><i></i>ID</th>
+                                    <th><i></i>Tiêu đề</th>
+                                    <th><i></i>Hình</th>
+                                    <th><i></i>Ngày</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.BannerList != null)
+                                {
+                                    foreach (var banner in Model.BannerList)
+                                    {
+                                        <tr>
+                                            <td class="col-xs-1 col-xs-1 col-md-1">
+                                                @Html.DisplayFor(x => banner.BannerId)
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("Edit", "Banner", new { bannerId = banner.BannerId })">
+                                                    @Html.DisplayFor(x => banner.Title)
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("Edit", "Banner", new { bannerId = banner.BannerId })">
+                                                    <img src="@banner.ImagePath" style="width:140px; height:100px" />
+                                                </a>
+                                            </td>
+                                            <td class="col-xs-1 col-xs-1 col-md-1">
+                                                @banner.CreatedDate.ToString("dd/MM/yyyy")
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("Edit", "Banner", new { bannerId = banner.BannerId, status = Model.SelectedStatus })" class="btn btn-primary btn-xs"><i class="icon-pencil"></i></a>
+                                                <a href="@Url.Action("Delete", "Banner", new { bannerId = banner.BannerId, status = Model.SelectedStatus })" class="btn btn-danger btn-xs"><i class="icon-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+
+                            </tbody>
+                        </table>
+
+                        @Html.Raw(ViewBag.Paging)
+
+                    </div>
+
+                </section>
+            </div>
+        </div>
+    }
+</div>

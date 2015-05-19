@@ -1,0 +1,44 @@
+﻿@using System.Collections;
+@using Web.BackEnd.Models;
+
+@model NRUModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section TitleSection{
+    NRU
+}
+
+@if (TempData["Message"] != null)
+{
+    @Html.Raw(TempData["Message"])
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal tasi-form", enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    <div class="clearfix">
+                        <div class="btn-group">
+                            @Html.TextBoxFor(x=>x.From, new { @class = "form-control datepicker txtDate", required = "", placeholder = "Từ ngày" })
+                        </div>
+                        <div class="btn-group">
+                            @Html.TextBoxFor(x => x.To, new { @class = "form-control datepicker txtDate", required = "", placeholder = "Đến ngày" })
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-info" onclick="return ShowData();">Xác nhận</button>
+                        </div>
+                    </div>
+                </header>
+                <div class="panel-body">
+                    <span style="color:red">@Model.NRU</span>
+                </div>
+            </section>
+        </div>
+    </div>
+}

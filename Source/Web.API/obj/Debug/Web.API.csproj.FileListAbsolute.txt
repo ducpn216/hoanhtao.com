@@ -1,0 +1,144 @@
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\Web.API.dll.config
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\Web.API.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\Web.API.pdb
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\Antlr3.Runtime.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\EntityFramework.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\Microsoft.Data.Edm.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\Microsoft.Data.OData.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\Microsoft.Web.Infrastructure.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\Newtonsoft.Json.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\System.Net.Http.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\System.Net.Http.WebRequest.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\System.Spatial.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\System.Web.Helpers.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\System.Web.Http.OData.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\System.Web.Http.Tracing.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\System.Web.Mvc.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\System.Web.Optimization.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\System.Web.Providers.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\System.Web.Razor.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\System.Web.WebPages.Deployment.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\System.Web.WebPages.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\System.Web.WebPages.Razor.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\WebGrease.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\Newtonsoft.Json.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\EntityFramework.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\System.Net.Http.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\System.Net.Http.WebRequest.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\System.Web.Helpers.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\System.Web.Mvc.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\System.Web.Razor.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\System.Web.WebPages.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\System.Web.WebPages.Deployment.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\System.Web.WebPages.Razor.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\System.Web.Http.Tracing.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\System.Web.Http.OData.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\Microsoft.Data.Edm.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\Microsoft.Data.OData.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\System.Spatial.xml
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\de\Microsoft.Data.Edm.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\es\Microsoft.Data.Edm.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\fr\Microsoft.Data.Edm.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\it\Microsoft.Data.Edm.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\ja\Microsoft.Data.Edm.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\ko\Microsoft.Data.Edm.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\ru\Microsoft.Data.Edm.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\de\Microsoft.Data.OData.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\es\Microsoft.Data.OData.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\fr\Microsoft.Data.OData.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\it\Microsoft.Data.OData.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\ja\Microsoft.Data.OData.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\ko\Microsoft.Data.OData.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\ru\Microsoft.Data.OData.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\de\System.Spatial.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\es\System.Spatial.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\fr\System.Spatial.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\it\System.Spatial.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\ja\System.Spatial.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\ko\System.Spatial.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\ru\System.Spatial.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\zh-Hans\System.Spatial.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\bin\zh-Hant\System.Spatial.resources.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\obj\Debug\Web.API.csprojResolveAssemblyReference.cache
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\obj\Debug\Web.API.dll
+C:\DATA\CLOUD\Copy\Games\HT\Source\HT\Web.API\obj\Debug\Web.API.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\Web.API.dll.config
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\Web.API.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\Web.API.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\Antlr3.Runtime.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\EntityFramework.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\Microsoft.Data.Edm.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\Microsoft.Data.OData.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\Microsoft.Web.Infrastructure.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\Newtonsoft.Json.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Net.Http.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Net.Http.Formatting.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Net.Http.WebRequest.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Spatial.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Web.Helpers.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Web.Http.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Web.Http.OData.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Web.Http.Tracing.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Web.Http.WebHost.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Web.Mvc.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Web.Optimization.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Web.Providers.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Web.Razor.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Web.WebPages.Deployment.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Web.WebPages.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Web.WebPages.Razor.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\WebGrease.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\Newtonsoft.Json.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\EntityFramework.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Net.Http.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Net.Http.Formatting.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Net.Http.WebRequest.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Web.Helpers.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Web.Http.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Web.Http.WebHost.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Web.Mvc.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Web.Razor.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Web.WebPages.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Web.WebPages.Deployment.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Web.WebPages.Razor.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Web.Http.Tracing.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Web.Http.OData.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\Microsoft.Data.Edm.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\Microsoft.Data.OData.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\System.Spatial.xml
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\de\Microsoft.Data.Edm.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\es\Microsoft.Data.Edm.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\fr\Microsoft.Data.Edm.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\it\Microsoft.Data.Edm.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\ja\Microsoft.Data.Edm.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\ko\Microsoft.Data.Edm.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\ru\Microsoft.Data.Edm.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\de\Microsoft.Data.OData.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\es\Microsoft.Data.OData.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\fr\Microsoft.Data.OData.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\it\Microsoft.Data.OData.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\ja\Microsoft.Data.OData.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\ko\Microsoft.Data.OData.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\ru\Microsoft.Data.OData.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\de\System.Spatial.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\es\System.Spatial.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\fr\System.Spatial.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\it\System.Spatial.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\ja\System.Spatial.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\ko\System.Spatial.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\ru\System.Spatial.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\zh-Hans\System.Spatial.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\bin\zh-Hant\System.Spatial.resources.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\obj\Debug\Web.API.csprojResolveAssemblyReference.cache
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\obj\Debug\Web.API.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Web.API\obj\Debug\Web.API.pdb

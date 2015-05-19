@@ -1,0 +1,160 @@
+﻿@model Web.FrontEnd.Models.Support.SupportFeedbackModel
+@using Web.FrontEnd.App_Code;
+
+@{
+    Layout = "~/Views/Shared/_Inside.cshtml";
+}
+
+@section BreadCrumbSection{
+    <li>
+        <a href="@LinkManager.SUPPORT">
+            Hỗ trợ
+        </a>
+    </li>
+}
+
+@section ContentSection{
+
+    <style>
+        #ContentBlock {
+            padding-top: 0px !important;
+        }
+
+        .post-wrapper {
+            padding: 0px 25px;
+        }
+
+        .support-caption {
+            margin-top: 30px;
+            margin-bottom: 10px;
+            display: block;
+            color: #C18A26;
+            font-size: 18px;
+        }
+
+        #ContentBlock {
+            padding: 30px 0 40px 0px;
+            width: 100% !important;
+        }
+
+            #ContentBlock table tbody tr {
+                background: #3a4c54;
+            }
+
+        /*#ContentBlock table tr td {
+                color: white !important;
+            }*/
+
+        .table_txt {
+            color: white !important;
+            text-align: center !important;
+        }
+
+        .table-form .right {
+            text-align: left !important;
+        }
+
+        .tbData {
+            width: 100%;
+        }
+
+        .admin {
+            background-color: #FFD173 !important;
+            color: black !important;
+        }
+
+            .admin td {
+                color: black !important;
+            }
+    </style>
+
+    <div class="listtin">
+        <div class="post-wrapper">
+
+
+            @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal tasi-form", enctype = "multipart/form-data" }))
+            {
+                <table class="tbForm">
+                    <tr>
+                        <td colspan="2" valign="top">
+
+                            @if (Model.IsValid)
+                            {
+                                <span class="message" style="font-weight: bold; font-size: 15px; color: white; display: block; text-align: center; '">
+                                    Gửi hỗ trợ thành công
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="message red" style="font-weight: bold; display: block; text-align: center;">
+                                    @Html.Raw(Model.Message)
+                                </span>
+                            }
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left">Tiêu đề</td>
+                        <td>@Html.TextBoxFor(x => x.Title, new { @class = "form-control shot", required = "", style = "width:400px" })</td>
+                    </tr>
+                    <tr>
+                        <td class="left">Vấn đề hỗ trợ</td>
+                        <td>
+                            @Html.DropDownListFor(x => x.SelectedSupportTypeId, Model.SupportTypeList.ToList(), new { @class = "form-control m-bot15", required = "" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left">Server</td>
+                        <td>
+                            @Html.DropDownListFor(x => x.SelectedServerId, Model.ServerList.ToList(), new { @class = "form-control m-bot15", required = "" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left" valign="top">Nội dung: </td>
+                        <td>
+                            @Html.TextAreaFor(x => x.Content, new { @class = "form-control shot popup_register_captcha", cols = "30", rows = "6", style = "width:400px", required = "" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left">Hình đính kèm 1: </td>
+                        <td>
+                            <input name="image" type="file" class="default" accept="file_extension|image/*">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left">Hình đính kèm 2: </td>
+                        <td>
+                            <input name="image" type="file" class="default" accept="file_extension|image/*">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left">Hình đính kèm 3: </td>
+                        <td>
+                            <input name="image" type="file" class="default" accept="file_extension|image/*">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left"></td>
+                        <td>
+                            <img id="img-captcha-register" src='/Captcha/' />
+                            <a class="btn-captcha-register" onclick="return ReloadCaptcha('img-captcha-register', '/Captcha/');">
+                                <img src="/Content/images/website/change.png" alt="Thay hình khác" width="20px" />
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left">Mã xác nhận</td>
+                        <td>@Html.TextBoxFor(x => x.Captcha, new { @class = "form-control shot popup_register_captcha", required = "" })</td>
+                    </tr>
+                    <tr>
+                        <td class="left"></td>
+                        <td>
+                            <input type="submit" value="Xác nhận" class="btn-accept" />
+                        </td>
+                    </tr>
+                </table>
+
+            }
+        </div>
+    </div>
+}

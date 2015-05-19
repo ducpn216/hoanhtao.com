@@ -1,0 +1,780 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E695178A-8BE6-470B-9606-195C2AB94281}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Web.FrontEnd</RootNamespace>
+    <AssemblyName>Web.FrontEnd</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="CustomProviders">
+      <HintPath>..\..\..\..\..\My Library\MyLibrary 2.0 ver3.5\CustomProviders\bin\Release\CustomProviders.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMarkupMin.Core">
+      <HintPath>..\packages\WebMarkupMin.Core.0.9.2\lib\net40\WebMarkupMin.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMarkupMin.Mvc">
+      <HintPath>..\packages\WebMarkupMin.Mvc.0.9.2\lib\net40\WebMarkupMin.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMarkupMin.Web">
+      <HintPath>..\packages\WebMarkupMin.Web.0.9.2\lib\net40\WebMarkupMin.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.0.0\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.0.0\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.0.0\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\choingay\css\style.css" />
+    <Content Include="Content\choingay\DauTruong\images\blank.html" />
+    <Content Include="Content\choingay\DauTruong\index.html" />
+    <Content Include="Content\choingay\images\bg.jpg" />
+    <Content Include="Content\choingay\images\bg_.jpg" />
+    <Content Include="Content\choingay\images\bgd-opacity.png" />
+    <Content Include="Content\choingay\images\bg_des_banner.png" />
+    <Content Include="Content\choingay\images\bg_popup.png" />
+    <Content Include="Content\choingay\images\bg_stt.png" />
+    <Content Include="Content\choingay\images\blank-2.gif" />
+    <Content Include="Content\choingay\images\blank.gif" />
+    <Content Include="Content\choingay\images\btn_chonsv.png" />
+    <Content Include="Content\choingay\images\btn_menu1.png" />
+    <Content Include="Content\choingay\images\bullet_banner.png" />
+    <Content Include="Content\choingay\images\close_popup.png" />
+    <Content Include="Content\choingay\images\dangnhap_btn.png" />
+    <Content Include="Content\choingay\images\danhsach_maychu.html" />
+    <Content Include="Content\choingay\images\dautruong.gif" />
+    <Content Include="Content\choingay\images\dkn_forgot_pass.png" />
+    <Content Include="Content\choingay\images\dk_nhanh_btn.png" />
+    <Content Include="Content\choingay\images\dn_btn.png" />
+    <Content Include="Content\choingay\images\hotSv.png" />
+    <Content Include="Content\choingay\images\icon_news.png" />
+    <Content Include="Content\choingay\images\ico_baotri_small.png" />
+    <Content Include="Content\choingay\images\ico_day.png" />
+    <Content Include="Content\choingay\images\ico_day_small.png" />
+    <Content Include="Content\choingay\images\ico_ganday.png" />
+    <Content Include="Content\choingay\images\ico_tot.png" />
+    <Content Include="Content\choingay\images\ico_tot_small.png" />
+    <Content Include="Content\choingay\images\input_dk.png" />
+    <Content Include="Content\choingay\images\newSv.png" />
+    <Content Include="Content\choingay\images\select_box.png" />
+    <Content Include="Content\choingay\images\sevItem.png" />
+    <Content Include="Content\choingay\images\svTab.png" />
+    <Content Include="Content\choingay\images\taigame.png" />
+    <Content Include="Content\choingay\images\xemthem.png" />
+    <Content Include="Content\choingay\js\fadegallery.js" />
+    <Content Include="Content\choingay\js\jquery.easing.1.3.js" />
+    <Content Include="Content\choingay\js\jquery.mousewheel.min.js" />
+    <Content Include="Content\choingay\js\jquery.selectBox.js" />
+    <Content Include="Content\choingay\js\jquery.sliderTabs.min.js" />
+    <Content Include="Content\css\choingay\style.css" />
+    <Content Include="Content\css\content.css" />
+    <Content Include="Content\css\ie7.css" />
+    <Content Include="Content\css\inside\content.css" />
+    <Content Include="Content\css\inside\screen.css" />
+    <Content Include="Content\css\jquery.fancybox-1.3.4.css" />
+    <Content Include="Content\css\jquery.mCustomScrollbar.css" />
+    <Content Include="Content\css\launcher\MyStyle.css" />
+    <Content Include="Content\css\launcher\screen.css" />
+    <Content Include="Content\css\lightbox.css" />
+    <Content Include="Content\css\myStyle.css" />
+    <Content Include="Content\css\screen.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\ToolBar.css" />
+    <Content Include="Content\flash\gameStart.swf" />
+    <Content Include="Content\flash\kichhoat.swf" />
+    <Content Include="Content\flash\taigame.swf" />
+    <Content Include="Content\images\choingay\bg.jpg" />
+    <Content Include="Content\images\inside\bg_header .jpg" />
+    <Content Include="Content\images\logo\logo.ico" />
+    <Content Include="Content\images\logo\logo.png" />
+    <Content Include="Content\images\logo\fb.png" />
+    <Content Include="Content\views\landing\imgs\bg_dk1.jpg" />
+    <Content Include="Content\views\landing\imgs\bt_dk.png" />
+    <Content Include="Content\views\landing\imgs\dangky_Landing_20150506.jpg" />
+    <Content Include="Content\views\landing\imgs\bg.gif" />
+    <Content Include="Content\images\launcher\bg-control.png" />
+    <Content Include="Content\images\launcher\bg-server-number.png" />
+    <Content Include="Content\images\launcher\bg-time.png" />
+    <Content Include="Content\images\launcher\body-bg.png" />
+    <Content Include="Content\images\launcher\body-bg2.png" />
+    <Content Include="Content\images\launcher\btn-control-tab.png" />
+    <Content Include="Content\images\launcher\button.png" />
+    <Content Include="Content\images\launcher\label-dn.png" />
+    <Content Include="Content\images\launcher\server-tab.png" />
+    <Content Include="Content\images\launcher\trangthai.png" />
+    <Content Include="Content\images\launcher\vaogame.png" />
+    <Content Include="Content\images\website\bg-main.jpg" />
+    <Content Include="Content\images\website\bg-main1.jpg" />
+    <Content Include="Content\images\website\bg_ctn_repeat.jpg" />
+    <Content Include="Content\images\website\bg_ctn_repeat.png" />
+    <Content Include="Content\images\website\bg_ctn_top.jpg" />
+    <Content Include="Content\images\website\bg_ctn_top2.jpg" />
+    <Content Include="Content\images\website\bg_header.jpg" />
+    <Content Include="Content\images\website\bg_header2.jpg" />
+    <Content Include="Content\images\website\bg_popup_left2.png" />
+    <Content Include="Content\js\slidebar.tab.js" />
+    <Content Include="Content\libraries\fancybox\blank.gif" />
+    <Content Include="Content\libraries\fancybox\fancybox_loading%402x.gif" />
+    <Content Include="Content\libraries\fancybox\fancybox_loading.gif" />
+    <Content Include="Content\libraries\fancybox\fancybox_overlay.png" />
+    <Content Include="Content\libraries\fancybox\fancybox_sprite%402x.png" />
+    <Content Include="Content\libraries\fancybox\fancybox_sprite.png" />
+    <Content Include="Content\libraries\fancybox\helpers\fancybox_buttons.png" />
+    <Content Include="Content\libraries\fancybox\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="Content\libraries\fancybox\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="Content\libraries\fancybox\helpers\jquery.fancybox-media.js" />
+    <Content Include="Content\libraries\fancybox\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="Content\libraries\fancybox\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="Content\libraries\fancybox\jquery.fancybox.css" />
+    <Content Include="Content\libraries\fancybox\jquery.fancybox.js" />
+    <Content Include="Content\libraries\fancybox\jquery.fancybox.pack.js" />
+    <Content Include="Content\views\landing\imgs\bg_dk.jpg" />
+    <Content Include="Content\views\landing\style.css" />
+    <Content Include="Content\images\choingay\bg-sub.png" />
+    <Content Include="Content\images\choingay\bg-title.png" />
+    <Content Include="Content\images\choingay\bg1.jpg" />
+    <Content Include="Content\images\choingay\bgd-opacity.png" />
+    <Content Include="Content\images\choingay\bg_des_banner.png" />
+    <Content Include="Content\images\choingay\bg_popup.png" />
+    <Content Include="Content\images\choingay\bg_stt.png" />
+    <Content Include="Content\images\choingay\btn_chonsv.png" />
+    <Content Include="Content\images\choingay\btn_menu.png" />
+    <Content Include="Content\images\choingay\bullet_banner.png" />
+    <Content Include="Content\images\choingay\close_popup.png" />
+    <Content Include="Content\images\choingay\dangnhap_btn.png" />
+    <Content Include="Content\images\choingay\danhsach_maychu.html" />
+    <Content Include="Content\images\choingay\dkn_forgot_pass.png" />
+    <Content Include="Content\images\choingay\dk_nhanh_btn.png" />
+    <Content Include="Content\images\choingay\dn_btn.png" />
+    <Content Include="Content\images\choingay\hotSv.png" />
+    <Content Include="Content\images\choingay\icon_news.png" />
+    <Content Include="Content\images\choingay\ico_baotri_small.html" />
+    <Content Include="Content\images\choingay\ico_day.png" />
+    <Content Include="Content\images\choingay\ico_day_small.html" />
+    <Content Include="Content\images\choingay\ico_ganday.png" />
+    <Content Include="Content\images\choingay\ico_tot.png" />
+    <Content Include="Content\images\choingay\ico_tot_small.html" />
+    <Content Include="Content\images\choingay\input_dk.png" />
+    <Content Include="Content\images\choingay\newSv.png" />
+    <Content Include="Content\images\choingay\select_box.png" />
+    <Content Include="Content\images\choingay\sevItem.png" />
+    <Content Include="Content\images\choingay\svTab.png" />
+    <Content Include="Content\images\choingay\taigame.png" />
+    <Content Include="Content\images\choingay\xemthem.png" />
+    <Content Include="Content\images\fancybox\blank.gif" />
+    <Content Include="Content\images\fancybox\fancybox-x.png" />
+    <Content Include="Content\images\fancybox\fancybox-y.png" />
+    <Content Include="Content\images\fancybox\fancybox.png" />
+    <Content Include="Content\images\fancybox\fancy_close.png" />
+    <Content Include="Content\images\fancybox\fancy_loading.png" />
+    <Content Include="Content\images\fancybox\fancy_nav_left.png" />
+    <Content Include="Content\images\fancybox\fancy_nav_right.png" />
+    <Content Include="Content\images\fancybox\fancy_shadow_e.png" />
+    <Content Include="Content\images\fancybox\fancy_shadow_n.png" />
+    <Content Include="Content\images\fancybox\fancy_shadow_ne.png" />
+    <Content Include="Content\images\fancybox\fancy_shadow_nw.png" />
+    <Content Include="Content\images\fancybox\fancy_shadow_s.png" />
+    <Content Include="Content\images\fancybox\fancy_shadow_se.png" />
+    <Content Include="Content\images\fancybox\fancy_shadow_sw.png" />
+    <Content Include="Content\images\fancybox\fancy_shadow_w.png" />
+    <Content Include="Content\images\fancybox\fancy_title_left.png" />
+    <Content Include="Content\images\fancybox\fancy_title_main.png" />
+    <Content Include="Content\images\fancybox\fancy_title_over.png" />
+    <Content Include="Content\images\fancybox\fancy_title_right.png" />
+    <Content Include="Content\images\fancybox\jquery.fancybox-1.3.4.css" />
+    <Content Include="Content\images\inside\back_to_top_btn.png" />
+    <Content Include="Content\images\inside\bg_breadcrum.jpg" />
+    <Content Include="Content\images\inside\bg_ctn_bot.html" />
+    <Content Include="Content\images\inside\bg_ctn_repeat.html" />
+    <Content Include="Content\images\inside\bg_ctn_top.jpg" />
+    <Content Include="Content\images\inside\bg_footer.jpg" />
+    <Content Include="Content\images\inside\bg_footer_inside.jpg" />
+    <Content Include="Content\images\inside\bg_header1.jpg" />
+    <Content Include="Content\images\inside\bg_other_item.html" />
+    <Content Include="Content\images\inside\bg_repeat_content.jpg" />
+    <Content Include="Content\images\inside\bg_repeat_tk.png" />
+    <Content Include="Content\images\inside\bg_slide.jpg" />
+    <Content Include="Content\images\inside\bg_submenu_left.jpg" />
+    <Content Include="Content\images\inside\bg_sub_taigame.png" />
+    <Content Include="Content\images\inside\bg_top_tk.png" />
+    <Content Include="Content\images\inside\bikip-hanhtau.png" />
+    <Content Include="Content\images\inside\blank.gif" />
+    <Content Include="Content\images\inside\bullet-h4.png" />
+    <Content Include="Content\images\inside\bullet-h5.png" />
+    <Content Include="Content\images\inside\bullet-submenu.png" />
+    <Content Include="Content\images\inside\bullet-submenu_hover.png" />
+    <Content Include="Content\images\inside\bullet-tk.png" />
+    <Content Include="Content\images\inside\bullet_other_news.html" />
+    <Content Include="Content\images\inside\bullet_small2.png" />
+    <Content Include="Content\images\inside\ico-breadcrumb.png" />
+    <Content Include="Content\images\inside\icon.png" />
+    <Content Include="Content\images\inside\left_menu.png" />
+    <Content Include="Content\images\inside\main_menu.png" />
+    <Content Include="Content\images\inside\next.png" />
+    <Content Include="Content\images\inside\prev.png" />
+    <Content Include="Content\images\inside\sub_tab_bg.jpg" />
+    <Content Include="Content\images\inside\sub_tab_bg_hover.jpg" />
+    <Content Include="Content\images\inside\xemchitiet.png" />
+    <Content Include="Content\images\temp\img_lib1.jpg" />
+    <Content Include="Content\images\temp\img_lib2.jpg" />
+    <Content Include="Content\images\temp\img_lib3.jpg" />
+    <Content Include="Content\images\temp\img_lib4.jpg" />
+    <Content Include="Content\images\temp\img_new1.jpg" />
+    <Content Include="Content\images\temp\img_new2.jpg" />
+    <Content Include="Content\images\temp\img_slide1.jpg" />
+    <Content Include="Content\images\temp\img_slide2.jpg" />
+    <Content Include="Content\images\temp\img_slide3.jpg" />
+    <Content Include="Content\images\temp\img_slide4.jpg" />
+    <Content Include="Content\images\temp\img_sukien1.jpg" />
+    <Content Include="Content\images\temp\img_sukien2.jpg" />
+    <Content Include="Content\images\temp\img_sukien3.jpg" />
+    <Content Include="Content\images\temp\img_sukien4.jpg" />
+    <Content Include="Content\images\temp\img_tanthu.jpg" />
+    <Content Include="Content\images\temp\img_video.jpg" />
+    <Content Include="Content\images\temp\nv1.png" />
+    <Content Include="Content\images\temp\nv2.png" />
+    <Content Include="Content\images\temp\nv3.png" />
+    <Content Include="Content\images\temp\nv4.png" />
+    <Content Include="Content\images\temp\screenshot1.jpg" />
+    <Content Include="Content\images\temp\screenshot2.jpg" />
+    <Content Include="Content\images\temp\video_lib1.jpg" />
+    <Content Include="Content\images\temp\video_lib2.jpg" />
+    <Content Include="Content\images\temp\video_lib3.jpg" />
+    <Content Include="Content\images\website\alpha-test.png" />
+    <Content Include="Content\images\website\arrow.png" />
+    <Content Include="Content\images\website\back_to_top_btn.png" />
+    <Content Include="Content\images\website\bannercamnang.png" />
+    <Content Include="Content\images\website\bannerhcl.png" />
+    <Content Include="Content\images\website\bg.jpg" />
+    <Content Include="Content\images\website\bgd-opacity.png" />
+    <Content Include="Content\images\website\bg_bot_play.png" />
+    <Content Include="Content\images\website\bg_content_left.jpg" />
+    <Content Include="Content\images\website\bg_ctn_repeat1.jpg" />
+    <Content Include="Content\images\website\bg_ctn_top1.jpg" />
+    <Content Include="Content\images\website\bg_ctn_top_inside.jpg" />
+    <Content Include="Content\images\website\bg_date.png" />
+    <Content Include="Content\images\website\bg_des_banner.png" />
+    <Content Include="Content\images\website\bg_dk_nhanh.png" />
+    <Content Include="Content\images\website\bg_dk_tai_the.png" />
+    <Content Include="Content\images\website\bg_firstitem_menuleft.jpg" />
+    <Content Include="Content\images\website\bg_firstitem_menuleft_active.jpg" />
+    <Content Include="Content\images\website\bg_first_sub.jpg" />
+    <Content Include="Content\images\website\bg_footer.jpg" />
+    <Content Include="Content\images\website\bg_footer_link.png" />
+    <Content Include="Content\images\website\bg_header1.jpg" />
+    <Content Include="Content\images\website\bg_header_inside.jpg" />
+    <Content Include="Content\images\website\bg_hover_news.png" />
+    <Content Include="Content\images\website\bg_item_menuleft.jpg" />
+    <Content Include="Content\images\website\bg_item_menuleft_active.jpg" />
+    <Content Include="Content\images\website\bg_item_news.jpg" />
+    <Content Include="Content\images\website\bg_list_item_server.png" />
+    <Content Include="Content\images\website\bg_next.jpg" />
+    <Content Include="Content\images\website\bg_noibat_fot.png" />
+    <Content Include="Content\images\website\bg_nv.jpg" />
+    <Content Include="Content\images\website\bg_paging.html" />
+    <Content Include="Content\images\website\bg_paging_active.html" />
+    <Content Include="Content\images\website\bg_poll.png" />
+    <Content Include="Content\images\website\bg_popup.png" />
+    <Content Include="Content\images\website\bg_popup_left.png" />
+    <Content Include="Content\images\website\bg_prev.jpg" />
+    <Content Include="Content\images\website\bg_qa_ctn.png" />
+    <Content Include="Content\images\website\bg_qa_left.jpg" />
+    <Content Include="Content\images\website\bg_radio.jpg" />
+    <Content Include="Content\images\website\bg_repeat_play.png" />
+    <Content Include="Content\images\website\bg_size_img.jpg" />
+    <Content Include="Content\images\website\bg_submenuleft.jpg" />
+    <Content Include="Content\images\website\bg_submenuleft_repeat.jpg" />
+    <Content Include="Content\images\website\bg_support.jpg" />
+    <Content Include="Content\images\website\bg_time_sukien.jpg" />
+    <Content Include="Content\images\website\bg_title.jpg" />
+    <Content Include="Content\images\website\bg_title_top.jpg" />
+    <Content Include="Content\images\website\bg_top_menuleft.jpg" />
+    <Content Include="Content\images\website\bg_top_play.png" />
+    <Content Include="Content\images\website\bg_video_thumb.png" />
+    <Content Include="Content\images\website\blank.gif" />
+    <Content Include="Content\images\website\bot_play.png" />
+    <Content Include="Content\images\website\bullet-fot.png" />
+    <Content Include="Content\images\website\bullet-h4.png" />
+    <Content Include="Content\images\website\bullet-h5.png" />
+    <Content Include="Content\images\website\bullet-link-fot.png" />
+    <Content Include="Content\images\website\bullet-news.png" />
+    <Content Include="Content\images\website\bullet-noibat-fot.png" />
+    <Content Include="Content\images\website\bullet-sukien.png" />
+    <Content Include="Content\images\website\bullet-tanthu.png" />
+    <Content Include="Content\images\website\bullet_banner.png" />
+    <Content Include="Content\images\website\bullet_left.png" />
+    <Content Include="Content\images\website\bullet_link_inside.png" />
+    <Content Include="Content\images\website\bullet_menu.png" />
+    <Content Include="Content\images\website\bullet_menu_hover.png" />
+    <Content Include="Content\images\website\bullet_news_hover.png" />
+    <Content Include="Content\images\website\bullet_small2.png" />
+    <Content Include="Content\images\website\bullet_sub.png" />
+    <Content Include="Content\images\website\bullet_sub_hover.png" />
+    <Content Include="Content\images\website\button.png" />
+    <Content Include="Content\images\website\camnang.gif" />
+    <Content Include="Content\images\website\capcha.jpg" />
+    <Content Include="Content\images\website\cate_news.png" />
+    <Content Include="Content\images\website\center_box_login.gif" />
+    <Content Include="Content\images\website\change.png" />
+    <Content Include="Content\images\website\checkbox.png" />
+    <Content Include="Content\images\website\choingay.jpg" />
+    <Content Include="Content\images\website\choingay_inside.png" />
+    <Content Include="Content\images\website\close_popup.png" />
+    <Content Include="Content\images\website\danhsach_maychu.png" />
+    <Content Include="Content\images\website\dk_nhanh_btn.png" />
+    <Content Include="Content\images\website\dk_nhanh_dn.png" />
+    <Content Include="Content\images\website\fb.png" />
+    <Content Include="Content\images\website\fb_diendan.png" />
+    <Content Include="Content\images\website\first_page.jpg" />
+    <Content Include="Content\images\website\gamevui.html" />
+    <Content Include="Content\images\website\giaidau.gif" />
+    <Content Include="Content\images\website\giftcode_btn.png" />
+    <Content Include="Content\images\website\GOld.jpg" />
+    <Content Include="Content\images\website\google.jpg" />
+    <Content Include="Content\images\website\google.png" />
+    <Content Include="Content\images\website\guihotro_btn.png" />
+    <Content Include="Content\images\website\hot.html" />
+    <Content Include="Content\images\website\hotline_nav.gif" />
+    <Content Include="Content\images\website\hotro.png" />
+    <Content Include="Content\images\website\hot_server.png" />
+    <Content Include="Content\images\website\ico-breadcrumb.png" />
+    <Content Include="Content\images\website\img.jpg" />
+    <Content Include="Content\images\website\input_dk.jpg" />
+    <Content Include="Content\images\website\ketqua.png" />
+    <Content Include="Content\images\website\kichhoat.gif" />
+    <Content Include="Content\images\website\kichhoat.jpg" />
+    <Content Include="Content\images\website\kichhoat_inside.png" />
+    <Content Include="Content\images\website\last_page.jpg" />
+    <Content Include="Content\images\website\left_box_login.gif" />
+    <Content Include="Content\images\website\liner.html" />
+    <Content Include="Content\images\website\list-style.html" />
+    <Content Include="Content\images\website\loading.gif" />
+    <Content Include="Content\images\website\loading2.gif" />
+    <Content Include="Content\images\website\loading_bg.html" />
+    <Content Include="Content\images\website\login-fb.png" />
+    <Content Include="Content\images\website\login-google.jpg" />
+    <Content Include="Content\images\website\logofpt.html" />
+    <Content Include="Content\images\website\logoht.png" />
+    <Content Include="Content\images\website\main_menu.png" />
+    <Content Include="Content\images\website\menu_qa.jpg" />
+    <Content Include="Content\images\website\mmo1.html" />
+    <Content Include="Content\images\website\new.html" />
+    <Content Include="Content\images\website\new_icon.png" />
+    <Content Include="Content\images\website\new_server.png" />
+    <Content Include="Content\images\website\new_tab.png" />
+    <Content Include="Content\images\website\nhancode.png" />
+    <Content Include="Content\images\website\nv1.png" />
+    <Content Include="Content\images\website\paygate.png" />
+    <Content Include="Content\images\website\popup_bg.png" />
+    <Content Include="Content\images\website\pop_down.png" />
+    <Content Include="Content\images\website\pop_open.png" />
+    <Content Include="Content\images\website\ques_icon.png" />
+    <Content Include="Content\images\website\radio.png" />
+    <Content Include="Content\images\website\repeat_submenu.png" />
+    <Content Include="Content\images\website\repeat_submenu_first.png" />
+    <Content Include="Content\images\website\right_box_login.gif" />
+    <Content Include="Content\images\website\screenshot.png" />
+    <Content Include="Content\images\website\search_box.png" />
+    <Content Include="Content\images\website\sevItem.png" />
+    <Content Include="Content\images\website\share_fb.png" />
+    <Content Include="Content\images\website\support.png" />
+    <Content Include="Content\images\website\tab_nv.png" />
+    <Content Include="Content\images\website\tag.png" />
+    <Content Include="Content\images\website\taigame.gif" />
+    <Content Include="Content\images\website\taigame.png" />
+    <Content Include="Content\images\website\taigame_inside.png" />
+    <Content Include="Content\images\website\text_area.png" />
+    <Content Include="Content\images\website\thamdo.png" />
+    <Content Include="Content\images\website\thamkhaoykien.png" />
+    <Content Include="Content\images\website\thumb-2.jpg" />
+    <Content Include="Content\images\website\thumb.jpg" />
+    <Content Include="Content\images\website\topnav.gif" />
+    <Content Include="Content\images\website\topqa.png" />
+    <Content Include="Content\images\website\top_submenu.png" />
+    <Content Include="Content\images\website\trangchu.gif" />
+    <Content Include="Content\images\website\trolai.png" />
+    <Content Include="Content\images\website\video.png" />
+    <Content Include="Content\images\website\video_icon.png" />
+    <Content Include="Content\images\website\view_more.png" />
+    <Content Include="Content\images\website\webgame.html" />
+    <Content Include="Content\images\website\xac_nhan_btn.png" />
+    <Content Include="Content\images\website\xungba.gif" />
+    <Content Include="Content\images\website\xungbathienha.gif" />
+    <Content Include="Content\js\closePopup.js" />
+    <Content Include="Content\js\custom-form-elements.js" />
+    <Content Include="Content\js\fadegallery.js" />
+    <Content Include="Content\js\fo.connect.config.js" />
+    <Content Include="Content\js\fo.connect.js" />
+    <Content Include="Content\js\function.js" />
+    <Content Include="Content\js\iOS.js" />
+    <Content Include="Content\js\jquery-1.11.2.min.js" />
+    <Content Include="Content\js\jquery-1.7.2.min.js" />
+    <Content Include="Content\js\jquery-2.1.3.min.js" />
+    <Content Include="Content\js\jquery-ui.js" />
+    <Content Include="Content\js\jquery-ui_.js" />
+    <Content Include="Content\js\jquery.easing.1.3.js" />
+    <Content Include="Content\js\jquery.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\jquery.mousewheel.min.js" />
+    <Content Include="Content\js\jquery.roundabout-shapes2.js" />
+    <Content Include="Content\js\jquery.roundabout2.js" />
+    <Content Include="Content\js\jquery.selectBox.js" />
+    <Content Include="Content\js\jquery.sliderTabs.min.js" />
+    <Content Include="Content\js\myFunction.js" />
+    <Content Include="Content\js\MyLibrary.js" />
+    <Content Include="Content\js\nanotabs.js" />
+    <Content Include="Content\js\script.js" />
+    <Content Include="Content\js\swfobject_modified.js" />
+    <Content Include="Content\libraries\bootstrap-3.3.4\css\bootstrap-theme.css" />
+    <Content Include="Content\libraries\bootstrap-3.3.4\css\bootstrap-theme.min.css" />
+    <Content Include="Content\libraries\bootstrap-3.3.4\css\bootstrap.css" />
+    <Content Include="Content\libraries\bootstrap-3.3.4\css\bootstrap.min.css" />
+    <Content Include="Content\libraries\bootstrap-3.3.4\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\libraries\bootstrap-3.3.4\js\bootstrap.js" />
+    <Content Include="Content\libraries\bootstrap-3.3.4\js\bootstrap.min.js" />
+    <Content Include="Content\libraries\bootstrap-3.3.4\js\npm.js" />
+    <Content Include="Content\libraries\fancybox1\blank.gif" />
+    <Content Include="Content\libraries\fancybox1\fancybox-x.png" />
+    <Content Include="Content\libraries\fancybox1\fancybox-y.png" />
+    <Content Include="Content\libraries\fancybox1\fancybox.png" />
+    <Content Include="Content\libraries\fancybox1\fancybox\fancy_close.html" />
+    <Content Include="Content\libraries\fancybox1\fancybox\fancy_loading.html" />
+    <Content Include="Content\libraries\fancybox1\fancybox\fancy_nav_left.html" />
+    <Content Include="Content\libraries\fancybox1\fancybox\fancy_nav_right.html" />
+    <Content Include="Content\libraries\fancybox1\fancybox\fancy_shadow_e.html" />
+    <Content Include="Content\libraries\fancybox1\fancybox\fancy_shadow_n.html" />
+    <Content Include="Content\libraries\fancybox1\fancybox\fancy_shadow_ne.html" />
+    <Content Include="Content\libraries\fancybox1\fancybox\fancy_shadow_nw.html" />
+    <Content Include="Content\libraries\fancybox1\fancybox\fancy_shadow_s.html" />
+    <Content Include="Content\libraries\fancybox1\fancybox\fancy_shadow_se.html" />
+    <Content Include="Content\libraries\fancybox1\fancybox\fancy_shadow_sw.html" />
+    <Content Include="Content\libraries\fancybox1\fancybox\fancy_shadow_w.html" />
+    <Content Include="Content\libraries\fancybox1\fancybox\fancy_title_left.html" />
+    <Content Include="Content\libraries\fancybox1\fancybox\fancy_title_main.html" />
+    <Content Include="Content\libraries\fancybox1\fancybox\fancy_title_over.html" />
+    <Content Include="Content\libraries\fancybox1\fancybox\fancy_title_right.html" />
+    <Content Include="Content\libraries\fancybox1\fancy_close.png" />
+    <Content Include="Content\libraries\fancybox1\fancy_nav_left.png" />
+    <Content Include="Content\libraries\fancybox1\fancy_nav_right.png" />
+    <Content Include="Content\libraries\fancybox1\fancy_title_over.png" />
+    <Content Include="Content\libraries\fancybox1\jquery.fancybox-1.3.4.css" />
+    <Content Include="Content\libraries\fancybox1\jquery.fancybox-1.3.4.pack.js" />
+    <Content Include="Content\libraries\fancybox1\jquery.mousewheel-3.0.4.pack.js" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="dl\first.css" />
+    <Content Include="dl\index.html" />
+    <Content Include="Global.asax" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Teaser\Index.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Account\ForgetPassword.cshtml" />
+    <Content Include="Views\Game\Index.cshtml" />
+    <Content Include="Views\Shared\Partials\_GoogleAnalyticsPartial.cshtml" />
+    <None Include="WebMarkupMin.Configuration.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Code\Attributes\BasicAuthenticationAttribute.cs" />
+    <Compile Include="App_Code\Attributes\CustomAuthorizeAttribute.cs" />
+    <Content Include="App_Code\Attributes\ValidateSpecialCharAttribute.cs" />
+    <Compile Include="App_Code\Controllers\FrontEndController.cs" />
+    <Compile Include="App_Code\FrontEndUtils.cs" />
+    <Compile Include="App_Code\AuthHelper.cs" />
+    <Compile Include="App_Code\SessionManager.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Models\Account\ChangePasswordModel.cs" />
+    <Compile Include="Models\Account\ForgetPasswordModel.cs" />
+    <Compile Include="Models\Account\ProfileModel.cs" />
+    <Compile Include="Controllers\TeaserController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Models\GameModel.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Content Include="Content\css\custom.css" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CamNangController.cs" />
+    <Compile Include="Controllers\CaptchaController.cs" />
+    <Compile Include="Controllers\FrontEndApiController.cs" />
+    <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PlayGameController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Abstracts\InsideModel.cs" />
+    <Compile Include="Models\BannerModel.cs" />
+    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\CamNangModel.cs" />
+    <Compile Include="Models\ExecuteResultModel.cs" />
+    <Compile Include="Models\HomeModel.cs" />
+    <Compile Include="Models\LauncherModel.cs" />
+    <Compile Include="Models\LauncherServerModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\PaymentModel.cs" />
+    <Compile Include="Models\PlayGameModel.cs" />
+    <Compile Include="Models\PostDetailModel.cs" />
+    <Compile Include="Models\PostListModel.cs" />
+    <Compile Include="Models\RegisterAccountModel.cs" />
+    <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Home\Shared\_BannerPartial.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\Partials\_LeftPopupPartial.cshtml" />
+    <Content Include="Views\Shared\Partials\_LoginPopupPartial.cshtml" />
+    <Content Include="Views\Shared\Partials\_RegisterPopupPartial.cshtml" />
+    <Content Include="Views\Shared\_Inside.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_PopupLoginPartial.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Content\libraries\bootstrap-3.3.4\css\bootstrap-theme.css.map" />
+    <Content Include="Content\libraries\bootstrap-3.3.4\css\bootstrap.css.map" />
+    <Content Include="Content\libraries\bootstrap-3.3.4\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\libraries\bootstrap-3.3.4\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\libraries\bootstrap-3.3.4\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\libraries\bootstrap-3.3.4\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Views\Inside\Index.cshtml" />
+    <Content Include="Views\Post\Index.cshtml" />
+    <Content Include="Views\Post\Detail.cshtml" />
+    <Content Include="Views\Shared\Partials\_CategoryListPartial.cshtml" />
+    <Content Include="Views\Post\CamNang.cshtml" />
+    <Content Include="Views\Home\Shared\_MenuPartial.cshtml" />
+    <Content Include="Views\CamNang\Index.cshtml" />
+    <Content Include="Views\CamNang\Detail.cshtml" />
+    <Content Include="Views\Shared\Partials\_CommingSoonPartial.cshtml" />
+    <Content Include="Views\PlayGame\Index.cshtml" />
+    <Content Include="Views\Payment\Index.cshtml" />
+    <Content Include="Views\Shared\Partials\_MetaTagPartial.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="FileManager\Logs\" />
+    <Folder Include="Views\404\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{654a0d01-cad6-4806-9153-af8044cef278}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{92b2a67b-a6a7-45ef-a93b-7318e80626cf}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>8713</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:45794/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

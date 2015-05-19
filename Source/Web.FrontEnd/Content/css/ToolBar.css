@@ -1,0 +1,173 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+body
+{
+}
+.navtoolbar
+{
+    background: url(/images/topnav.gif) top left repeat-x;
+    height: 37px;
+}
+.container_nav
+{
+    width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+.logofpt
+{
+    background: url(/images/logofpt.gif) no-repeat;
+    width: 74px;
+    height: 29px;
+    float: left;
+}
+ul.danhsachgame
+{
+    float: left;
+    list-style: none;
+    margin-top: 12px;
+    margin-left: 20px;
+}
+ul.danhsachgame li.mmobtn
+{
+    float: left;
+    width: 50px;
+}
+ul.danhsachgame li.mmobtn a
+{
+    display: block;
+    width: 50px;
+    height: 9px;
+    float: left;
+    background: url(/images/mmo1.gif) 0 0 no-repeat;
+}
+ul.danhsachgame li.mmobtn a:hover
+{
+    float: left;
+    background: url(/images/mmo1.gif) 0 -9px no-repeat;
+}
+ul.danhsachgame li.webgame
+{
+    float: left;
+    width: 58px;
+}
+ul.danhsachgame li.webgame a
+{
+    display: block;
+    width: 58px;
+    height: 9px;
+    float: left;
+    background: url(/images/webgame.gif) 0 0 no-repeat;
+}
+ul.danhsachgame li.webgame a:hover
+{
+    float: left;
+    background: url(/images/webgame.gif) 0 -9px no-repeat;
+}
+ul.danhsachgame li.gamevui
+{
+    float: left;
+    width: 53px;
+}
+ul.danhsachgame li.gamevui a
+{
+    display: block;
+    width: 53px;
+    height: 9px;
+    float: left;
+    background: url(/images/gamevui.gif) 0 0 no-repeat;
+}
+ul.danhsachgame li.gamevui a:hover
+{
+    background: url(/images/gamevui.gif) 0 -9px no-repeat;
+}
+ul.danhsachgame li.line
+{
+    float: left;
+    background: url(/images/liner.gif) center no-repeat;
+    width: 19px;
+    height: 9px;
+}
+.box_login
+{
+    float: right;
+    padding-top: 5px;
+}
+.box_login .left
+{
+    background: url(/images/left_box_login.gif) no-repeat;
+    width: 5px;
+    height: 25px;
+    float: left;
+}
+.box_login .center
+{
+    background: url(/images/center_box_login.gif) repeat-x;
+    height: 25px;
+    float: left;
+    line-height: 22px;
+    font-size: 11px;
+    font-family: Tahoma, Geneva, sans-serif;
+    color: #cbcbcb;
+}
+.box_login .center a
+{
+    color: #7a7a7a;
+    padding: 0px 5px;
+    text-decoration: none;
+}
+.box_login .center a:hover
+{
+    color: #333;
+}
+.box_login .right
+{
+    background: url(/images/right_box_login.gif) no-repeat;
+    width: 5px;
+    height: 25px;
+    float: left;
+}
+.holine_nav
+{
+    float: right;
+    margin-right: 6px;
+    padding-top: 5px;
+}
+
+div.loading {
+	position:absolute;
+	left:0;
+	top:29px;
+	z-index:101;
+	width:964px;
+	height:170px;
+	text-align:center;
+	padding-top:100px;
+	background:  url("/images/loading_bg.gif") no-repeat;
+}
+div.loadframe  , div.loadframe1 , div.loadframe2{
+	position:absolute;
+	left:0;
+	top:30px;
+	z-index:101;
+	width:964px;
+	height:270px;
+	padding-top:0;
+}
+a.close {
+	position:absolute;
+	z-index:6;
+	right:0px;
+	top:5px;
+}
+.kichhoat {
+    background: url("/Images/Layout/kichhoat.gif") no-repeat scroll 0 0 transparent;
+    display: inline-block;
+    float: right;
+    height: 24px;
+    margin: 5px 0 0 5px;
+    width: 106px;
+}

@@ -1,0 +1,371 @@
+﻿@using Web.FrontEnd.App_Code
+@model Web.FrontEnd.Models.HomeModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @Html.Partial("Partials/_MetaTagPartial")
+
+
+    @*<link href="/Content/libraries/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="/Content/libraries/bootstrap-3.3.4/css/bootstrap-theme.min.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="/Content/css/screen.css" />*@
+    <!--popup left-->
+    @*<link rel="stylesheet" type="text/css" href="/Content/css/style.css" />
+        <link href="/Content/css/custom.css" rel="stylesheet" type="text/css" />*@
+
+    @*<script type="text/javascript" src="/Content/js/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="/Content/js/fadegallery.js"></script>
+        <script type='text/javascript' src='/Content/js/iOS.js'></script>
+        <script type="text/javascript" src='/Content/js/custom-form-elements.js'></script>
+        <script type="text/javascript" src="/Content/js/jquery-ui.js"></script>
+        <script type="text/javascript" src='/Content/js/function.js'></script>
+
+        <script type="text/javascript" src="/Content/js/script.js"></script>
+        <script type="text/javascript" src="/Content/libraries/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/Content/js/MyLibrary.js"></script>*@
+
+    @System.Web.Optimization.Styles.Render("~/home/css")
+    @System.Web.Optimization.Scripts.Render("~/home/js")
+
+    <link href="/Content/libraries/fancybox/jquery.fancybox.css" rel="stylesheet" />
+    <script src="/Content/libraries/fancybox/jquery.fancybox.js"></script>
+    <script src="/Content/libraries/fancybox/helpers/jquery.fancybox-media.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#popup-container').height($('#container').height());
+
+            $('.close-popup').click(function () {
+                $('.inner-popup').animate({ left: '-=275' }, 300, function () {
+                });
+                $('.popup_mini').animate({ left: '+=80' }, 600, function () {
+                });
+            });
+
+            $('.popup_mini').click(function () {
+                $('.inner-popup').animate({ left: '+=275' }, 300, function () {
+                });
+                $('.popup_mini').animate({ left: '-=80' }, 600, function () {
+                });
+            });
+
+            $(".link_event").click(function () {
+                window.location = "@LinkManager.GetPostListLink((int)Core.Enums.PostType.Event)";
+            });
+            $(".link_news").click(function () {
+                window.location = "@LinkManager.GetPostListLink((int)Core.Enums.PostType.News)";
+            });
+            $(".link_event").hover(function () {
+                //more = 0;
+            });
+            $(".link_news").hover(function () {
+                //more = 0;
+            });
+
+            $('.youtube').fancybox({
+                width: 300,
+                height: 250,
+                openEffect: 'none',
+                closeEffect: 'none',
+                helpers: {
+                    media: {},
+                    overlay: null
+                },
+                'content': $(".SidebarRight").html()
+            });
+
+            $(".fancybox-close").click(function () {
+                $(".fancybox-wrap").css("display", "none");
+                $(".fancybox-iframe").remove();
+            });
+            //$(".youtube").click();
+        });
+    </script>
+
+    <style>
+        .wrap-header {
+            height: 140px !important;
+        }
+
+        .wrap-footer {
+            background: none !important;
+        }
+
+        body {
+            background: url(/Content/images/website/bg_ctn_repeat.jpg) 50% 0 repeat-y !important;
+        }
+
+        .wrap-main {
+            background: none !important;
+        }
+
+        .dk_nhanh_block {
+            height: 105px !important;
+        }
+
+            .dk_nhanh_block a {
+                color: #FCE2B0 !important;
+            }
+                .dk_nhanh_block a:hover{
+                    text-decoration:underline;
+                } 
+                .content .SidebarRight {
+                    position: relative;
+                }
+        .fancybox-wrap {
+            /*width: 440px !important;
+            height: 310px !important;
+            position: absolute !important;
+            top: 478px !important;
+            left: -31px !important;*/
+            width: 440px !important;
+            height: 310px !important;
+            position: fixed !important;
+            top: initial !important;
+            left: initial !important;
+            right: 55px;
+            bottom: 0px !important;
+        }
+        .fancybox-skin {
+            height: 100% !important;
+        }
+        .fancybox-outer {
+            height: 100% !important;
+        } 
+        .fancybox-inner {
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="top">
+        <div id="thewindowbackground" style="height: 2097px; width: 1423px;">
+        </div>
+        <a class="fancybox-media youtube" href="https://www.youtube.com/watch?v=crWmkg0t5Vo" style="display:none">abc</a>
+        <div id="container">
+            <div class="wrap-header">
+                <div class="header">
+                    <a href="/" title="" class="logo">
+                        <img src="/Content/images/website/blank.gif" alt="" width="270" height="100">
+                    </a>
+
+                    @Html.Partial("Shared/_MenuPartial")
+                </div>
+            </div>
+
+            <div class="wrap-main">
+                <div class="inner-main">
+                    <div class="main">
+                        <div class="wrap-content">
+                            <div class="content">
+                                <!--CONTENT LEFT-->
+                                <div class="ContentLeft">
+                                    <div class="banner_tanthu">
+
+                                        <!--BANNER AREA-->
+                                        @Html.Partial("Shared/_BannerPartial")
+                                        <!--END BANNER AREA-->
+                                        <!--BLOCK TAN THU-->
+                                        <div class="block-tanthu">
+                                            <div class="first_item">
+                                                <a href="@LinkManager.TRANSFER_GOLD" class="pay" style="cursor: pointer;">
+                                                    <img style="width:265px;height:86px" src="/Content/images/website/gold.jpg" alt="">
+                                                </a>
+
+                                                @if (Model.FaqList != null)
+                                                {
+                                                    foreach (var post in Model.FaqList)
+                                                    {
+                                                        <a href="@LinkManager.GetPostDetailLink(post.PostId)" title="@post.Title" class="title_tanthu">
+                                                            @post.Title
+                                                        </a>
+                                                    }
+                                                }
+                                            </div>
+                                        </div>
+                                        <!--END BLOCK TAN THU-->
+                                    </div>
+                                    <!--END BANNER AND TAN THU-->
+                                    @RenderSection("LeftColumnSection", false)
+                                </div>
+                                <!--END CONTENT LEFT-->
+                                <!--SIDEBAR RIGHT-->
+                                <div class="SidebarRight">
+
+                                    @*<div class="fancybox-skin" style="padding: 15px; width: auto; height: auto;"><div class="fancybox-outer"><div class="fancybox-inner" style="overflow: auto; width: 300px; height: 250px;"><iframe id="fancybox-frame1431622202984" name="fancybox-frame1431622202984" class="fancybox-iframe" frameborder="0" vspace="0" hspace="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" scrolling="auto" src="//www.youtube.com/embed/crWmkg0t5Vo?autoplay=1&amp;autohide=1&amp;fs=1&amp;rel=0&amp;hd=1&amp;wmode=opaque&amp;enablejsapi=1" __idm_id__="663553"></iframe></div></div><a title="Close" class="fancybox-item fancybox-close" href="javascript:;"></a></div>*@
+
+
+                                    <!--BLOCK CHOI NGAY-->
+                                    <div class="wrap-play">
+                                        <div class="inner-play">
+                                            <div class="play">
+                                                <div id="choingay_flash">
+                                                    <!--Temp-->
+                                                    <a href="@LinkManager.CHOI_NGAY">
+                                                        <span style="width: 250px; height: 130px; position: absolute; z-index: 100; margin-left: 110px; cursor: pointer; display: none"></span>
+                                                    </a>
+
+                                                    <!--Tem-->
+                                                    <object width="288" height="189" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000">
+                                                        <param value="/Content/flash/gameStart.swf" name="movie">
+                                                        <param value="high" name="quality">
+                                                        <param value="transparent" name="wmode">
+                                                        <embed width="288" height="189" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" quality="high" src="/Content/flash/gameStart.swf" wmode="transparent">
+                                                    </object>
+
+                                                </div>
+                                                <div id="choingay_no_flash">
+                                                    <a href="#">
+                                                        <img src="/Content/images/website/choingay.jpg" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="dk_taigame_napthe">
+                                                    <ul>
+                                                        
+                                                        <li><a href="@LinkManager.PAYMENT">Nạp thẻ</a></li>
+                                                        <li><a href="@LinkManager.TRANSFER_GOLD">Quy đổi</a></li>
+
+                                                    </ul>
+                                                </div>
+
+                                                @if (Request.IsAuthenticated)
+                                                {
+                                                    <div class="dk_nhanh_block">
+                                                        <table>
+                                                            <tr>
+                                                                <td>
+                                                                    Tài khoản : <span style="color:yellow">@Model.DisplayName !!!</span>
+                                                                </td>
+                                                            </tr>
+                                                            @*<tr>
+                                                                <td>
+                                                                    KNB : <span style="color:red">@Model.KNB</span>
+                                                                </td>
+                                                            </tr>*@
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="@LinkManager.TRANSFER_GOLD">Chuyển tiền vào game</a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="@LinkManager.PROFILE">Cập nhật hồ sơ</a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="@LinkManager.CHANGE_PASSWORD">Thay đổi mật khẩu</a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="@LinkManager.LOGOUT">Thoát</a>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="dk-dn">
+                                                        <div class="dk-dn-btn">
+                                                            <a class="dk-nhanh registerPopupBtn" href="@LinkManager.REGISTER"></a>
+                                                            <a class="dn loginPopupBtn" href="@LinkManager.LOGIN"></a>
+                                                        </div>
+                                                    </div>
+                                                }
+
+                                                @*@if (Request.IsAuthenticated)
+                                                    {
+                                                        <div class="dk_nhanh_block">
+                                                            <table>
+                                                                <tr>
+                                                                    <td><span>@Model.DisplayName</span> | <a href="@LinkManager.LOGOUT">Thoát</a></td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="dk-dn">
+                                                            <div class="dk-dn-btn">
+                                                                <a class="dk-nhanh" href="#"></a>
+                                                                <a class="dn" href="#"></a>
+                                                            </div>
+                                                        </div>
+                                                    }*@
+
+                                                <div style="height: 10px"></div>
+
+                                                @*@if (Request.IsAuthenticated && AuthHelper.CheckAdmin(User.Identity.Name))
+                                                {
+                                                    
+                                                }*@
+
+                                                <div class="server-block">
+                                                    <span class="danhsach_server" style="cursor: pointer" onclick="window.location.href='/ChoiNgay/'"></span>
+
+                                                    <ul class="listSever">
+                                                        @if (Model.ServerList != null && Model.ServerList.Count > 0)
+                                                        {
+                                                            foreach (var server in Model.ServerList)
+                                                            {
+                                                                <li>
+                                                                    <span class="new"></span>
+                                                                    <a onclick="@LinkManager.GetLoginJavascriptLink(server.ServerId)">
+                                                                        <span>[@server.ServerId]</span>
+                                                                        @server.ServerName
+                                                                    </a>
+                                                                </li>
+                                                            }
+                                                        }
+                                                    </ul>
+                                                </div>
+
+
+                                                <div class="bot_play">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="block-fb">
+                                        <a href="https://www.facebook.com/hoanhtao2015" class="fb_link"></a>
+                                        <a href="#" class="rum_link"></a>
+                                        <br />
+                                        <a href="ymsgr:SendIM?hoanhtao_hotro" class="yahoo"><img src='http://opi.yahoo.com/online?u=hoanhtao_hotro&m=g&t=2' /></a>
+                                    </div>
+
+                                    <!--END BLOCK CHOI NGAY-->
+                                    @RenderSection("RightColumnSection", false)
+
+                                </div>
+                                <!--END SIDEBAR RIGHT-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wrap-footer">
+                <div class="footer">
+                    <p>
+                        ©COPY-RIGHT HOANHTAO.COM<br>
+                    </p>
+                </div>
+            </div>
+
+            @*@Html.Partial("Partials/_LeftPopupPartial")*@
+
+
+            @*<span class="popup_mini" style="left: 0px;"></span>*@
+            <!--end popup left-->
+        </div>
+    </div>
+
+    @Html.Partial("Partials/_GoogleAnalyticsPartial")
+</body>
+</html>

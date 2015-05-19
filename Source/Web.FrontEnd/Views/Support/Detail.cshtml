@@ -1,0 +1,260 @@
+﻿@model Web.FrontEnd.Models.Support.SupportDetailModel
+@using Web.FrontEnd.App_Code;
+
+@{
+    Layout = "~/Views/Shared/_Inside.cshtml";
+}
+
+@section BreadCrumbSection{
+    <li>
+        <a href="@LinkManager.SUPPORT">
+            Hỗ trợ
+        </a>
+    </li>
+}
+
+@section ContentSection{
+
+    <style>
+        #ContentBlock {
+            padding-top: 0px !important;
+        }
+
+        .post-wrapper {
+            padding: 0px 25px;
+        }
+
+        .support-caption {
+            margin-top: 30px;
+            margin-bottom: 10px;
+            display: block;
+            color: #C18A26;
+            font-size: 18px;
+        }
+
+        #ContentBlock {
+            padding: 30px 0 40px 0px;
+            width: 100% !important;
+        }
+
+            #ContentBlock table tbody tr {
+                background: #3a4c54;
+            }
+
+        /*#ContentBlock table tr td {
+                color: white !important;
+            }*/
+
+        .table_txt {
+            color: white !important;
+            text-align: center !important;
+        }
+
+        .table-form .right {
+            text-align: left !important;
+        }
+
+        .tbData {
+            width: 100%;
+        }
+
+        .admin {
+            background-color: #FFD173 !important;
+            color: black !important;
+        }
+
+            .admin td {
+                color: black !important;
+            }
+    </style>
+
+    <div class="listtin">
+        <div class="post-wrapper">
+
+            @if (Model.IsValid)
+            {
+                <span class="message" style="font-weight:bold;font-size:15px;color:white;display:block;text-align:center;">
+                    Gửi hỗ trợ thành công
+                </span>
+            }
+
+            @if (Model.Support != null)
+            {
+                <span class="support-caption">Thông tin</span>
+
+                <table class="table-form" width="676" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                        <tr>
+                            <td width="120" class="table_txt left">Tiêu đề</td>
+                            <td width="600" class="right">
+                                <div style=" margin-left: 5px;">
+                                    <span id="cphContent_txtTitle" style="color:#C18A26;">
+                                        @Model.Support.Title
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="120" class="table_txt left">Vấn đề hỗ trợ</td>
+                            <td width="600" class="right">
+                                <div style="margin-left: 5px;">
+                                    <span id="cphContent_lblSupportTypeName" style="color:#C18A26;">
+                                        @DAL.Repositories.SupportRepository.GetSupportTypeName(Model.Support.SupportTypeId)
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="120" class="table_txt left">Máy chủ</td>
+                            <td width="271" class="right">
+                                <div style="margin-left: 5px;">
+                                    <span id="cphContent_lblServer" style="color:#C18A26;">
+                                        @DAL.Repositories.ServerRepository.GetServerName(Model.Support.ServerID)
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="120" class="table_txt left">Thời gian</td>
+                            <td width="271" class="right">
+                                <div style="margin-left: 5px;">
+                                    <span id="cphContent_lblDate" style="color:#C18A26;">
+                                        @Model.Support.CreatedDate.ToString("dd/MM/yyyy hh:mm")
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="120" class="table_txt left">Tình trạng</td>
+                            <td width="271" class="right">
+                                <div style="margin-left: 5px;">
+                                    <span id="cphContent_lblStatus" style="color:#C18A26;font-weight:bold;">
+                                        @Utilities.GetSupportStatusName(Model.Support.Status)
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            }
+
+            @if (Model.SupportDetailList != null)
+            {
+                <span class="support-caption">Nội dung</span>
+
+                <table class="tbData">
+                    <thead>
+                        <tr>
+                            <td>Thời gian</td>
+                            <td>Nội dung</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var support in Model.SupportDetailList)
+                        {
+                        <tr class="@(support.Role ? "admin" : "")">
+                            <td width="90px" style="text-align: center; vertical-align: central; padding: 3px;color:white">
+                                @Convert.ToDateTime(support.CreatedDate).ToString("dd/MM/yyyy hh:mm")
+                            </td>
+                            <td class="support-title" style="padding: 5px;color:white;text-align:left;">
+                                @if (!string.IsNullOrEmpty(support.Image1))
+                                    {
+                                <a rel="prettyPhoto[mixed]" href="@FilePathManager.GetSupportDetailImagePath(support.SupportDetailId, support.Image1)">
+                                    <img src="@FilePathManager.GetSupportDetailImagePath(support.SupportDetailId, support.Image1)" class="img-support">
+                                </a>
+                                    }
+
+                                @if (!string.IsNullOrEmpty(support.Image2))
+                                    {
+                                <a rel="prettyPhoto[mixed]" href="@FilePathManager.GetSupportDetailImagePath(support.SupportDetailId, support.Image2)">
+                                    <img src="@FilePathManager.GetSupportDetailImagePath(support.SupportDetailId, support.Image2)" class="img-support">
+                                </a>
+                                    }
+
+                                @if (!string.IsNullOrEmpty(support.Image3))
+                                    {
+                                <a rel="prettyPhoto[mixed]" href="@FilePathManager.GetSupportDetailImagePath(support.SupportDetailId, support.Image3)">
+                                    <img src="@FilePathManager.GetSupportDetailImagePath(support.SupportDetailId, support.Image3)" class="img-support">
+                                </a>
+                                    }
+
+                                <div class="clear"></div>
+
+                                @support.Content
+                            </td>
+                        </tr>
+                        }
+
+                    </tbody>
+                </table>
+
+            }
+
+            @if (Model.IsResolved)
+            {
+                <span class="support-caption">Phản hồi</span>
+
+                //@Html.Partial("_FeedbackForm", Model.SupportForm)
+                using (Html.BeginForm(null, null, new { supportId = Model.Support.SupportId },
+                    FormMethod.Post, new { @class = "form-horizontal tasi-form", enctype = "multipart/form-data" }))
+                {
+                    <table class="tbForm">
+                        <tr>
+                            <td colspan="2" valign="top">
+                                @if(!Model.IsValid)
+                                {
+                                    <span class="message red" style="font-weight:bold">@Html.Raw(Model.Message)</span>
+                                }
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="left" valign="top">Nội dung: </td>
+                            <td>
+                                @Html.TextAreaFor(x => x.SupportForm.Content, new { @class = "form-control shot popup_register_captcha", cols = "30", rows = "6", style = "width:400px", required = "" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="left">Hình đính kèm 1: </td>
+                            <td>
+                                <input name="image" type="file" class="default" accept="file_extension|image/*">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="left">Hình đính kèm 2: </td>
+                            <td>
+                                <input name="image" type="file" class="default" accept="file_extension|image/*">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="left">Hình đính kèm 3: </td>
+                            <td>
+                                <input name="image" type="file" class="default" accept="file_extension|image/*">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="left"></td>
+                            <td>
+                                <img id="img-captcha-register" src='/Captcha/' />
+                                <a class="btn-captcha-register" onclick="return ReloadCaptcha('img-captcha-register', '/Captcha/');">
+                                    <img src="/Content/images/website/change.png" alt="Thay hình khác" width="20px" />
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="left">Mã xác nhận</td>
+                            <td>@Html.TextBoxFor(x => x.SupportForm.Captcha, new { @class = "form-control shot popup_register_captcha", required = "" })</td>
+                        </tr>
+                        <tr>
+                            <td class="left"></td>
+                            <td>
+                                <input type="submit" value="Xác nhận" class="btn-accept" />
+                            </td>
+                        </tr>
+                    </table>
+
+                }
+            }
+        </div>
+    </div>
+}

@@ -1,0 +1,197 @@
+/*Reset CSS*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background-repeat:no-repeat;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+strong { font-weight:bold;}
+a, a:hover { text-decoration:none; background-repeat:no-repeat;}
+
+/*structure*/
+.block-left{float:left;}
+.block-right{float:right;}
+body{font-family:Tahoma, Geneva, sans-serif; font-size:12px;}
+.launcher{width: 831px; height: 500px;position: relative;overflow:hidden;}
+.part1{background:url(/Content/images/launcher/body-bg.png)top left no-repeat; background-image:url(/Content/images/launcher/body-bg.png);}
+.part2{background:url(/Content/images/launcher/body-bg2.png)top left no-repeat; background-image:url(/Content/images/launcher/body-bg2.png);}
+.event-link{display:inline-block; width: 315px; height: 143px; position:absolute; top: 66px; left: 355px;}
+.logo{display:inline-block; width: 75px; height: 34px; position:absolute; bottom: 44px; right: 118px;}
+.part2 .logo{bottom: 3px; right: 11px;}
+.hide-launcher{display:inline-block; width: 29px; height: 28px; position:absolute; top: 136px; right: 74px;}
+.close-launcher{display:inline-block; width: 28px; height: 34px; position:absolute; top: 114px; right: 51px;}
+
+/*-------Part 1-------*/
+/*Phiên bản*/
+span.phienban{position:absolute; top: 12px; left: 5px; font-size:11px; color:#929292; display:inline-block;}
+.part2 span.phienban{top: 470px;}
+/*Content*/
+.content{ margin-top: 41px; margin-left: 13px; width: 804px; height: 243px;}
+.part2 .content{height: 211px;width: 808px;top: 37px;left: 8px;}
+/*Event*/
+.event{width: 235px; height:100%; position:relative;}
+.main-content-event img{position:absolute; width: 235px; height: 242px;  }
+.control-event{position:absolute; display: inline-block;height: 20px;padding-left: 10px;padding-top: 5px;}
+.control-event img{background:url(/Content/images/launcher/bg-control.png)0 0 no-repeat; background-image:url(/Content/images/launcher/bg-control.png); width: 13px;height: 13px; cursor:pointer;}
+.control-event img.act{background-position: -17px 0;}
+
+.event .tooltip{position:absolute; bottom: 0px;padding: 0 10px 10px 10px;background: rgba(0, 0, 0, .5);}
+.event .tooltip h3{text-transform:uppercase; font-size:14px; color:#c07728;line-height: 2;}
+.event .tooltip p{font-size:11px; color:#636a75;}
+/*content-right*/
+.content-right{width: 509px; height:100%;}
+.content-right h3{height: 50px;}
+.content-right h3 a{font-size:16px; color:#dfdfdf; padding:0px 15px; border-right:1px solid #dfdfdf; font-weight:bold;line-height: 50px;}
+.content-right h3 a:last-child{border-right:none;}
+.content-right h3 a.active, .content-right h3 a:hover{color:#e8b47c;}
+
+.news{padding: 0px 15px;}
+.news a{color:#929292; border-bottom:1px solid #252525; line-height: 30px;display: inline-block;width: 100%;}
+.news a:hover{color:#fff;}
+.news a:hover span.display-time{background-position:0 -21px; color:#fff;}
+.news span.display-time{display:inline-block; width:64px; height: 30px; padding-left: 7px; background: url(/Content/images/launcher/bg-time.png)0 10px no-repeat; background-position:0 10px; background-image: url(/Content/images/launcher/bg-time.png); color:#4d4d4d;}
+
+.view-more{margin-top: 10px;margin-left: 15px;display: inline-block;color: #929292;font-weight: bold;font-size: 11px;}
+
+/*Login-control*/
+.login-control{position:absolute; bottom: 65px;left: 6px;width: 818px;height: 138px;}
+.dangky{width: 240px; float:left;display: inline-block;height: 100%;}
+.dangky a{background: url(/Content/images/launcher/button.png) 0 -50px no-repeat;background-position:0 -50px; background-image: url(/Content/images/launcher/button.png); display: inline-block;width: 133px;height: 46px;float: right;margin-top: 30px;}
+.dangky a:hover{background-position:-143px -50px; background-position:-143px -50px;}
+
+.dangnhap{width: 450px; float:left;display: inline-block;height: 118px;padding-top: 20px;position: relative;}
+.dangnhap p{padding-left:20px;margin-bottom: 10px;}
+.dangnhap label{width: 88px; height: 25px; display:inline-block; background: url(/Content/images/launcher/label-dn.png)0 0 no-repeat; background-image: url(/Content/images/launcher/label-dn.png); float: left;}
+.user label{background-position: 0px 5px;}
+.pass label{background-position: 0px -30px;}
+.dangnhap p input{width:180px; background:#111;border: 1px solid #000;box-shadow: 1px 1px 1px #302e2d; color:#fff;}
+.btn-dangnhap{background: url(/Content/images/launcher/button.png)0 -110px no-repeat; background-position:0 -110px; background-image: url(/Content/images/launcher/button.png); display:inline-block; width: 133px; height: 39px;position: absolute;right: 0;top: 30px;}
+.btn-dangnhap:hover{background-position:-143px -110px;}
+
+.dangnhap p.check input{width:auto;}
+.dangnhap p.check a{font-size:11px; color:#bdbdbd; padding:0 10px; border-left:1px solid #bdbdbd;}
+.dangnhap p.check a.first{border-left:none; padding-left:0;}
+.dangnhap p.check a:hover{color:#e99f47;}
+
+/*Nav*/
+.nav{width: 128px; float:right;display: inline-block;height: 100%;position: relative;padding-top: 20px;}
+.nav a{background: url(/Content/images/launcher/button.png)-221px 0px no-repeat; background-position:-221px 0px; background-image: url(/Content/images/launcher/button.png); color:#fff; font-weight:bold;float: right;width: 110px;height: 38px;line-height: 27px;text-align: center;}
+.nav a:hover{color:#e99f47;}
+
+/*-------Part 2-------*/
+.nav2{width: 806px; display: inline-block;height: 40px;position: absolute;top: -37px;z-index: 10;}
+.nav2 a{background: url(/Content/images/launcher/button.png) 0 -162px no-repeat; background-position:0px -162px; background-image: url(/Content/images/launcher/button.png); display:inline-block; width:100px; height: 36px;}
+.nav2 a.trangchu{background-position:0px -162px; background-position:0px -162px;}
+	.nav2 a.trangchu:hover{background-position:-109px -162px; background-position:-109px -162px;}
+.nav2 a.naptiennhanh{background-position: 1px -200px; background-position:1px -200px;}
+	.nav2 a.naptiennhanh:hover{background-position:-108px -200px; background-position:-108px -200px;}
+p.thongbao{color:#fff;padding-left: 20px;line-height: 42px;}
+p.thongbao a{border-right: 1px solid #ffb620;padding: 0 10px;color: #ffb620;}
+p.thongbao a:last-child{border-right:none;}
+a.capnhattaikhoan{color: #ffb620;display: inline-block;line-height: 2;margin-top: 15px;margin-left: 20px;}
+.recent-login{display: inline-block; height: 34px; margin-top: 18px; margin-left: 203px;}
+.recent-login p{float:left; position:relative;}
+
+span.trangthai0{background:none;}
+span.trangthai1{background-position:0px 0px; background-position:0px 0px;}
+span.trangthai2{background-position: -9px 0px; background-position: -9px 0px;}
+span.trangthai3{background-position: -27px 0px; background-position: -27px 0px;}
+span.trangthai4{background-position: -18px 0px; background-position: -18px 0px;}
+.recent-login a{background: url(/Content/images/launcher/button.png)0 -351px no-repeat; background-position:0px -351px; background-image: url(/Content/images/launcher/button.png); display: inline-block;width: 163px;height: 33px;line-height: 30px;text-align: center;color: #f5e5af;}
+
+a.vaogame{background: url(/Content/images/launcher/vaogame.png)25px 29px no-repeat; background-position:25px 29px; background-image: url(/Content/images/launcher/vaogame.png); display:inline-block; width: 148px; position: absolute;top: 93px;right: 37px;height: 136px; }
+a.vaogame:hover{background-position:26px 28px;}
+.vaonhanh{margin-top:20px;position: relative;}
+.vaonhanh span{background:url(/Content/images/launcher/bg-server-number.png)0 0 no-repeat; background-image:url(/Content/images/launcher/bg-server-number.png); display:inline-block; width: 47px; height: 22px;text-align: center;line-height: 22px;position: absolute;top: 5px;left: 125px; color:#95946d;}
+.vaonhanh a{background: url(/Content/images/launcher/button.png)0 -302px no-repeat; background-position:0px -302px; background-image: url(/Content/images/launcher/button.png); display: inline-block;width: 163px;height: 33px;position: absolute;top: 0px;left: 202px;}
+
+/*server-tab*/
+#server-tab{width: 815px;margin-top:16px}
+.tab-show{width: 790px; overflow: hidden;}
+#server-tab ul{width:880px;position: relative; overflow: hidden;}
+#server-tab ul li{width: 103px; height: 34px;float: left;text-align: center;margin-right: 7px;}
+#server-tab ul li a:hover, #server-tab ul li a.selected{background-position: -102px 0px; background-position:-102px 0px;}
+#server-tab ul li a{background:url(/Content/images/launcher/server-tab.png)0 0 no-repeat; background-image:url(/Content/images/launcher/server-tab.png); color:#b9b9b9;display: inline-block;width: 103px;font-size: 10px;text-align: center;padding: 8px 0;}
+
+.control-tab{position:absolute; display: inline-block;width: 56px;height: 34px;top: 0;right: -4px;}
+.control-tab .next{width: 26px; display:inline-block;height: 26px;background: url(/Content/images/launcher/btn-control-tab.png)0px -28px no-repeat; background-position:0px -28px; background-image: url(/Content/images/launcher/btn-control-tab.png); margin-top: 271px;}
+.control-tab .next:hover{background-position:-27px -28px;}
+.control-tab .prev{width: 26px; display:inline-block;    height: 26px;  background: url(/Content/images/launcher/btn-control-tab.png)0px 0px no-repeat; background-image: url(/Content/images/launcher/btn-control-tab.png);  margin-top: 5px;}
+.control-tab .prev:hover{background-position:-27px 0px;}
+
+.server-group{height: 150px;padding-left:25px}
+.server-group p{width:153px; float:left;height:60px}
+.server-group p a{background: url(/Content/images/launcher/button.png)0px -241px no-repeat; background-position:0px -241px; background-image: url(/Content/images/launcher/button.png); background-position:0px -241px; display:block;width: 153px;height: 46px;margin: 13px 2px;line-height: 46px;text-align: center;color: #f5e5af;font-weight: bold;}
+.server-group p a:hover{background-position:-153px -241px;}
+
+
+
+.server-group p span.trangthai{position:relative; background: url(/Content/images/launcher/trangthai.png)0px 0px no-repeat; background-image: url(/Content/images/launcher/trangthai.png); display: inline-block;width: 8px;height: 8px;top: 42px;left: 26px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

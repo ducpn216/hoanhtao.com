@@ -1,0 +1,407 @@
+﻿@using System.Collections;
+@using Web.BackEnd.Models;
+@using Web.BackEnd.App_Code;
+@using Core.GameAPI.Responses;
+
+@model CharDetailModel
+
+@{
+    ViewBag.Title = "Edit";
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section TitleSection{
+
+    Chi tiết nhân vật
+}
+
+<div id="error_message"></div>
+
+<script>
+    $(document).ready(function () {
+        $(".txtAccount").change(function () {
+            $(".ddlServer").val("");
+        });
+    });
+</script>
+
+@using (Html.BeginForm("CharDetail", "Game", FormMethod.Post, new { @class = "form-horizontal tasi-form" }))
+{
+    <div class="row">
+        <div class="col-lg-12">
+
+            <section class="panel">
+                <header class="panel-heading">
+                    <div class="clearfix">
+                        <div class="btn-group">
+                            @Html.TextBoxFor(x => x.AccountName, new { @class = "form-control txtAccount", required = "", placeholder = "Tài khoản" })
+                        </div>
+                        <div class="btn-group">
+                            @Html.DropDownListFor(x => x.SelectedServerId, Model.ServerList.ToList(), new { @class = "form-control ddlServer" })
+                        </div>
+                        <div class="btn-group">
+                            @Html.DropDownListFor(x => x.SelectedRoleId, Model.RoleList.ToList(), new { @class = "form-control ddlRole" })
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-info" type="submit">Tìm kiếm</button>
+                        </div>
+                    </div>
+                </header>
+            </section>
+        </div>
+
+        @if (Model.CharDetailResponse != null)
+        {
+            CharDetailResponse charDetail = Model.CharDetailResponse;
+
+            <div class="col-lg-6">
+                <section class="panel">
+                    <header class="panel-heading blue">
+                        Thông tin
+                    </header>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">IP</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Base.dwIPAddr</p>
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Nghề nghiệp</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Base.dwProf</p>
+                            </div>
+                        </div>*@
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Level</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Base.dwLevel</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Kinh nghiệm</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Base.dwExp</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Nguyên bảo</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Base.dwGold</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Nguyên bảo khóa</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Base.dwBindGold</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Ngân lượng có trong túi đồ</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Base.dwPacketMoney</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Ngân lượng có trong hòm đồ</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Base.dwStorageMoney</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Tên bang hội tham gia</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Base.szGuildName</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Tên người yêu</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Base.szLover</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Vip</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@((charDetail.Base.bIsVip == "0") ? "Không" : "Có")</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Thời gian VIP còn lại (ms)</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Base.dwVipTime</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Cấp độ uy danh</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Base.dwWeiwangLevel</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Điểm uy danh</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Base.dwActivePoint</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Bị cấm chat</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@((charDetail.Base.bChatBan == "0") ? "Không" : "Có")</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Có bị khóa tài khoản hay không</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@((charDetail.Base.bLoginBan == "0") ? "Không" : "Có")</p>
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">ID map hiện tại</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Base.MapID</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Tọa độ x hiện tại</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Base.fPosX</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Tọa độ y hiện tại</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Base.fPosY</p>
+                            </div>
+                        </div>*@
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">IP đăng nhập</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Base.ip</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Thời gian đăng nhập</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Base.login</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Thời gian tạo nhân vật</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Base.create</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Trạng thái</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@((charDetail.Base.online == "0") ? "Offline" : "Online")</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            @*<div class="col-lg-6">
+                <section class="panel">
+                    <header class="panel-heading blue">
+                        Thuộc tính
+                    </header>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Công kích</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Prop.dwAtk</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Phòng ngự</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Prop.dwDef</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Bạo kích</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Prop.dwCri</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Thân pháp</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Prop.dwFle</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Tốc độ công kích</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Prop.dwASD</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Tốc độ di chuyển</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Prop.dwSpd</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Muscle</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Prop.dwMuscle  </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Physique</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Prop.dwPhysique</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Organ</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Prop.dwOrgan</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Technique</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Prop.dwTechnique</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Dander</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Prop.dwDander</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-lg-6">
+                <section class="panel">
+                    <header class="panel-heading blue">
+                        Danh kiếm
+                    </header>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Tên</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Sword.szName </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">id</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Sword.dwSwordId </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Cấp độ</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Sword.dwSwordLadder </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Đẳng cấp</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Sword.dwLevel </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Kiếm khí</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Sword.dwSwordGas </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-lg-6">
+                <section class="panel">
+                    <header class="panel-heading blue">
+                        Bảo giáp
+                    </header>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Tên</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Amulet.szName</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Cấp độ</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Amulet.dwAmuletLevel</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Đẳng cấp</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Amulet.dwAmuletRank</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Điểm trưởng thành</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Amulet.dwGrowthValue</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-lg-6">
+                <section class="panel">
+                    <header class="panel-heading blue">
+                        Thực chiến
+                    </header>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Đẳng cấp</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Bourn.dwBornLv</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Kinh nghiệm</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Bourn.dwBournExp</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>*@
+
+            @*<div class="col-lg-6">
+                <section class="panel">
+                    <header class="panel-heading blue">
+                        Kỹ năng
+                    </header>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">ID Kỹ năng</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Skill.dwSkillID</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Cấp kỹ năng</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Skill.dwSkillLevel</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-3 col-sm-3 control-label">Tên kỹ năng</label>
+                            <div class="col-lg-9">
+                                <p class="help-block">@charDetail.Skill.szName</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>*@
+        }
+    </div>
+}

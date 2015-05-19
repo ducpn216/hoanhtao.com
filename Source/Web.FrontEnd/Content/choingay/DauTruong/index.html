@@ -1,0 +1,600 @@
+
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from ht.gate.vn/ChoiNgay/DauTruong/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Apr 2015 17:52:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head><link rel="image_src" href="../../images/thumb.jpg" /><link rel="SHORTCUT ICON" href="../../Event/HuyetChienLenh/images/16x16.ico" /><meta property="fb:app_id" content="360172140780878" /><meta name="keywords" content="Hoành tảo thiên hạ, hoanh tao thien ha, game, game online, web game, webgame" /><meta name="description" content="Tải, cài đặt và chơi ngay game 3D đẳng cấp kiếm hiệp Kim Dung hay nhất 2013. Tham gia để trải nghiệm phiên bản chính thức. Ra mắt 9h30 ngày 16/7/2013" /><title>
+	Hoành Tảo Thiên Hạ - Đẳng cấp kiếm hiệp 3D
+</title><link rel="stylesheet" type="text/css" href="../css/styleb73c.css?t=1" /><link href="../../css/myStyle.css" rel="stylesheet" type="text/css" />
+ <script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>
+
+<script type="text/javascript" src="../js/jquery.selectBox.js"></script>
+<script type="text/javascript" src="../js/jquery.mousewheel.min.js"></script>
+<script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
+
+<script type="text/javascript" src="../js/fadegallery.js"></script>
+<script src="../js/jquery.sliderTabs.min.js"></script>
+<!--Login-->
+<script type="text/javascript" src="../../js/fo.connect.config.js"></script>
+<script type="text/javascript" src="../../js/fo.connect.js"></script>
+<script type="text/javascript" src="../../js/closePopup.js"></script>
+<script type="text/javascript">
+FOConnect.init({
+    receiver: 'http://' + window.location.host + '/DangNhap/'
+});
+</script>
+
+ <!--Header gate-->
+    <script type="text/javascript" src="../../../static.gate.vn/static/js/fpt/fpt.partner.header.v2.js"></script>
+     <script type="text/javascript" src="../../js/myFunction.js"></script>
+     <link href="../../css/ToolBar.css" rel="stylesheet" type="text/css" />
+     <script type="text/javascript" src="../../js/script.js"></script>
+<!--Login-->
+<script type="text/javascript">
+   
+	function arenaplaygame(serverid, groupid) {
+
+		if (!Date.now) {
+			Date.now = function () { return new Date().valueOf(); } // Ie7
+		}
+		var date = new Date;
+		if (!$.login().check) {
+		    FOConnect.init({ receiver: 'http://hoanh.gate.vn/DangNhap/', loginurl: 'http://hoanh.gate.vn/ChoiNgay/ArenaPlay/' + serverid + "/" + groupid + "/" }); FOConnect.login();
+		}
+		else {
+			if (serverid != -1) {
+				if (checkToken(serverid) == "0") {
+				    redirectURL("http://hoanh.gate.vn/ChoiNgay/ArenaPlay/" + serverid + "/" + groupid + "/");
+				}
+				else {
+					if (checkToken(serverid) == "1") {
+						alert('Server đang quá đông, xin vui lòng chọn server khác');
+					}
+					else {
+						alert('Số lượng truy cập đang quá đông, xin vui lòng đợi hoặc chọn server khác');
+					}
+				}
+			}
+			else {
+			    redirectURL("http://hoanh.gate.vn/ChoiNgay/ArenaPlay/" + serverid + "/" + groupid + "/");
+			}
+		}
+
+	};
+
+
+
+    $(document).ready(function () {
+
+        //showSigninPopUp();
+        //$(".popup_content").html("Giai đoạn Alpha test đã kết thúc. Xin mời quay trở lại vào lúc 9h30 ngày 16/07");
+        //$(".close_wrap").click(function () { window.location.href = '/'; });
+        //$("#overcontain").click(function () {
+        //    window.location.href = '/';
+        //});
+        //return false;
+        // List Server Sliding Tabs
+        var tabs = $("div#mySliderTabs").sliderTabs({
+            autoplay: false,
+            indicators: true,
+            panelArrows: false,
+            panelArrowsShowOnHover: false,
+            indicators: false
+        });
+        $("select.server").selectBox();
+
+        var windowWidth = jQuery(window).width();
+        var windowHeight = jQuery(window).height();
+        var popupWidth = jQuery('.popup_block').width();
+        var popupHeight = jQuery('.popup_block').height();
+        $('.popup_block').css('left', (windowWidth - popupWidth) / 2);
+
+        $(window).resize(function () {
+            windowWidth = jQuery(window).width();
+            windowHeight = jQuery(window).height();
+            $('.popup_block').css('left', (windowWidth - popupWidth) / 2);
+        });
+        $('#thewindowbackground').css({ 'height': $(window).height(), 'width': $(window).width() });
+
+        $('#pop-dk').click(function () {
+            $('#pop_dk').css('visibility', 'visible');
+            $('#thewindowbackground').show();
+        });
+
+
+        $('.close-dk').click(function () {
+            $('#pop_dk').css('visibility', 'hidden');
+            $('#thewindowbackground').hide();
+        });
+
+        $('#pop-dn').click(function () {
+            $('#pop_dn').css('visibility', 'visible');
+            //$('#thewindowbackground').show();
+        });
+
+
+        $('.close-dn').click(function () {
+            $('#pop_dn').css('visibility', 'hidden');
+            $('#thewindowbackground').hide();
+        });
+
+
+
+    });
+
+
+    //Signup
+</script>
+    <script type="text/javascript">
+        //SignUP
+        var error = "";
+        $(document).ready(function () {
+            $(".submit_dk").click(function () {
+
+                if (verify()) {
+                    var username = $(".signup_username").val(), password = $(".signup_pass").val(), verifyCode = $(".signup_verifycode").val()
+                    signUp(verifyCode, username, password);
+                }
+                else {
+                    showSigninPopUp();
+                    $(".popup_content").html(error);
+
+                }
+
+            });
+        });
+        function validateEmail(email) {
+            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        }
+        function getSvName(sid) {
+            $.ajax({
+                type: 'post',
+                url: '/Event/Ajax/Default.aspx?ajaxType=svName&&id=' + sid,
+                dataType: 'html',
+                success: function (response) {
+                    $(".c" + sid).html(response);
+                }
+            });
+        }
+       
+        function signUp(verifyCode, username, password) {
+
+            $.ajax({
+                type: 'post',
+                url: '/Event/Ajax/Default.aspx?ajaxType=signUp&&verifyCode=' + verifyCode + '&&username=' + username + '&&password=' + password,
+                dataType: 'html',
+                success: function (response) {
+                    result_description = response.split('|')[0];
+                    result = response.split('|')[1];
+                    showSigninPopUp();
+                    $(".popup_content").html(result_description);
+                    if (result == 1) {
+                        _gaq.push(['_trackEvent', 'NRU', 'Register', 'Hoanh-DK nhanh']);
+                        $("#pop_dk").fadeOut();
+                        $("#thewindowbackground").fadeOut();
+                        $(".popup_content").append("<div class='close_dn' style='padding-top:10px;color:#222'>Ấn vào <a style='font-weight:bold' href='javascript:;' onclick='FOConnect.login();'>Đây</a> để đăng nhập</div>");
+                        ReloadImage('imageverifier', '/Library/VerifyImage/ImageVerifier.aspx');
+                        $(".signup_username").val('');
+                        $(".signup_pass").val('');
+                        $(".signup_repass").val('');
+                        $(".signup_verifycode").val('');
+
+
+
+
+                    }
+                }
+            });
+        }
+        function verify() {
+
+            flag = true;
+            error = "";
+            if ($(".signup_username").val() == '') {
+
+                flag = false;
+                error += "(*) Bạn chưa nhập tên tài khoản. <br/>";
+
+            }
+            else if ($(".signup_username").val().length < 6 || $(".signup_username").val().length > 51) {
+                flag = false;
+                error += "(*) Tên tài khoản phải từ 6-50 kí tự. <br/>";
+            }
+            if ($(".signup_pass").val() == '') {
+                flag = false;
+                error += "(*) Bạn chưa nhập mật khẩu. <br/>";
+            }
+            else if ($(".signup_pass").val().length < 6 || $(".signup_pass").val().length > 64) {
+                flag = false;
+                error += "(*) Mật khẩu phải từ 6-64 kí tự. <br/>";
+            }
+            else
+                if ($(".signup_pass").val() != $(".signup_repass").val()) {
+                    flag = false;
+                    error += "(*) Mật khẩu nhập lại không chính xác. <br/>";
+                }
+
+            if ($(".signup_verifycode").val() == '') {
+                flag = false;
+                error += "(*) Bạn chưa nhập mã xác nhận. <br/>";
+            }
+
+            return flag;
+        }
+        function showSigninPopUp() {
+            if (!$("#overcontain").length) {
+                $("body").append("<div id='overcontain'></div>");
+                $("#overcontain").height($(document).height());
+            }
+            if (!$("#SigninPopup_wrap").length) {
+                $("body").append("<div id='SigninPopup_wrap'><div class='popup_title'></div><div class='popup_content'></div><div class='close_wrap'><img src='http://toolbar.gate.vn/PopUp/Images/close_gray.png' alt=''/></div></div>");
+            }
+            $("#overcontain").fadeIn();
+            $("#SigninPopup_wrap").fadeIn();
+
+            h = $("#SigninPopup_wrap").height();
+            w = $("#SigninPopup_wrap").width();
+            $("#SigninPopup_wrap").css({ "margin-top": -h / 2, "margin-left": -w / 2 });
+            $(".close_wrap").hover(function () { $('img', this).attr('src', '../../../toolbar.gate.vn/PopUp/Images/close.png'); }, function () { $('img', this).attr('src', '../../../toolbar.gate.vn/PopUp/Images/close_gray.png'); });
+            $(".close_wrap").live('click', (function () { $("#SigninPopup_wrap").fadeOut(); $("#overcontain").fadeOut(); }));
+            $(".close_dn").live('click', (function () { $("#SigninPopup_wrap").fadeOut(); $("#overcontain").fadeOut(); }));
+            $("#overcontain").live('click', function () {
+                $("#SigninPopup_wrap").fadeOut();
+                $(this).fadeOut();
+            });
+
+        }
+    </script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-41189759-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+    
+<!-- Facebook Conversion Code for Hoành Tảo_T04 -->
+<script type="text/javascript">
+    var fb_param = {};
+    fb_param.pixel_id = '6013406639456';
+    fb_param.value = '0.00';
+    fb_param.currency = 'USD';
+    (function () {
+        var fpw = document.createElement('script');
+        fpw.async = true;
+        fpw.src = '../../../connect.facebook.net/en_US/fp.js';
+        var ref = document.getElementsByTagName('script')[0];
+        ref.parentNode.insertBefore(fpw, ref);
+    })();
+</script>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?id=6013406639456&amp;value=0&amp;currency=USD" /></noscript>
+    
+<!-- Google Code for Dang Ky Conversion Page -->
+<script type="text/javascript">
+    /* <![CDATA[ */
+    var google_conversion_id = 971183601;
+    var google_conversion_language = "en";
+    var google_conversion_format = "3";
+    var google_conversion_color = "ffffff";
+    var google_conversion_label = "ZyQjCKfOnggQ8auMzwM";
+    var google_remarketing_only = false;
+    /* ]]> */
+</script>
+<script type="text/javascript" src="../../../www.googleadservices.com/pagead/f.txt">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/971183601/?label=ZyQjCKfOnggQ8auMzwM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+    <form method="post" action="#" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEzNTQxMDcxNTkPZBYCAgcPZBYMZg8QZA8WA2YCAQICFgMQBQpUaMOhaSBTxqFuBQM5OTVnEAUJVHVuZyBTxqFuBQM5OTZnEAUISG9hIFPGoW4FAzk5N2cWAWZkAgIPFgIeBFRleHQF1gcgPGxpPjxhIGhyZWY9JyNjb250ZW50XzEnICBjbGFzcz0ndGFiJyA+MSAtIDg8L2E+PC9saT4gPGxpPjxhIGhyZWY9JyNjb250ZW50XzInICBjbGFzcz0nc2VsZWN0ZWQnID45IC0gMTY8L2E+PC9saT4gPGxpPjxhIGhyZWY9JyNjb250ZW50XzMnICBjbGFzcz0nc2VsZWN0ZWQnID4xNyAtIDI0PC9hPjwvbGk+IDxsaT48YSBocmVmPScjY29udGVudF80JyAgY2xhc3M9J3NlbGVjdGVkJyA+MjUgLSAzMjwvYT48L2xpPiA8bGk+PGEgaHJlZj0nI2NvbnRlbnRfNScgIGNsYXNzPSdzZWxlY3RlZCcgPjMzIC0gNDA8L2E+PC9saT4gPGxpPjxhIGhyZWY9JyNjb250ZW50XzYnICBjbGFzcz0nc2VsZWN0ZWQnID40MSAtIDQ4PC9hPjwvbGk+IDxsaT48YSBocmVmPScjY29udGVudF83JyAgY2xhc3M9J3NlbGVjdGVkJyA+NDkgLSA1NjwvYT48L2xpPiA8bGk+PGEgaHJlZj0nI2NvbnRlbnRfOCcgIGNsYXNzPSdzZWxlY3RlZCcgPjU3IC0gNjQ8L2E+PC9saT4gPGxpPjxhIGhyZWY9JyNjb250ZW50XzknICBjbGFzcz0nc2VsZWN0ZWQnID42NSAtIDcyPC9hPjwvbGk+IDxsaT48YSBocmVmPScjY29udGVudF8xMCcgIGNsYXNzPSdzZWxlY3RlZCcgPjczIC0gODA8L2E+PC9saT4gPGxpPjxhIGhyZWY9JyNjb250ZW50XzExJyAgY2xhc3M9J3NlbGVjdGVkJyA+ODEgLSA4ODwvYT48L2xpPiA8bGk+PGEgaHJlZj0nI2NvbnRlbnRfMTInICBjbGFzcz0nc2VsZWN0ZWQnID44OSAtIDk2PC9hPjwvbGk+IDxsaT48YSBocmVmPScjY29udGVudF8xMycgIGNsYXNzPSdzZWxlY3RlZCcgPjk3IC0gMTA0PC9hPjwvbGk+IDxsaT48YSBocmVmPScjY29udGVudF8xNCcgIGNsYXNzPSdzZWxlY3RlZCcgPjEwNSAtIDExMjwvYT48L2xpPiA8bGk+PGEgaHJlZj0nI2NvbnRlbnRfMTUnICBjbGFzcz0nc2VsZWN0ZWQnID4xMTMgLSAxMjA8L2E+PC9saT4gPGxpPjxhIGhyZWY9JyNjb250ZW50XzE2JyAgY2xhc3M9J3NlbGVjdGVkJyA+MTIxIC0gMTI4PC9hPjwvbGk+ZAIDDxYCHwAFmr8BPGRpdiBjbGFzcz0ndGFiX3ZpZXcnIGlkPSdjb250ZW50XzEnPjx1bD48bGkgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoMSwgOTk1KScgICA+IDxzdHJvbmc+WzFdIFRoYW5oIExvbmc8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgyLCA5OTUpJyAgID4gPHN0cm9uZz5bMl0gQuG6oWNoIEjhu5U8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgzLCA5OTUpJyAgID4gPHN0cm9uZz5bM10gVMOgbmcgTG9uZzwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpICBjbGFzcz0nbm8tcmlnaHQnID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDQsIDk5NSknICAgPiA8c3Ryb25nPls0XSBOZ+G7jWEgSOG7lTwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDUsIDk5NSknICAgPiA8c3Ryb25nPls1XSBQaGkgTG9uZzwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDYsIDk5NSknICAgPiA8c3Ryb25nPls2XSBWxakgSOG7lTwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDcsIDk5NSknICAgPiA8c3Ryb25nPls3XSBUaeG7gW0gTG9uZzwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpICBjbGFzcz0nbm8tcmlnaHQnID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDksIDk5NSknICAgPiA8c3Ryb25nPls5XSBUaOG6p24gTG9uZzwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PC91bD48L2Rpdj48ZGl2IGNsYXNzPSd0YWJfdmlldycgaWQ9J2NvbnRlbnRfMic+PHVsPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgxMCwgOTk1KScgICA+IDxzdHJvbmc+WzEwXSBQaOG7pWMgSOG7lTwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDExLCA5OTUpJyAgID4gPHN0cm9uZz5bMTFdIEdpYW8gTG9uZzwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDEyLCA5OTUpJyAgID4gPHN0cm9uZz5bMTJdIEh1eeG6v3QgSOG7lTwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpICBjbGFzcz0nbm8tcmlnaHQnID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDEzLCA5OTUpJyAgID4gPHN0cm9uZz5bMTNdIFjDrWNoIExvbmc8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgxNCwgOTk1KScgICA+IDxzdHJvbmc+WzE0XSBUaOG6oWNoIEjhu5U8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgxNSwgOTk1KScgICA+IDxzdHJvbmc+WzE1XSBCw61jaCBMb25nPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48bGkgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoMTYsIDk5NSknICAgPiA8c3Ryb25nPlsxNl0gVHV54bq/dCBI4buVPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48bGkgIGNsYXNzPSduby1yaWdodCcgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoMTcsIDk5NSknICAgPiA8c3Ryb25nPlsxN10gQ2jDom4gTG9uZzwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PC91bD48L2Rpdj48ZGl2IGNsYXNzPSd0YWJfdmlldycgaWQ9J2NvbnRlbnRfMyc+PHVsPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgxOCwgOTk1KScgICA+IDxzdHJvbmc+WzE4XSBMacOqbSBI4buVPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48bGkgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoOCwgOTk1KScgICA+IDxzdHJvbmc+WzhdIENo4bqlbiBI4buVPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48bGkgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoMTksIDk5NSknICAgPiA8c3Ryb25nPlsxOV0gS2ltIExvbmc8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSAgY2xhc3M9J25vLXJpZ2h0JyA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgyMCwgOTk1KScgICA+IDxzdHJvbmc+WzIwXSBIdXnhu4FuIEjhu5U8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgyMSwgOTk1KScgICA+IDxzdHJvbmc+WzIxXSBTxqFuIExvbmc8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgyMiwgOTk1KScgICA+IDxzdHJvbmc+WzIyXSBUaMO5eSBI4buVPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48bGkgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoMjMsIDk5NSknICAgPiA8c3Ryb25nPlsyM10gSOG7j2EgTG9uZzwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpICBjbGFzcz0nbm8tcmlnaHQnID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDI0LCA5OTUpJyAgID4gPHN0cm9uZz5bMjRdIOG7qG5nIEjhu5U8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjwvdWw+PC9kaXY+PGRpdiBjbGFzcz0ndGFiX3ZpZXcnIGlkPSdjb250ZW50XzQnPjx1bD48bGkgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoMjUsIDk5NSknICAgPiA8c3Ryb25nPlsyNV0gVGhpw6puIExvbmc8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgyNiwgOTk1KScgICA+IDxzdHJvbmc+WzI2XSBOZ3V54buHdCBI4buVPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48bGkgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoMjcsIDk5NSknICAgPiA8c3Ryb25nPlsyN10gVGjhu6d5IExvbmc8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSAgY2xhc3M9J25vLXJpZ2h0JyA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgyOCwgOTk1KScgICA+IDxzdHJvbmc+WzI4XSBWw6JuIEjhu5U8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgyOSwgOTk1KScgICA+IDxzdHJvbmc+WzI5XSDEkOG7i2EgTG9uZzwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDMwLCA5OTUpJyAgID4gPHN0cm9uZz5bMzBdIEzDo25oIEjhu5U8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgzMSwgOTk1KScgICA+IDxzdHJvbmc+WzMxXSBUdXnhur90IExvbmc8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSAgY2xhc3M9J25vLXJpZ2h0JyA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgzMiwgOTk1KScgICA+IDxzdHJvbmc+WzMyXSBQaG9uZyBI4buVPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48L3VsPjwvZGl2PjxkaXYgY2xhc3M9J3RhYl92aWV3JyBpZD0nY29udGVudF81Jz48dWw+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDMzLCA5OTUpJyAgID4gPHN0cm9uZz5bMzNdIE5n4buNYSBMb25nPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48bGkgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoMzQsIDk5NSknICAgPiA8c3Ryb25nPlszNF0gVHXhur8gSOG7lTwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDM1LCA5OTUpJyAgID4gPHN0cm9uZz5bMzVdIE3hu5ljIExvbmc8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSAgY2xhc3M9J25vLXJpZ2h0JyA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgzNiwgOTk1KScgICA+IDxzdHJvbmc+WzM2XSBOZ2hpw6ptIEjhu5U8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgzNywgOTk1KScgICA+IDxzdHJvbmc+WzM3XSBC4bqhY2ggTG9uZzwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDM4LCA5OTUpJyAgID4gPHN0cm9uZz5bMzhdIFRow6FpIEjhu5U8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgzOSwgOTk1KScgICA+IDxzdHJvbmc+WzM5XSBE4bqhIExvbmc8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSAgY2xhc3M9J25vLXJpZ2h0JyA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSg0MCwgOTk1KScgICA+IDxzdHJvbmc+WzQwXSBOaOG6rXQgSOG7lTwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PC91bD48L2Rpdj48ZGl2IGNsYXNzPSd0YWJfdmlldycgaWQ9J2NvbnRlbnRfNic+PHVsPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSg0MSwgOTk1KScgICA+IDxzdHJvbmc+WzQxXSDhu6huZyBMb25nPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48bGkgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoNDIsIDk5NSknICAgPiA8c3Ryb25nPls0Ml0gSG/DoG5nIEjhu5U8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSg0MywgOTk1KScgICA+IDxzdHJvbmc+WzQzXSDEkOG6sW5nIExvbmc8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSAgY2xhc3M9J25vLXJpZ2h0JyA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSg0NCwgOTk1KScgICA+IDxzdHJvbmc+WzQ0XSBLaW0gSOG7lTwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDQ1LCA5OTUpJyAgID4gPHN0cm9uZz5bNDVdIFV5IExvbmc8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSg0NiwgOTk1KScgICA+IDxzdHJvbmc+WzQ2XSBUaGnDqm4gSOG7lTwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDQ3LCA5OTUpJyAgID4gPHN0cm9uZz5bNDddIFbDom4gTG9uZzwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpICBjbGFzcz0nbm8tcmlnaHQnID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDUwLCA5OTUpJyAgID4gPHN0cm9uZz5bNTBdIEzDom0gSOG7lTwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PC91bD48L2Rpdj48ZGl2IGNsYXNzPSd0YWJfdmlldycgaWQ9J2NvbnRlbnRfNyc+PHVsPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSg1MiwgOTk1KScgICA+IDxzdHJvbmc+WzUyXSBWaeG7hW4gSOG7lTwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDUzLCA5OTUpJyAgID4gPHN0cm9uZz5bNTMgXUNoacOqdSBMb25nPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48bGkgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoNTQsIDk5NSknICAgPiA8c3Ryb25nPls1NF0gVuG7uSBI4buVPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48bGkgIGNsYXNzPSduby1yaWdodCcgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoNTUsIDk5NSknICAgPiA8c3Ryb25nPls1NV0gxJDhur8gTG9uZzwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDU3LCA5OTUpJyAgID4gPHN0cm9uZz5bNTddIFRo4bq/IExvbmc8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSg1OCwgOTk1KScgICA+IDxzdHJvbmc+WzU4XSBLaMOhbmcgSOG7lTwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDU5LCA5OTUpJyAgID4gPHN0cm9uZz5bNTldIFbFqSBMb25nPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48bGkgIGNsYXNzPSduby1yaWdodCcgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoNjAsIDk5NSknICAgPiA8c3Ryb25nPls2MF0gUXV54buBbiBI4buVPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48L3VsPjwvZGl2PjxkaXYgY2xhc3M9J3RhYl92aWV3JyBpZD0nY29udGVudF84Jz48dWw+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDYxLCA5OTUpJyAgID4gPHN0cm9uZz5bNjFdIMSQ4buZYyBMb25nPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48bGkgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoNjIsIDk5NSknICAgPiA8c3Ryb25nPls2Ml0gWMOtY2ggSOG7lTwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDYzLCA5OTUpJyAgID4gPHN0cm9uZz5bNjNdIFRow6FpIExvbmc8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSAgY2xhc3M9J25vLXJpZ2h0JyA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSg2NCwgOTk1KScgICA+IDxzdHJvbmc+WzY0XSBOZ+G6oW8gSOG7lTwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDY1LCA5OTUpJyAgID4gPHN0cm9uZz5bNjVdIEh1eeG6v3QgTG9uZzwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDY3LCA5OTUpJyAgID4gPHN0cm9uZz5bNjddIE1pbmggTG9uZzwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDY4LCA5OTUpJyAgID4gPHN0cm9uZz5bNjhdIFRoYW5oIEjhu5U8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSAgY2xhc3M9J25vLXJpZ2h0JyA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSg2OSwgOTk1KScgICA+IDxzdHJvbmc+WzY5XSBIw6BuIExvbmc8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjwvdWw+PC9kaXY+PGRpdiBjbGFzcz0ndGFiX3ZpZXcnIGlkPSdjb250ZW50XzknPjx1bD48bGkgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoNzAsIDk5NSknICAgPiA8c3Ryb25nPls3MF0gVMOgbmcgSOG7lTwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDcxLCA5OTUpJyAgID4gPHN0cm9uZz5bNzFdIFThuqdtIExvbmc8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSg3MiwgOTk1KScgICA+IDxzdHJvbmc+WzcyXSBQaGkgSOG7lTwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpICBjbGFzcz0nbm8tcmlnaHQnID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDczLCA5OTUpJyAgID4gPHN0cm9uZz5bNzNdIFF1eeG7gW4gTG9uZzwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDc0LCA5OTUpJyAgID4gPHN0cm9uZz5bNzRdIENoacOqdSBI4buVPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48bGkgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoNzUsIDk5NSknICAgPiA8c3Ryb25nPls3NV0gR2nDoW5nIExvbmc8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSg3NiwgOTk1KScgICA+IDxzdHJvbmc+Wzc2XSBMacOqdSBI4buVPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48bGkgIGNsYXNzPSduby1yaWdodCcgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoNzcsIDk5NSknICAgPiA8c3Ryb25nPls3N10gVGjhuqFjaCBMb25nPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48L3VsPjwvZGl2PjxkaXYgY2xhc3M9J3RhYl92aWV3JyBpZD0nY29udGVudF8xMCc+PHVsPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSg3OCwgOTk1KScgICA+IDxzdHJvbmc+Wzc4XSBIw6BuIEjhu5U8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSg3OSwgOTk1KScgICA+IDxzdHJvbmc+Wzc5XSBIw7JhIExvbmc8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSg4MCwgOTk1KScgICA+IDxzdHJvbmc+WzgwXSBRdcO9IEjhu5U8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSAgY2xhc3M9J25vLXJpZ2h0JyA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSg4MSwgOTk1KScgICA+IDxzdHJvbmc+WzgxXSBC4bqjbyBMb25nPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48bGkgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoODIsIDk5NSknICAgPiA8c3Ryb25nPls4Ml0gTWluaCBI4buVPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48bGkgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoODMsIDk5NSknICAgPiA8c3Ryb25nPls4M10gR2lhbmcgTG9uZzwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDg0LCA5OTUpJyAgID4gPHN0cm9uZz5bODRdIFZp4buHdCBI4buVPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48bGkgIGNsYXNzPSduby1yaWdodCcgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoODUsIDk5NSknICAgPiA8c3Ryb25nPls4NV0gw4JuIExvbmc8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjwvdWw+PC9kaXY+PGRpdiBjbGFzcz0ndGFiX3ZpZXcnIGlkPSdjb250ZW50XzExJz48dWw+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDg2LCA5OTUpJyAgID4gPHN0cm9uZz5bODZdIELDoWNoIEjhu5U8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSg4NywgOTk1KScgICA+IDxzdHJvbmc+Wzg3XSBOaOG6rXQgTG9uZzwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDg4LCA5OTUpJyAgID4gPHN0cm9uZz5bODhdIFRo4bq/IEjhu5U8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSAgY2xhc3M9J25vLXJpZ2h0JyA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSg4OSwgOTk1KScgICA+IDxzdHJvbmc+Wzg5XSBLacOqdSBMb25nPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48bGkgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoOTAsIDk5NSknICAgPiA8c3Ryb25nPls5MF0gTmhp4bq/cCBI4buVPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48bGkgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoOTEsIDk5NSknICAgPiA8c3Ryb25nPls5MV0gSHV54buBbiBMb25nPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48bGkgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoOTIsIDk5NSknICAgPiA8c3Ryb25nPls5Ml0gVsSpbmggSOG7lTwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpICBjbGFzcz0nbm8tcmlnaHQnID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDkzLCA5OTUpJyAgID4gPHN0cm9uZz5bOTNdIFR1eeG7h3QgTG9uZzwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PC91bD48L2Rpdj48ZGl2IGNsYXNzPSd0YWJfdmlldycgaWQ9J2NvbnRlbnRfMTInPjx1bD48bGkgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoOTQsIDk5NSknICAgPiA8c3Ryb25nPls5NF0gQsSDbmcgSOG7lTwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDk1LCA5OTUpJyAgID4gPHN0cm9uZz5bOTVdIFF1w70gTG9uZzwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDk2LCA5OTUpJyAgID4gPHN0cm9uZz5bOTZdIFRoaeG6v3QgSOG7lTwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpICBjbGFzcz0nbm8tcmlnaHQnID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDk3LCA5OTUpJyAgID4gPHN0cm9uZz5bOTddIE5nw6JuIExvbmc8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSg5OCwgOTk1KScgICA+IDxzdHJvbmc+Wzk4XSBW4buHIEjhu5U8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSg5OSwgOTk1KScgICA+IDxzdHJvbmc+Wzk5XSBW4bu5IExvbmc8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgxMDAsIDk5NSknICAgPiA8c3Ryb25nPlsxMDBdIE5o4bqhYyBI4buVPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48bGkgIGNsYXNzPSduby1yaWdodCcgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoMjAxLCA5OTUpJyAgID4gPHN0cm9uZz5bMjAxXSBL4buzIExvbmc8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjwvdWw+PC9kaXY+PGRpdiBjbGFzcz0ndGFiX3ZpZXcnIGlkPSdjb250ZW50XzEzJz48dWw+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDIwMiwgOTk1KScgICA+IDxzdHJvbmc+WzIwMl0gTOG7mWMgSOG7lTwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDIwMywgOTk1KScgICA+IDxzdHJvbmc+WzIwM10gS2hhbmcgTG9uZzwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDIwNCwgOTk1KScgICA+IDxzdHJvbmc+WzIwNF0gVXkgSOG7lTwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpICBjbGFzcz0nbm8tcmlnaHQnID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDIwNSwgOTk1KScgICA+IDxzdHJvbmc+WzIwNV0gSOG6o2kgTG9uZzwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDIwNiwgOTk1KScgICA+IDxzdHJvbmc+WzIwNl0gTmfDom4gSOG7lTwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDIwNywgOTk1KScgICA+IDxzdHJvbmc+WzIwN10gTmjhuqFjIExvbmc8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgyMDgsIDk5NSknICAgPiA8c3Ryb25nPlsyMDhdIExpw6puIEjhu5U8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSAgY2xhc3M9J25vLXJpZ2h0JyA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgyMDksIDk5NSknICAgPiA8c3Ryb25nPlsyMDldIEhvYSBMb25nPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48L3VsPjwvZGl2PjxkaXYgY2xhc3M9J3RhYl92aWV3JyBpZD0nY29udGVudF8xNCc+PHVsPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgyMTAsIDk5NSknICAgPiA8c3Ryb25nPlsyMTBdIENoaeG6v24gSOG7lTwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDIxMSwgOTk1KScgICA+IDxzdHJvbmc+WzIxMV0gxJDhu5MgTG9uZzwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDIxMiwgOTk1KScgICA+IDxzdHJvbmc+WzIxMl0gVHV54buHdCBI4buVPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48bGkgIGNsYXNzPSduby1yaWdodCcgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoMjEzLCA5OTUpJyAgID4gPHN0cm9uZz5bMjEzXSBOYW0gTG9uZzwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDIxNCwgOTk1KScgICA+IDxzdHJvbmc+WzIxNF0gVHLDom4gSOG7lTwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDIxNSwgOTk1KScgICA+IDxzdHJvbmc+WzIxNV0gSOG7k2kgTG9uZzwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDIxNiwgOTk1KScgICA+IDxzdHJvbmc+WzIxNl0gQuG6sW5nIEjhu5U8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSAgY2xhc3M9J25vLXJpZ2h0JyA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgyMTcsIDk5NSknICAgPiA8c3Ryb25nPlsyMTddIFF1eSBMb25nPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48L3VsPjwvZGl2PjxkaXYgY2xhc3M9J3RhYl92aWV3JyBpZD0nY29udGVudF8xNSc+PHVsPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgyMTgsIDk5NSknICAgPiA8c3Ryb25nPlsyMThdIE5naMSpYSBI4buVPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48bGkgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoMjE5LCA5OTUpJyAgID4gPHN0cm9uZz5bMjE5XSBRdeG6p24gTG9uZzwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDIyMCwgOTk1KScgICA+IDxzdHJvbmc+WzIyMF0gSOG7r3UgSOG7lTwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpICBjbGFzcz0nbm8tcmlnaHQnID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDIyMSwgOTk1KScgICA+IDxzdHJvbmc+WzIyMV0gSOG7mWkgTG9uZzwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDIyMiwgOTk1KScgICA+IDxzdHJvbmc+WzIyMl0gw4JuIEjhu5U8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgyMjMsIDk5NSknICAgPiA8c3Ryb25nPlsyMjNdIELDrG5oIExvbmc8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgyMjQsIDk5NSknICAgPiA8c3Ryb25nPlsyMjRdIFRyw7luZyBExrDGoW5nPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48bGkgIGNsYXNzPSduby1yaWdodCcgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoMjI1LCA5OTUpJyAgID4gPHN0cm9uZz5bMjI1XSBCw6EgVGjDtG5nPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48L3VsPjwvZGl2PjxkaXYgY2xhc3M9J3RhYl92aWV3JyBpZD0nY29udGVudF8xNic+PHVsPjxsaSA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgyMjYsIDk5NSknICAgPiA8c3Ryb25nPlsyMjZdIETGsOG7o2MgU8awPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48bGkgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoMjI3LCA5OTUpJyAgID4gPHN0cm9uZz5bMjI3XSBExrDGoW5nIFBob25nPC9zdHJvbmc+PHNwYW4gY2xhc3M9J3RvdCc+PC9zcGFuPjxzcGFuIGNsYXNzPSd0b3RfdHh0Jz4oVOG7kXQpPC9zcGFuPiA8L2E+PC9saT48bGkgPjxhIGNsYXNzPSdzZXJ2ZXInIGhyZWY9J2phdmFzY3JpcHQ6OycgIG9uY2xpY2s9J2FyZW5hcGxheWdhbWUoMjI4LCA5OTUpJyAgID4gPHN0cm9uZz5bMjI4XSBUaOG6pXQgQ8O0bmc8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjxsaSAgY2xhc3M9J25vLXJpZ2h0JyA+PGEgY2xhc3M9J3NlcnZlcicgaHJlZj0namF2YXNjcmlwdDo7JyAgb25jbGljaz0nYXJlbmFwbGF5Z2FtZSgyMjksIDk5NSknICAgPiA8c3Ryb25nPlsyMjldIFF1w6FjaCBUxKluaDwvc3Ryb25nPjxzcGFuIGNsYXNzPSd0b3QnPjwvc3Bhbj48c3BhbiBjbGFzcz0ndG90X3R4dCc+KFThu5F0KTwvc3Bhbj4gPC9hPjwvbGk+PGxpID48YSBjbGFzcz0nc2VydmVyJyBocmVmPSdqYXZhc2NyaXB0OjsnICBvbmNsaWNrPSdhcmVuYXBsYXlnYW1lKDIzMCwgOTk1KScgICA+IDxzdHJvbmc+WzIzMF0gSG/DoG5nIER1bmc8L3N0cm9uZz48c3BhbiBjbGFzcz0ndG90Jz48L3NwYW4+PHNwYW4gY2xhc3M9J3RvdF90eHQnPihU4buRdCk8L3NwYW4+IDwvYT48L2xpPjwvdWw+PC9kaXY+ZAIEDxYCHgtfIUl0ZW1Db3VudAIHFg5mD2QWAmYPFQYATGh0dHA6Ly9ob2FuaC5nYXRlLnZuL1RpblR1Yy9DaGlUaWV0L1N1S2llbi8yNDExL3F1YS10YW5nLW9ubGluZS0wNS0xMS0xMS0xMS9CaHR0cDovL3N0LndlYi5nYXRlLnZuL0ltYWdlcy9IVC9FdmVudEJhbm5lci8yMDE0LzkvOS9xSzlOdlhXUXgucG5nTGh0dHA6Ly9ob2FuaC5nYXRlLnZuL1RpblR1Yy9DaGlUaWV0L1N1S2llbi8yNDExL3F1YS10YW5nLW9ubGluZS0wNS0xMS0xMS0xMS8eUXXDoCBU4bq3bmcgUGhpw6puIELhuqNuIE3hu5tpJU9ubGluZSBuaOG6rW4gcXXDoCB04burIDA1LzExIC0gMTEvMTFkAgEPZBYCZg8VBgA0aHR0cDovL2hvYW5oLmdhdGUudm4vRXZlbnQvSG9hbmhUYW9EZU5oYXRCYW5nL1RoZUxlL0NodHRwOi8vc3Qud2ViLmdhdGUudm4vSW1hZ2VzL0hUL0V2ZW50QmFubmVyLzIwMTQvNi8yNS9kTWRMUDdDZDYucG5nNGh0dHA6Ly9ob2FuaC5nYXRlLnZuL0V2ZW50L0hvYW5oVGFvRGVOaGF0QmFuZy9UaGVMZS8lR2nhuqNpIMSQ4bqldSBWw7UgTMOibSBDaGnhur9uIFRo4bqnbhdLaGFpIGNoaeG6v24gdOG7qyAwNy8xMWQCAg9kFgJmDxUGAFVodHRwOi8vaG9hbmguZ2F0ZS52bi9UaW5UdWMvQ2hpVGlldC9UaW5UdWMvMjMzOC9jaHVvbmctdHJpbmgtdmlwLWxvbmctaG8taG9pLXRoYW5nLTkvQmh0dHA6Ly9zdC53ZWIuZ2F0ZS52bi9JbWFnZXMvSFQvRXZlbnRCYW5uZXIvMjAxNC83LzEvT2N5cXI0QjBhLnBuZ1VodHRwOi8vaG9hbmguZ2F0ZS52bi9UaW5UdWMvQ2hpVGlldC9UaW5UdWMvMjMzOC9jaHVvbmctdHJpbmgtdmlwLWxvbmctaG8taG9pLXRoYW5nLTkvD0xvbmcgSOG7lSBI4buZaRxDaMawxqFuZyB0csOsbmggVklQIHRow6FuZyA5ZAIDD2QWAmYPFQYMQWN0aXZlQmFubmVyVmh0dHA6Ly9ob2FuaC5nYXRlLnZuL1RpblR1Yy9DaGlUaWV0L1RpblR1Yy8yNDAyLzEwaC0yOS0xMC1tYXktY2h1LW1vaS1zMjM2LWR1b25nLXRpZXUvQ2h0dHA6Ly9zdC53ZWIuZ2F0ZS52bi9JbWFnZXMvSFQvRXZlbnRCYW5uZXIvMjAxNC8xMS81L1lUc2Q2bEJBdS5wbmdWaHR0cDovL2hvYW5oLmdhdGUudm4vVGluVHVjL0NoaVRpZXQvVGluVHVjLzI0MDIvMTBoLTI5LTEwLW1heS1jaHUtbW9pLXMyMzYtZHVvbmctdGlldS8QTcOheSBDaOG7pyBN4bubaR9DaGnhur9uIE5nYXkgUGhpw6puIELhuqNuIE3hu5tpZAIED2QWAmYPFQYAW2h0dHA6Ly9ob2FuaC5nYXRlLnZuL1RpblR1Yy9DaGlUaWV0L1RpblR1Yy8yMjMzL1tzdS1raWVuXS0lQzQlOTFvbi10cnVuZy10aHUtcmluaC10dXlldC1reS9CaHR0cDovL3N0LndlYi5nYXRlLnZuL0ltYWdlcy9IVC9FdmVudEJhbm5lci8yMDE0LzkvNi9ZQXFnb05VM0sucG5nW2h0dHA6Ly9ob2FuaC5nYXRlLnZuL1RpblR1Yy9DaGlUaWV0L1RpblR1Yy8yMjMzL1tzdS1raWVuXS0lQzQlOTFvbi10cnVuZy10aHUtcmluaC10dXlldC1reS8jxJDDs24gVHJ1bmcgVGh1IC0gUmluaCBUdXnhu4d0IEvhu7kqU+G7nyBo4buvdSBuZ2F5IHR1eeG7h3Qga+G7uSA4MCB04burIDA3LzA5ZAIFD2QWAmYPFQYAQmh0dHA6Ly9ob2FuaC5nYXRlLnZuL1RpblR1Yy9DaGlUaWV0L1N1S2llbi8yNDEzL3Rhbi10aHUtaG9hbmcta2ltL0NodHRwOi8vc3Qud2ViLmdhdGUudm4vSW1hZ2VzL0hUL0V2ZW50QmFubmVyLzIwMTQvOC8xOS9NblE3azBmZk4ucG5nQmh0dHA6Ly9ob2FuaC5nYXRlLnZuL1RpblR1Yy9DaGlUaWV0L1N1S2llbi8yNDEzL3Rhbi10aHUtaG9hbmcta2ltLxVUw6JuIFRo4bunIEhvw6BuZyBLaW0tQuG7mSBxdcOgIHTDom4gdGjhu6cgbeG7m2kgdOG7qyAwNS8xMSAtIDEwLzExZAIGD2QWAmYPFQYAQWh0dHA6Ly9ob2FuaC5nYXRlLnZuL1RpblR1Yy9DaGlUaWV0L1N1S2llbi8yNDE0L2FuaC1odW5nLXRhaS10aGUvQ2h0dHA6Ly9zdC53ZWIuZ2F0ZS52bi9JbWFnZXMvSFQvRXZlbnRCYW5uZXIvMjAxNC8xMS80L09rUUhYQTNkdy5wbmdBaHR0cDovL2hvYW5oLmdhdGUudm4vVGluVHVjL0NoaVRpZXQvU3VLaWVuLzI0MTQvYW5oLWh1bmctdGFpLXRoZS8UQW5oIEjDuW5nIFTDoWkgVGjhur8sUXXDoCB04bq3bmcgxJHEg25nIG5o4bqtcCB04burIDA1LzExIC0gMTEvMTFkAgUPFgIfAQIHZAIGDxYCHwAFxAU8bGkgIGNsYXNzPSdob3QnICA+PGEgaHJlZj0nL1RpblR1Yy9DaGlUaWV0L1RpblR1Yy8yNDI3L3Rob25nLWJhby1tb2ktY3VhLWhvYW5oLXRhby10aGllbi1oYS8nPlRow7RuZyBiw6FvIG3hu5tpIGPhu6dhIEhvw6BuaCBU4bqjbyBUaGnDqm4gSOG6oTwvYT48c3Bhbj4yNy8xMTwvc3Bhbj48L2xpPjxsaSAgY2xhc3M9J2hvdCcgID48YSBocmVmPScvVGluVHVjL0NoaVRpZXQvVGluVHVjLzI0MjYvdGhvbmctYmFvLW1vaS12ZS1ob2F0LcSRb25nLWN1YS1ob2FuaC10YW8tdGhpZW4taGEvJz5UaMO0bmcgYsOhbyBt4bubaSB24buBIGhv4bqhdCDEkeG7mW5nIGPhu6dhIEhvw6BuaCBU4bqjbyBUaGnDqm4gSOG6oTwvYT48c3Bhbj4xMC8xMTwvc3Bhbj48L2xpPjxsaSAgY2xhc3M9J2hvdCcgID48YSBocmVmPScvVGluVHVjL0NoaVRpZXQvVGluVHVjLzI0MjMvc3Uta2llbi11dS3EkWFpLXRpbmgtbmFuZy1uZ2F5LTA5LTExLyc+U+G7sSBLaeG7h24gxq91IMSQw6NpIFTDrW5oIE7Eg25nIE5nw6B5IDA5LzExPC9hPjxzcGFuPjA5LzExPC9zcGFuPjwvbGk+PGxpICBjbGFzcz0naG90JyAgPjxhIGhyZWY9Jy9UaW5UdWMvQ2hpVGlldC9UaW5UdWMvMjQyMi9zdS1raWVuLXV1LcSRYWktdGluaC1uYW5nLW5nYXktMDgtMTEvJz5T4buxIEtp4buHbiDGr3UgxJDDo2kgVMOtbmggTsSDbmcgTmfDoHkgMDgvMTE8L2E+PHNwYW4+MDgvMTE8L3NwYW4+PC9saT5kZEckm4W3UBLrLLuXmEXUBpK98LbT" />
+
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWBALBs8eFDwL27a+iBQKd9M2/AwKg3+vICT3XQBUJvLcl7/GwhNmcM7Gjg2zu" />
+   <div id="thewindowbackground"></div>
+<div id="container">
+    <div id="Wrapper">
+    	<a id="Logo" href="../../index.html" title="Trở về trang chủ"></a>
+        <div class="nav">
+        	<a target="_blank" href="../../index.html">Trang chủ</a>  <a  target="_blank" href="http://diendan.gate.vn/game/forums/1013-img-src-images_more-new-gif-Hoanh-Tao-Thien-Ha.htm">Diễn đàn</a>  <a  target="_blank" href="https://facebook.com/hoanhtaothienha">Fanpage</a>
+        </div>
+              <!--TAI GAME BUTTON-->
+        <a  target="_blank" href="http://hoanh.gate.vn/CamNang/158/155/Tai-Game/"><img src="../images/blank.gif" alt="" width="326" height="156" class="taigame" /></a>
+        <!--DANG NHAP-->
+        <a href="javascript:;" onclick='getLastSv()' id="pop-dn"><img src="../images/blank.gif" alt="" class="btn_dn"/></a>
+         <script type="text/javascript">
+             function getLastSv() {
+                 return_str = $.callAjax('/Event/Ajax/Default.aspx?ajaxType=lastServer');
+                 if (return_str.indexOf('|') > 0)
+                 {
+                     sId = return_str.split('|')[0];
+                     playgame(sId);
+                 }
+                
+             }
+        </script>
+        
+		<!--POPUP DANG KY NHANH-->
+        <div id="pop_dk" class="popup_block">
+        	<div class="content_popup">
+                <a href="#" class="close-dk"><img src="../images/blank.gif" class="btn_close" title="Close Window" alt="Close" /></a>
+                <div class="title">Đăng ký</div>
+                <div class="dk_nhanh_block">
+                   <div class="form_dk">
+                        <label>
+                            Tài khoản</label><input type="text" class="input_dk signup_username" name="tk" />
+                        <label>
+                            Mật khẩu</label><input type="password" class="input_dk signup_pass" name="mk" />
+                        <label>
+                            Nhập lại mật khẩu</label><input type="password" class="input_dk signup_repass" name="confirm_mk" />
+                        <label>
+                            Mã xác nhận</label><input type="text" class="input_dk signup_verifycode" name="xn" />
+                        <p style="text-align: center">
+                            <img style="height: 30px; width: 65px; margin-left: 18px" border="1" src="../../Library/VerifyImage/ImageVerifier.jpg"
+                                alt="image verifier" id="imageverifier" />
+                            <a href="javascript:;" style="font-size: 10px;" onclick="return ReloadImage('imageverifier','/Library/VerifyImage/ImageVerifier.aspx')">
+                                <img border="0" src="../../Library/VerifyImage/reload.png" alt="Thay hình khác" />
+                            </a>
+                        </p>
+                        <p style="text-align: center;">
+                            <button onclick="return false" class="submit_dk">
+                            </button>
+                        </p>
+                    </div>
+                 </div>
+             </div>
+        </div>     
+        <!--END POPUP DANG KY NHANH-->
+        
+        <!--POPUP DANG NHAP-->
+        <div id="#pop_dn" class="#popup_block"  style="display:none">
+        	<div class="content_popup">
+                <a href="#" class="close-dn"><img src="images/blank.html" class="btn_close" title="Close Window" alt="Close" /></a>
+                <div class="title">Đăng nhập</div>
+                <div class="dn_nhanh_block">
+                    <div class="form_dn">
+                        <p><input type="text" class="input_dk" name="tk" /></p>
+                        <p><input type="password" class="input_dk" name="mk" /></p>
+                        <input class="btn_dangnhap" type="submit" value="" />
+                        <p style="text-align:left; padding-left: 12px;"><input type="button" class="submit_dk" /> <input type="button" class="submit_forget" /></p>
+                    </div>	
+                 </div>
+             </div>
+        </div>     
+        <!--END POPUP DANG KY NHANH-->
+      
+          <!--Block server-->
+          <div class="chon_server">
+          <div class="block-server">
+            <div class="top-server">
+                <div class="select_box">
+                    <b style="position: relative;margin-bottom: 10px;top: -8px;color: #C93C01;font-size: 11pt;">CHỌN ĐẤU TRƯỜNG : </b>
+                    <select name="ddlServer" id="ddlServer">
+	<option selected="selected" value="995">Th&#225;i Sơn</option>
+	<option value="996">Tung Sơn</option>
+	<option value="997">Hoa Sơn</option>
+
+</select>
+                </div>
+                 <script type="text/javascript">
+                     $(document).ready(function () {
+                         $('#ddlServer').selectBox();
+                     });
+                   </script>
+                <div class="hot_new_Ser">
+                    
+                </div>
+            </div>
+              <div id="mySliderTabs" class="ListServerWrap"> 
+                <ul id="tabs">
+                     <li><a href='#content_1'  class='tab' >1 - 8</a></li> <li><a href='#content_2'  class='selected' >9 - 16</a></li> <li><a href='#content_3'  class='selected' >17 - 24</a></li> <li><a href='#content_4'  class='selected' >25 - 32</a></li> <li><a href='#content_5'  class='selected' >33 - 40</a></li> <li><a href='#content_6'  class='selected' >41 - 48</a></li> <li><a href='#content_7'  class='selected' >49 - 56</a></li> <li><a href='#content_8'  class='selected' >57 - 64</a></li> <li><a href='#content_9'  class='selected' >65 - 72</a></li> <li><a href='#content_10'  class='selected' >73 - 80</a></li> <li><a href='#content_11'  class='selected' >81 - 88</a></li> <li><a href='#content_12'  class='selected' >89 - 96</a></li> <li><a href='#content_13'  class='selected' >97 - 104</a></li> <li><a href='#content_14'  class='selected' >105 - 112</a></li> <li><a href='#content_15'  class='selected' >113 - 120</a></li> <li><a href='#content_16'  class='selected' >121 - 128</a></li>
+                </ul>
+                  <div class='tab_view' id='content_1'><ul><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(1, 995)'   > <strong>[1] Thanh Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(2, 995)'   > <strong>[2] Bạch Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(3, 995)'   > <strong>[3] Tàng Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(4, 995)'   > <strong>[4] Ngọa Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(5, 995)'   > <strong>[5] Phi Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(6, 995)'   > <strong>[6] Vũ Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(7, 995)'   > <strong>[7] Tiềm Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(9, 995)'   > <strong>[9] Thần Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li></ul></div><div class='tab_view' id='content_2'><ul><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(10, 995)'   > <strong>[10] Phục Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(11, 995)'   > <strong>[11] Giao Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(12, 995)'   > <strong>[12] Huyết Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(13, 995)'   > <strong>[13] Xích Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(14, 995)'   > <strong>[14] Thạch Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(15, 995)'   > <strong>[15] Bích Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(16, 995)'   > <strong>[16] Tuyết Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(17, 995)'   > <strong>[17] Chân Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li></ul></div><div class='tab_view' id='content_3'><ul><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(18, 995)'   > <strong>[18] Liêm Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(8, 995)'   > <strong>[8] Chấn Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(19, 995)'   > <strong>[19] Kim Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(20, 995)'   > <strong>[20] Huyền Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(21, 995)'   > <strong>[21] Sơn Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(22, 995)'   > <strong>[22] Thùy Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(23, 995)'   > <strong>[23] Hỏa Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(24, 995)'   > <strong>[24] Ứng Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li></ul></div><div class='tab_view' id='content_4'><ul><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(25, 995)'   > <strong>[25] Thiên Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(26, 995)'   > <strong>[26] Nguyệt Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(27, 995)'   > <strong>[27] Thủy Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(28, 995)'   > <strong>[28] Vân Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(29, 995)'   > <strong>[29] Địa Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(30, 995)'   > <strong>[30] Lãnh Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(31, 995)'   > <strong>[31] Tuyết Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(32, 995)'   > <strong>[32] Phong Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li></ul></div><div class='tab_view' id='content_5'><ul><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(33, 995)'   > <strong>[33] Ngọa Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(34, 995)'   > <strong>[34] Tuế Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(35, 995)'   > <strong>[35] Mộc Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(36, 995)'   > <strong>[36] Nghiêm Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(37, 995)'   > <strong>[37] Bạch Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(38, 995)'   > <strong>[38] Thái Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(39, 995)'   > <strong>[39] Dạ Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(40, 995)'   > <strong>[40] Nhật Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li></ul></div><div class='tab_view' id='content_6'><ul><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(41, 995)'   > <strong>[41] Ứng Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(42, 995)'   > <strong>[42] Hoàng Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(43, 995)'   > <strong>[43] Đằng Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(44, 995)'   > <strong>[44] Kim Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(45, 995)'   > <strong>[45] Uy Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(46, 995)'   > <strong>[46] Thiên Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(47, 995)'   > <strong>[47] Vân Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(50, 995)'   > <strong>[50] Lâm Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li></ul></div><div class='tab_view' id='content_7'><ul><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(52, 995)'   > <strong>[52] Viễn Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(53, 995)'   > <strong>[53 ]Chiêu Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(54, 995)'   > <strong>[54] Vỹ Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(55, 995)'   > <strong>[55] Đế Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(57, 995)'   > <strong>[57] Thế Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(58, 995)'   > <strong>[58] Kháng Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(59, 995)'   > <strong>[59] Vũ Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(60, 995)'   > <strong>[60] Quyền Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li></ul></div><div class='tab_view' id='content_8'><ul><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(61, 995)'   > <strong>[61] Độc Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(62, 995)'   > <strong>[62] Xích Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(63, 995)'   > <strong>[63] Thái Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(64, 995)'   > <strong>[64] Ngạo Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(65, 995)'   > <strong>[65] Huyết Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(67, 995)'   > <strong>[67] Minh Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(68, 995)'   > <strong>[68] Thanh Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(69, 995)'   > <strong>[69] Hàn Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li></ul></div><div class='tab_view' id='content_9'><ul><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(70, 995)'   > <strong>[70] Tàng Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(71, 995)'   > <strong>[71] Tầm Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(72, 995)'   > <strong>[72] Phi Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(73, 995)'   > <strong>[73] Quyền Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(74, 995)'   > <strong>[74] Chiêu Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(75, 995)'   > <strong>[75] Giáng Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(76, 995)'   > <strong>[76] Liêu Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(77, 995)'   > <strong>[77] Thạch Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li></ul></div><div class='tab_view' id='content_10'><ul><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(78, 995)'   > <strong>[78] Hàn Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(79, 995)'   > <strong>[79] Hòa Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(80, 995)'   > <strong>[80] Quý Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(81, 995)'   > <strong>[81] Bảo Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(82, 995)'   > <strong>[82] Minh Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(83, 995)'   > <strong>[83] Giang Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(84, 995)'   > <strong>[84] Việt Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(85, 995)'   > <strong>[85] Ân Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li></ul></div><div class='tab_view' id='content_11'><ul><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(86, 995)'   > <strong>[86] Bách Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(87, 995)'   > <strong>[87] Nhật Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(88, 995)'   > <strong>[88] Thế Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(89, 995)'   > <strong>[89] Kiêu Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(90, 995)'   > <strong>[90] Nhiếp Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(91, 995)'   > <strong>[91] Huyền Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(92, 995)'   > <strong>[92] Vĩnh Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(93, 995)'   > <strong>[93] Tuyệt Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li></ul></div><div class='tab_view' id='content_12'><ul><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(94, 995)'   > <strong>[94] Băng Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(95, 995)'   > <strong>[95] Quý Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(96, 995)'   > <strong>[96] Thiết Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(97, 995)'   > <strong>[97] Ngân Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(98, 995)'   > <strong>[98] Vệ Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(99, 995)'   > <strong>[99] Vỹ Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(100, 995)'   > <strong>[100] Nhạc Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(201, 995)'   > <strong>[201] Kỳ Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li></ul></div><div class='tab_view' id='content_13'><ul><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(202, 995)'   > <strong>[202] Lộc Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(203, 995)'   > <strong>[203] Khang Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(204, 995)'   > <strong>[204] Uy Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(205, 995)'   > <strong>[205] Hải Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(206, 995)'   > <strong>[206] Ngân Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(207, 995)'   > <strong>[207] Nhạc Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(208, 995)'   > <strong>[208] Liên Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(209, 995)'   > <strong>[209] Hoa Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li></ul></div><div class='tab_view' id='content_14'><ul><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(210, 995)'   > <strong>[210] Chiến Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(211, 995)'   > <strong>[211] Đồ Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(212, 995)'   > <strong>[212] Tuyệt Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(213, 995)'   > <strong>[213] Nam Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(214, 995)'   > <strong>[214] Trân Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(215, 995)'   > <strong>[215] Hồi Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(216, 995)'   > <strong>[216] Bằng Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(217, 995)'   > <strong>[217] Quy Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li></ul></div><div class='tab_view' id='content_15'><ul><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(218, 995)'   > <strong>[218] Nghĩa Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(219, 995)'   > <strong>[219] Quần Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(220, 995)'   > <strong>[220] Hữu Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(221, 995)'   > <strong>[221] Hội Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(222, 995)'   > <strong>[222] Ân Hổ</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(223, 995)'   > <strong>[223] Bình Long</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(224, 995)'   > <strong>[224] Trùng Dương</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(225, 995)'   > <strong>[225] Bá Thông</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li></ul></div><div class='tab_view' id='content_16'><ul><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(226, 995)'   > <strong>[226] Dược Sư</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(227, 995)'   > <strong>[227] Dương Phong</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(228, 995)'   > <strong>[228] Thất Công</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li  class='no-right' ><a class='server' href='javascript:;'  onclick='arenaplaygame(229, 995)'   > <strong>[229] Quách Tĩnh</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li><li ><a class='server' href='javascript:;'  onclick='arenaplaygame(230, 995)'   > <strong>[230] Hoàng Dung</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li></ul></div>
+            </div>                         
+                                        
+         </div>
+         <!--end block server-->
+         </div><!--End Chon server-->
+		 
+		<!--Event banner and News-->
+         <div class="contentRow1">
+								<!--Row1_left-->
+                            	<div class="Row1_left">
+                                	<!--BANNER AREA-->
+                                    <div class="block-banner">
+                                            <div class="event">
+                                                <ul id="img">
+                                                    
+                                                          <li class=''>
+                                                                <a href="http://hoanh.gate.vn/TinTuc/ChiTiet/SuKien/2411/qua-tang-online-05-11-11-11/">  <img src="../../../st.web.gate.vn/Images/HT/EventBanner/2014/9/9/qK9NvXWQx.png" alt="" width="248" height="254" /></a>
+                                                                <div class="des_banner" style="padding-bottom:8px">
+                                                                    <h1 class="title_banner">
+                                                                        <a style="font-size:12px" href="http://hoanh.gate.vn/TinTuc/ChiTiet/SuKien/2411/qua-tang-online-05-11-11-11/">
+                                                                            Quà Tặng Phiên Bản Mới</a></h1>
+                                                                    <p>
+                                                                        Online nhận quà từ 05/11 - 11/11</p>
+                                                                </div>
+                                                            </li>
+                                                        
+                                                          <li class=''>
+                                                                <a href="http://hoanh.gate.vn/Event/HoanhTaoDeNhatBang/TheLe/">  <img src="../../../st.web.gate.vn/Images/HT/EventBanner/2014/6/25/dMdLP7Cd6.png" alt="" width="248" height="254" /></a>
+                                                                <div class="des_banner" style="padding-bottom:8px">
+                                                                    <h1 class="title_banner">
+                                                                        <a style="font-size:12px" href="http://hoanh.gate.vn/Event/HoanhTaoDeNhatBang/TheLe/">
+                                                                            Giải Đấu Võ Lâm Chiến Thần</a></h1>
+                                                                    <p>
+                                                                        Khai chiến từ 07/11</p>
+                                                                </div>
+                                                            </li>
+                                                        
+                                                          <li class=''>
+                                                                <a href="http://hoanh.gate.vn/TinTuc/ChiTiet/TinTuc/2338/chuong-trinh-vip-long-ho-hoi-thang-9/">  <img src="../../../st.web.gate.vn/Images/HT/EventBanner/2014/7/1/Ocyqr4B0a.png" alt="" width="248" height="254" /></a>
+                                                                <div class="des_banner" style="padding-bottom:8px">
+                                                                    <h1 class="title_banner">
+                                                                        <a style="font-size:12px" href="http://hoanh.gate.vn/TinTuc/ChiTiet/TinTuc/2338/chuong-trinh-vip-long-ho-hoi-thang-9/">
+                                                                            Long Hổ Hội</a></h1>
+                                                                    <p>
+                                                                        Chương trình VIP tháng 9</p>
+                                                                </div>
+                                                            </li>
+                                                        
+                                                          <li class='ActiveBanner'>
+                                                                <a href="http://hoanh.gate.vn/TinTuc/ChiTiet/TinTuc/2402/10h-29-10-may-chu-moi-s236-duong-tieu/">  <img src="../../../st.web.gate.vn/Images/HT/EventBanner/2014/11/5/YTsd6lBAu.png" alt="" width="248" height="254" /></a>
+                                                                <div class="des_banner" style="padding-bottom:8px">
+                                                                    <h1 class="title_banner">
+                                                                        <a style="font-size:12px" href="http://hoanh.gate.vn/TinTuc/ChiTiet/TinTuc/2402/10h-29-10-may-chu-moi-s236-duong-tieu/">
+                                                                            Máy Chủ Mới</a></h1>
+                                                                    <p>
+                                                                        Chiến Ngay Phiên Bản Mới</p>
+                                                                </div>
+                                                            </li>
+                                                        
+                                                          <li class=''>
+                                                                <a href="http://hoanh.gate.vn/TinTuc/ChiTiet/TinTuc/2233/[su-kien]-đon-trung-thu-rinh-tuyet-ky/">  <img src="../../../st.web.gate.vn/Images/HT/EventBanner/2014/9/6/YAqgoNU3K.png" alt="" width="248" height="254" /></a>
+                                                                <div class="des_banner" style="padding-bottom:8px">
+                                                                    <h1 class="title_banner">
+                                                                        <a style="font-size:12px" href="http://hoanh.gate.vn/TinTuc/ChiTiet/TinTuc/2233/[su-kien]-đon-trung-thu-rinh-tuyet-ky/">
+                                                                            Đón Trung Thu - Rinh Tuyệt Kỹ</a></h1>
+                                                                    <p>
+                                                                        Sở hữu ngay tuyệt kỹ 80 từ 07/09</p>
+                                                                </div>
+                                                            </li>
+                                                        
+                                                          <li class=''>
+                                                                <a href="http://hoanh.gate.vn/TinTuc/ChiTiet/SuKien/2413/tan-thu-hoang-kim/">  <img src="../../../st.web.gate.vn/Images/HT/EventBanner/2014/8/19/MnQ7k0ffN.png" alt="" width="248" height="254" /></a>
+                                                                <div class="des_banner" style="padding-bottom:8px">
+                                                                    <h1 class="title_banner">
+                                                                        <a style="font-size:12px" href="http://hoanh.gate.vn/TinTuc/ChiTiet/SuKien/2413/tan-thu-hoang-kim/">
+                                                                            Tân Thủ Hoàng Kim</a></h1>
+                                                                    <p>
+                                                                        Bộ quà tân thủ mới từ 05/11 - 10/11</p>
+                                                                </div>
+                                                            </li>
+                                                        
+                                                          <li class=''>
+                                                                <a href="http://hoanh.gate.vn/TinTuc/ChiTiet/SuKien/2414/anh-hung-tai-the/">  <img src="../../../st.web.gate.vn/Images/HT/EventBanner/2014/11/4/OkQHXA3dw.png" alt="" width="248" height="254" /></a>
+                                                                <div class="des_banner" style="padding-bottom:8px">
+                                                                    <h1 class="title_banner">
+                                                                        <a style="font-size:12px" href="http://hoanh.gate.vn/TinTuc/ChiTiet/SuKien/2414/anh-hung-tai-the/">
+                                                                            Anh Hùng Tái Thế</a></h1>
+                                                                    <p>
+                                                                        Quà tặng đăng nhập từ 05/11 - 11/11</p>
+                                                                </div>
+                                                            </li>
+                                                        
+                                                </ul>
+                                               <ul id="imgControl">
+                                                    
+                                                            <li><a style="cursor: pointer"></a></li>
+                                                        
+                                                            <li><a style="cursor: pointer"></a></li>
+                                                        
+                                                            <li><a style="cursor: pointer"></a></li>
+                                                        
+                                                            <li><a style="cursor: pointer"></a></li>
+                                                        
+                                                            <li><a style="cursor: pointer"></a></li>
+                                                        
+                                                            <li><a style="cursor: pointer"></a></li>
+                                                        
+                                                            <li><a style="cursor: pointer"></a></li>
+                                                        
+                                                </ul>
+                                            </div>
+                                     
+                                    </div>
+                                    <!--END BANNER AREA-->
+                                </div>
+								<!--END Row1_left-->
+								
+                                <!--Row1_right-->
+                                <div class="Row1_right">
+									<!--DANG KY - NAP THE - CAM NANG-->
+                                	<div class="block-dkn">
+                                        <div class="dk-dn">
+                                            <div class="dk-btn">
+                                                <a href="#" class="dk-nhanh" id="pop-dk"></a>
+                                                <a target="_blank" href="https://pay.gate.vn/NoAuth/paymentexpress/Game/Default.aspx?gameid=158" class="napthe"></a>
+                                                <a href="../../CamNang/index.html" target="_blank" class="camnang"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+									<!--END DANG KY - NAP THE - CAM NANG-->
+									
+                                    <!--TIN TUC-->
+ 									<div class="contentNews">
+                                    
+                                        <div class="listNews">
+                                            <ul class="more-news">
+                                                 <li  class='hot'  ><a href='../../TinTuc/ChiTiet/TinTuc/2427/thong-bao-moi-cua-hoanh-tao-thien-ha/index.html'>Thông báo mới của Hoành Tảo Thiên Hạ</a><span>27/11</span></li><li  class='hot'  ><a href='../../TinTuc/ChiTiet/TinTuc/2426/thong-bao-moi-ve-hoat-%c4%91ong-cua-hoanh-tao-thien-ha/index.html'>Thông báo mới về hoạt động của Hoành Tảo Thiên Hạ</a><span>10/11</span></li><li  class='hot'  ><a href='../../TinTuc/ChiTiet/TinTuc/2423/su-kien-uu-%c4%91ai-tinh-nang-ngay-09-11/index.html'>Sự Kiện Ưu Đãi Tính Năng Ngày 09/11</a><span>09/11</span></li><li  class='hot'  ><a href='../../TinTuc/ChiTiet/TinTuc/2422/su-kien-uu-%c4%91ai-tinh-nang-ngay-08-11/index.html'>Sự Kiện Ưu Đãi Tính Năng Ngày 08/11</a><span>08/11</span></li>
+                                            </ul>
+                                            <a href="../../TinTuc/DanhSach/TinTuc/index-2.html" class="xemthem_news"></a>
+                                        </div>
+                                    </div>
+									<!--END TIN TUC-->
+                                    
+                                </div>
+								<!--END Row1_Right-->
+                            </div>
+                            <!--End Event banner and News-->
+                
+        <div class="footer">
+        	
+            <p>
+            	© GATE Game - Hoành Tảo Thiên Hạ<br />
+ 				Bản quyền thuộc về GameWave | Nhà phát hành: FPT Online
+            </p>
+            
+        </div>
+	</div>
+</div>
+
+    <!--Temp -->
+<div class="floatImg">
+    <a target="_blank" href="../../CamNang/index.html"><img src="../../images/camnang.gif"/></a>
+</div>
+<style type="text/css">
+    .floatImg{
+    width:130px;
+    height:116px;
+    position:fixed;right:30px;bottom:40px;
+    }
+</style>
+    <!--End Temp-->
+
+
+            
+    </form>
+
+	
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$.get("/Event/ajax/CheckAccountDT.aspx", function (data) {
+				var b = data == "yes";
+				if (b) {
+					var dt = "<li><a onclick='playgame(998)' href='javascript:;' class='server'> <strong>[DT] Đấu Trường</strong><span class='tot'></span><span class='tot_txt'>(Tốt)</span> </a></li>";
+					$("#content_0 ul").prepend(dt);
+				}
+			});
+			
+		});
+	</script>
+
+</body>
+
+<!-- Mirrored from ht.gate.vn/ChoiNgay/DauTruong/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Apr 2015 17:52:05 GMT -->
+</html>

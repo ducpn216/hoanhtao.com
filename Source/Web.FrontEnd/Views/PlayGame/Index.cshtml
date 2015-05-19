@@ -1,0 +1,326 @@
+﻿@model Web.FrontEnd.Models.PlayGameModel
+@using Web.FrontEnd.App_Code
+
+@{
+    Layout = "";
+}
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    @*<link rel="image_src" href="/images/thumb.jpg" />
+    <link rel="SHORTCUT ICON" href="/Event/HuyetChienLenh/images/16x16.ico" />*@
+    @*<meta property="fb:app_id" content="360172140780878" />
+    <meta name="keywords" content="Hoành tảo thiên hạ, hoanh tao thien ha, game, game online, web game, webgame" />
+    <meta name="description" content="Tải, cài đặt và chơi ngay game 3D đẳng cấp kiếm hiệp Kim Dung hay nhất 2013. Tham gia để trải nghiệm phiên bản chính thức. Ra mắt 9h30 ngày 16/7/2013" />
+    <title>
+        Hoành Tảo Thiên Hạ - Đẳng cấp kiếm hiệp 3D
+    </title>*@
+    @Html.Partial("Partials/_MetaTagPartial")
+
+    <link rel="stylesheet" type="text/css" href="/Content/choingay/css/style.css?t=1" />
+    <link href="/Content/css/myStyle.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/Content/js/jquery-1.7.2.min.js"></script>
+
+    <script type="text/javascript" src="/Content/js/jquery.selectBox.js"></script>
+    <script type="text/javascript" src="/Content/js/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="/Content/js/jquery.easing.1.3.js"></script>
+
+    <script type="text/javascript" src="/Content/js/fadegallery.js"></script>
+    <script src="/Content/js/jquery.sliderTabs.min.js"></script>
+
+    <script type="text/javascript" src="/Content/js/myFunction.js"></script>
+    <script type="text/javascript" src="/Content/js/script.js"></script>
+    <script src="/Content/js/MyLibrary.js"></script>
+
+    <!--Login-->
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var tabs = $("div#mySliderTabs").sliderTabs({
+                autoplay: false,
+                indicators: true,
+                panelArrows: false,
+                panelArrowsShowOnHover: false,
+                indicators: false
+            });
+            $("select.server").selectBox();
+
+            var windowWidth = jQuery(window).width();
+            var windowHeight = jQuery(window).height();
+            var popupWidth = jQuery('.popup_block').width();
+            var popupHeight = jQuery('.popup_block').height();
+            $('.popup_block').css('left', (windowWidth - popupWidth) / 2);
+
+            $(window).resize(function () {
+                windowWidth = jQuery(window).width();
+                windowHeight = jQuery(window).height();
+                $('.popup_block').css('left', (windowWidth - popupWidth) / 2);
+            });
+            $('#thewindowbackground').css({ 'height': $(window).height(), 'width': $(window).width() });
+
+            $('#pop-dk').click(function () {
+                $('#pop_dk').css('visibility', 'visible');
+                $('#thewindowbackground').show();
+            });
+
+
+            $('.close-dk').click(function () {
+                $('#pop_dk').css('visibility', 'hidden');
+                $('#thewindowbackground').hide();
+            });
+
+            $('#pop-dn').click(function () {
+                $('#pop_dn').css('visibility', 'visible');
+                //$('#thewindowbackground').show();
+            });
+
+
+            $('.close-dn').click(function () {
+                $('#pop_dn').css('visibility', 'hidden');
+                $('#thewindowbackground').hide();
+            });
+
+
+
+        });
+
+
+        //Signup
+    </script>
+
+
+    <script type="text/javascript" src="/js/ga.js"></script>
+
+    <style>
+        .ActiveBanner {
+            opacity: 1 !important;
+        }
+    </style>
+</head>
+<body>
+
+
+    <form method="post" action="" id="form1">
+
+        <div id="thewindowbackground"></div>
+        <div id="container">
+            <div id="Wrapper">
+                <a id="Logo" href="/" title="Trở về trang chủ"></a>
+                <div class="nav">
+                    <a target="_blank" href="/">Trang chủ</a>  <a target="_blank" href="#">Diễn đàn</a>  <a target="_blank" href="#">Fanpage</a>
+                </div>
+                <!--TAI GAME BUTTON-->
+                <a href="#">
+                    <img src="/Content/images/website/blank.gif" alt="" width="326" height="156" class="taigame" />
+                </a>
+                <!--DANG NHAP-->
+                <a href="@LinkManager.GetGameLink()" id="pop-dn">
+                    <img src="/Content/images/website/blank.gif" alt="" class="btn_dn" />
+                </a>
+                <script type="text/javascript">
+                    function getLastSv() {
+                        return_str = $.callAjax('/Event/Ajax/Default.aspx?ajaxType=lastServer');
+                        if (return_str.indexOf('|') > 0) {
+                            sId = return_str.split('|')[0];
+                            playgame(sId);
+                        }
+
+                    }
+                </script>
+
+                <!--Block server-->
+                <div class="chon_server">
+                    <div class="block-server">
+                        <div class="top-server">
+                            <div class="hot_new_Ser">
+                                @if (Model.NewServerList != null && Model.NewServerList.Count > 0)
+                                {
+                                    for (int i = 0; i < Model.NewServerList.Count; i++)
+                                    {
+                                        if (i < 2)
+                                        {
+                                            <a class="new" onclick="@LinkManager.GetLoginJavascriptLink(Model.NewServerList[i].ServerId)">
+                                                <span class="name_ser">@Model.NewServerList[i].ServerName</span>
+                                            </a>
+                                        }
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div id="mySliderTabs" class="ListServerWrap">
+
+                            <ul id="tabs">
+
+                                @{
+                                    var serverList = Model.ServerList;
+
+                                    int segment = 0;
+                                    int start = 1;
+
+                                    if (serverList.Count % 8 == 0)
+                                    {
+                                        segment = serverList.Count / 8;
+                                    }
+                                    else if (serverList.Count % 8 > 5)
+                                    {
+                                        segment = serverList.Count / 8;
+                                    }
+                                    else
+                                    {
+                                        segment = (serverList.Count / 8) + 1;
+                                    }
+                                }
+
+                                @for (int i = 0; i < segment; i++)
+                                {
+                                    string activeClass = i == 0 ? "active" : "";
+                                    string selectedClass = i == 0 ? "selected" : "";
+
+                                    <li class="@selectedClass">
+                                        <a href="#content_@(i + 1)" id="tab_@(i + 1)" class="tab @activeClass">
+                                            @start - @(start + 8)
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+
+                            @for (int i = 0; i < segment; i++)
+                            {
+                                int skip = i * 8;
+                                var list = serverList.Skip(skip).Take(8).ToList();
+
+                                <div id="content_@(i + 1)" class="tab_view">
+                                    <ul>
+                                        @for (int j = 0; j < list.Count; j++)
+                                        {
+                                            int num = (j + 1) * (i + 1);
+                                            string className = j == list.Count - 1 ? "no-right" : "";
+
+                                            <li class="">
+                                                <a class="server" onclick="@LinkManager.GetLoginJavascriptLink(list[j].ServerId)">
+                                                    <span class="num">@num</span>
+                                                    <strong>@list[j].ServerName</strong>
+                                                    <span class="tot"></span>
+                                                    <span class="tot_txt">(Tốt)</span>
+                                                </a>
+                                            </li>
+                                        }
+
+                                    </ul>
+                                </div>
+                            }
+                        </div>
+
+                    </div>
+                    <!--end block server-->
+                </div>
+                <!--End Chon server-->
+                <!--Event banner and News-->
+                <div class="contentRow1">
+                    <!--Row1_left-->
+                    <div class="Row1_left">
+                        <!--BANNER AREA-->
+                        <div class="block-banner">
+                            <div class="event">
+                                @if (Model.BannerList != null)
+                                {
+                                    <ul id="img">
+
+                                        @{ int count = 0;}
+                                        @foreach (var banner in Model.BannerList)
+                                        {
+                                            string className = count == 0 ? "ActiveBanner" : "";
+
+                                            <li class='@className'>
+                                                <a href="@banner.Link" onclick="trackOutboundLink(this, 'choingay_Hoanhtaothienha', 'click', 'choingay_Hoanhtaothienha');">
+                                                    <img src="@Core.FilePathManager.GetBannerImagePath(banner.BannerId, banner.ImagePath)" alt="" width="248" height="254" />
+                                                </a>
+                                                <div class="des_banner" style="padding-bottom: 8px">
+                                                    <h1 class="title_banner">
+                                                        <a style="font-size: 12px" href="@banner.Link">
+                                                            @banner.Title
+                                                        </a>
+                                                    </h1>
+                                                    <p>
+                                                        @banner.Description
+                                                    </p>
+                                                </div>
+                                            </li>
+
+                                            count++;
+                                        }
+
+                                    </ul>
+
+                                    <ul id="imgControl">
+                                        @{ count = 0;}
+                                        @foreach (var banner in Model.BannerList)
+                                        {
+                                            string className = count == 0 ? "ActiveBanner" : "";
+
+                                            <li class="@className ">
+                                                <a href="@banner.Link" target="_blank"></a>
+                                            </li>
+
+                                            count++;
+                                        }
+                                    </ul>
+                                }
+                            </div>
+
+                        </div>
+                        <!--END BANNER AREA-->
+                    </div>
+                    <!--END Row1_left-->
+                    <!--Row1_right-->
+                    <div class="Row1_right">
+                        <!--DANG KY - NAP THE - CAM NANG-->
+                        <div class="block-dkn">
+                            <div class="dk-dn">
+                                <div class="dk-btn">
+                                    <a href="@LinkManager.REGISTER" class="dk-nhanh" id="pop-dk"></a>
+                                    <a target="_blank" href="@LinkManager.PAYMENT" class="napthe"></a>
+                                    <a href="/CamNang/" target="_blank" class="camnang"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--END DANG KY - NAP THE - CAM NANG-->
+                        <!--TIN TUC-->
+                        <div class="contentNews">
+
+                            <div class="listNews">
+                                @if (Model.PostList != null)
+                                {
+                                    <ul class="more-news">
+
+                                        @foreach (var post in Model.PostList)
+                                        {
+                                            <li class="hot">
+                                                <a class="popup" href="@LinkManager.GetPostDetailLink(post.PostId)" title="@post.Title">
+                                                    @post.Title
+                                                </a>
+                                                <span>@post.CreatedDate.ToString("dd/MM/yyyy")</span>
+                                            </li>
+                                        }
+
+                                    </ul>
+                                }
+                            </div>
+                        </div>
+                        <!--END TIN TUC-->
+
+                    </div>
+                    <!--END Row1_Right-->
+                </div>
+                <!--End Event banner and News-->
+
+            </div>
+        </div>
+
+
+    </form>
+    @Html.Partial("Partials/_GoogleAnalyticsPartial")
+</body>
+</html>

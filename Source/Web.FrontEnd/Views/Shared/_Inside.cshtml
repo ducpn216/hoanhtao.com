@@ -1,0 +1,186 @@
+﻿@using Web.FrontEnd.App_Code
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    @Html.Partial("Partials/_MetaTagPartial")
+
+    @*@System.Web.Optimization.Styles.Render("~/inside/css")
+        @System.Web.Optimization.Scripts.Render("~/inside/js")*@
+
+    <!--[if IE 7]><link rel="stylesheet" type="text/css" href="../../../css/ie7.css" /><![endif]-->
+
+    <link href="/Content/libraries/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/Content/css/inside/screen.css" />
+    <link href="/Content/css/custom.css" rel="stylesheet" type="text/css" />
+
+    @*<script type="text/javascript" src="/Content/js/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="/Content/js/jquery-ui.js"></script>
+        <script type="text/javascript" src="/Content/js/jquery.roundabout2.js"></script>
+        <script type="text/javascript" src="/Content/js/jquery.roundabout-shapes2.js"></script>
+        <script type="text/javascript" src="/Content/libraries/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/Content/js/myFunction.js"></script>
+        <script type="text/javascript" src="/Content/js/function.js"></script>
+        <script type="text/javascript" src="/Content/js/MyLibrary.js"></script>*@
+
+    @System.Web.Optimization.Scripts.Render("~/inside/js")
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            //$(function () {
+            //    $("#accordion").accordion({
+            //        heightStyle: "content"
+            //    });
+            //});
+            $("#accordion").accordion({
+                heightStyle: "content"
+            });
+        });
+    </script>
+    <style>
+        /*body {
+            background-image: url(/Content/images/website/bg-main.jpg);
+            background-repeat: no-repeat;
+            background-position: top center;
+        }
+        .wrap-header {
+            background: none !important;
+        }
+        .wrap-main {
+            background: none !important;
+        }
+        .inner-main {
+            background: none !important;
+        }
+        .main {
+            background: none !important;
+        }*/
+    </style>
+</head>
+<body>
+    <div id="top">
+        <div id="container">
+            <div class="wrap-header">
+                <div class="header">
+                    <div class="topmenu">
+                        <a href="/">Trang Chủ</a>
+                        <a href="/teaser">Teaser</a>
+                        @*<a href="#">Cong</a>*@
+                        <a href="@LinkManager.FANPAGE">Cộng đồng</a>
+                    </div>
+                    <a href="/" title="" class="logo">
+                        <img src="/Content/images/inside/blank.gif" alt="" width="315" height="110" />
+                    </a>
+                    <div class="info_game">
+                        <p>Năm Thiệu Hưng thứ 11, Nhạc Phi bị Tần Cối hại chết, bộ binh pháp tuyệt học Võ Mục Di Thư lưu lạc giang hồ... <a href="@LinkManager.GetCamNangLink(10)">xem thêm</a></p>
+                    </div>
+                    @*<div class="you_tube_video">
+                            <iframe width="440" height="304" src="//www.youtube.com/embed/cBdjrkExC94" frameborder="0" allowfullscreen></iframe>
+                        </div>*@
+                    <div class="main_menu">
+                        <ul>
+                            <li>
+                                <a href="@LinkManager.REGISTER">
+                                    <img src="/Content/images/inside/blank.gif" alt="" class="mmn mmn1" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@LinkManager.LOGIN">
+                                    <img src="/Content/images/inside/blank.gif" alt="" class="mmn mmn2" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="/Content/images/inside/blank.gif" alt="" class="mmn mmn3" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@LinkManager.CHOI_NGAY">
+                                    <img src="/Content/images/inside/blank.gif" alt="" class="mmn mmn4" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <p class="support" style="color: yellow;font-size: 18px;">Email hỗ trợ :<b>hoanhtao_hotro@yahoo.com</b></p>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <div class="info-inside">
+                            Tài khoản: @AuthHelper.GetUsername() | <a href="@LinkManager.LOGOUT">Thoát</a>
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <div class="wrap-main">
+                <div class="inner-main">
+                    <div class="main">
+                        <div class="wrap-content">
+                            <div class="content">
+
+                                @RenderSection("CamNangSection", false)
+
+                                <!--SIDEBAR LEFT-->
+                                <div class="SidebarLeft">
+
+                                    <!--LEFT MENU-->
+                                    <div class="menu_left">
+
+                                        @Html.Partial("Partials/_CategoryListPartial")
+
+                                    </div>
+                                    <!--END LEFT MENU-->
+                                    <!--TOP-->
+                                    <div class="top-sidebar">
+                                        <div class="top_btn" id="top_btn">
+                                            <a id="linkTop" href="#" title="Lên trên"></a>
+                                        </div>
+                                    </div>
+                                    <!--END TOP-->
+                                </div>
+                                <!--End Sidebar left-->
+                                <!--CONTENT RIGHT-->
+                                <div class="ContentRight">
+                                    <!--TITLE & BREADCRUM-->
+                                    <div class="header-title">
+
+                                        <ul class="breadcrumbs">
+                                            <li><a href="/" title="">Trang Chủ</a></li>
+
+                                            @RenderSection("BreadCrumbSection", false)
+                                        </ul>
+                                    </div>
+                                    <!--ContentBLock-->
+                                    <div id="ContentBlock">
+                                        @RenderSection("ContentSection", false)
+                                    </div>
+
+                                    <!--END ContentBLock-->
+                                </div>
+                                <!--END CONTENT RIGHT-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="wrap-footer">
+                <div class="footer">
+                    <p>
+                        ©COPY-RIGHT HOANHTAO.COM<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*@Html.Partial("Partials/_LoginPopupPartial")
+        @Html.Partial("Partials/_RegisterPopupPartial")
+        @Html.Partial("Partials/_CommingSoonPartial")*@
+    @Html.Partial("Partials/_GoogleAnalyticsPartial")
+</body>
+</html>

@@ -1,0 +1,116 @@
+﻿@*@using BotDetect.Web.UI.Mvc*@
+
+@if (Request.IsAuthenticated)
+{
+
+}
+else
+{
+    <script>
+        $(document).ready(function () {
+            var txtLoginCaptcha = $(".popup_login_captcha");
+            var txtLoginUsername = $(".popup_login_username");
+            var txtLoginPassword = $(".popup_login_password");
+
+            $(".login_popup_button").click(function () {
+                //var captchaObj = $(txtLoginCaptcha).get(0).Captcha;
+
+                //// gather data required for Captcha validation
+                var params = {}
+                //params.CaptchaId = captchaObj.Id;
+                //params.InstanceId = captchaObj.InstanceId;
+                //params.UserInput = $(txtLoginCaptcha).val();
+                params.Username = $(txtLoginUsername).val();
+                params.Password = $(txtLoginPassword).val();
+
+                $(".bg_loading").show();
+
+                // make asynchronous Captcha validation request
+                $.getJSON('/FrontEndApi/Login', params, function (result) {
+                    if (result != null) {
+                        var msg_popup = $("#loginPopupModal .msg_popup");
+
+                        if (result.Flag === 1) {
+                            window.location.href = result.Message;
+                        } else {
+                            $(msg_popup).html(result.Message);
+                        }
+                    }
+                });
+
+                $(".bg_loading").hide();
+
+                //captchaObj.ReloadImage();
+                event.preventDefault();
+            });
+
+            $(".loginPopupBtn").click(function () {
+                $('#loginPopupModal').modal('show');
+            });
+
+            function resetPopupLogin() {
+                $(txtLoginUsername).val("");
+                $(txtLoginPassword).val("");
+                $(txtLoginCaptcha).val("");
+            }
+
+            $('#loginPopupModal').on('show.bs.modal', function (e) {
+                $("#loginPopupModal .msg_popup").html("");
+                resetPopupLogin();
+            })
+        });
+    </script>
+
+    <div id="loginPopupModal" class="modal fade fast_modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">ĐĂNG NHẬP</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="msg_popup"></div>
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label">Tài khoản:</label>
+                            <input type="text" class="form-control popup_login_username" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">Mật khẩu:</label>
+                            <input type="password" class="form-control popup_login_password" id="recipient-name">
+                        </div>
+                        @*<div class="form-group">
+                            @{ MvcCaptcha sampleCaptcha = Web.FrontEnd.App_Code.CaptchaHelper.GetLoginPopUpCaptcha(); }
+                            @Html.Captcha(sampleCaptcha)
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">Mã xác nhận:</label>
+                            @Html.TextBox("LoginPopUpCaptchaCode", "", new { @class = "form-control shot popup_login_captcha" })
+                        </div>*@
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary login_popup_button">Đăng nhập</button>
+                    <br /><br />
+                    
+                    <a href="/Account/LoginGoogle" class="fb-login">
+                        <img src="/Content/images/website/google.png" width="50px" />
+                    </a>
+                    <a href="/Account/LoginFacebook" class="fb-login">
+                        <img src="/Content/images/website/fb.png" width="50px" />
+                    </a>
+
+                    <div>
+                        @Html.ActionLink("Quên mật khẩu ?", "ForgetPasword", "Account", routeValues: null, htmlAttributes: new { id = "popup_register_forgetPassword" })
+                    </div>
+                </div>
+
+                <div class="bg_loading">
+                    <img src="/Content/images/website/loading.gif" />
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+}

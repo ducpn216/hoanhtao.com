@@ -1,0 +1,81 @@
+﻿@*@using BotDetect.Web.UI.Mvc*@
+
+<style>
+    .inner-popup #Captcha_CaptchaDiv {
+        position: absolute;
+        top: 187px;
+        right: -37px;
+    }
+</style>
+
+<script>
+    $(document).ready(function () {
+        $('.submit_dkleft').click(function checkForm(event) {
+            var params = {}         
+            params.Username = $(".signup_usernameleft").val();
+            params.Password = $(".signup_passleft").val();
+            params.RetypePassword = $(".signup_repassleft").val();
+            params.Captcha = $(".signup_verifycodeleft").val();
+
+            // make asynchronous Captcha validation request
+            $.getJSON('FrontEndApi/QuickRegister', params, function (result) {
+                if (result != null) {
+                    if (result.Flag === 1) {
+                        window.location.href = result.Message;
+                    } else {
+                        var mesg = replace(result.Message, "<br/>", "\n");
+                        //return str.replace(new RegExp(find, 'g'), replace);
+                        //var res = result.Message.replace(/<br/>/gi, "\n");
+                        alert(mesg);
+                    }
+                }
+            });
+
+            ReloadCaptcha("img-captcha-quick-register", "/Captcha/QuickRegister");
+            event.preventDefault();
+        });
+    });
+</script>
+
+
+<!--popup left-->
+<div class="inner-popup" style="left: -275px;">
+    <div class="content-popup">
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+        {
+            <p class="insert">
+                <label>Tài khoản:</label>
+                <input type="text" class="signup_usernameleft" name="left_signup_account" />
+            </p>
+
+            <p class="insert">
+                <label>Mật khẩu:</label>
+                <input type="password" class="signup_passleft" name="left_signup_password" />
+            </p>
+
+            <p class="insert">
+                <label>Nhập lại MK:</label>
+                <input type="password" class="signup_repassleft" name="left_signup_retype_password" />
+            </p>
+
+            <p class="insert">
+                <label>Mã xác nhận:</label>
+
+                @Html.TextBox("Captcha", "", new { @class = "shot signup_verifycodeleft" })
+                <div style="position: absolute; top: 186px; right: 24px;">
+                    <img id="img-captcha-quick-register" src='/Captcha/QuickRegister' />
+                    <a class="btn-captcha" onclick="return ReloadCaptcha('img-captcha-quick-register', '/Captcha/QuickRegister');">
+                        <img src="/Content/images/website/change.png" alt="Thay hình khác" width="20px" />
+                    </a>
+                </div>
+
+            </p>
+        }
+
+    </div>
+    <span class="close-popup"></span>
+    <input type="button" class="reg submit_dkleft" />
+    <a href="#" class="download commingsoon-btn"></a>
+    <a href="#" class="giftcode"></a>
+</div>
+<!--End inner_popup-->

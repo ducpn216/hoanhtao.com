@@ -1,0 +1,61 @@
+﻿@model Web.FrontEnd.Models.HomeModel
+@using Web.FrontEnd.App_Code
+
+<div class="main_menu">
+    <ul>
+        <li>
+            <a href="/">
+                <img src="/Content/images/website/blank.gif" alt="" class="mmn mmn1">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="/Content/images/website/blank.gif" alt="" class="mmn mmn2">
+            </a>
+            <ul class="submenu">
+                <li class="top_sub"></li>
+                <li class="first_item"><a href="@LinkManager.GetCamNangLink(10)">Cốt truyện</a></li>
+                <li class="last_item"><a href="@LinkManager.GetCamNangLink(11)">Nhân vật</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="/CamNang">
+                <img src="/Content/images/website/blank.gif" alt="" class="mmn mmn3">
+            </a>
+            @*<ul class="submenu">
+                    <li class="top_sub"></li>
+                    <li class="first_item"><a target="_blank" href="@LinkManager.GetCamNangLink(35)">Thương Thành</a></li>
+                    <li><a target="_blank" href="@LinkManager.GetCamNangLink(36)">Chiến Trường</a></li>
+                    <li><a target="_blank" href="@LinkManager.GetCamNangLink(37)">Auto</a></li>
+                    <li><a target="_blank" href="@LinkManager.GetCamNangLink(38)">Tình Duyên</a></li>
+                    <li><a target="_blank" href="@LinkManager.GetCamNangLink(39)">Giao Dịch</a></li>
+                    <li><a target="_blank" href="@LinkManager.GetCamNangLink(40)">Thành Tựu</a></li>
+                    <li><a target="_blank" href="@LinkManager.GetCamNangLink(41)">Bang Hội</a></li>
+                    <li><a target="_blank" href="@LinkManager.GetCamNangLink(42)">Hành Tẩu</a></li>
+                    <li><a target="_blank" href="@LinkManager.GetCamNangLink(43)">Chân Khí</a></li>
+                    <li class="last_item"><a href="@LinkManager.GetCamNangLink(44)">Cộng Đồng</a></li>
+                </ul>*@
+        </li>
+        <li class="tanthu">
+            <a href="#">
+                <img src="/Content/images/website/blank.gif" alt="" class="mmn mmn4">
+            </a>
+            <ul class="submenu">
+                <li class="top_sub"></li>
+                <li class="first_item"><a href="@LinkManager.GetCamNangLink(2)">Gia nhập giang hồ</a></li>
+                <li><a href="@LinkManager.GetCamNangLink(7)">Hướng dẫn nạp thẻ</a></li>
+                <li class="last_item"><a href="@LinkManager.GetCamNangLink(57)">Xóa cache</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="@LinkManager.GetPostListLink((int)Core.Enums.PostType.News)">
+                <img src="/Content/images/website/blank.gif" alt="" class="mmn mmn5">
+            </a>
+        </li>
+        <li>
+            <a target="_blank" href="#">
+                <img src="/Content/images/website/blank.gif" alt="" class="mmn mmn6">
+            </a>
+        </li>
+    </ul>
+</div>

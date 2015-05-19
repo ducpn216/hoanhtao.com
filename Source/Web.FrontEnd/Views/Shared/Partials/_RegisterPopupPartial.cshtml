@@ -1,0 +1,109 @@
+﻿@*@using BotDetect.Web.UI.Mvc*@
+
+<script>
+    $(document).ready(function () {
+        var txtRegisterCaptcha = $(".popup_register_captcha");
+        var txtRegisterUsername = $(".popup_register_username");
+        var txtRegisterPassword = $(".popup_register_password");
+        var txtRegisterRetypePassword = $(".popup_register_retype_password");
+
+        $("#register_popup_button").click(function () {
+            var params = {}
+            params.Captcha = $(txtRegisterCaptcha).val();
+            params.Username = $(txtRegisterUsername).val();
+            params.Password = $(txtRegisterPassword).val();
+            params.RetypePassword = $(txtRegisterRetypePassword).val();
+
+            $(".bg_loading").show();
+
+            $.getJSON('/FrontEndApi/Register', params, function (result) {
+                if (result != null) {
+                    var msg_popup = $("#registerPopupModal .msg_popup");
+                    $(msg_popup).html("");
+
+                    if (result.Flag === 1) {
+                        window.location.href = result.Message;
+                    } else {
+                        $(msg_popup).html(result.Message);
+                    }
+
+                    $(".bg_loading").hide();
+                }
+            });
+
+            ReloadCaptcha("img-captcha-register", "/Captcha/Register");
+            event.preventDefault();
+        });
+
+        function resetPopupRegister() {
+            $(txtRegisterUsername).val("");
+            $(txtRegisterPassword).val("");
+            $(txtRegisterRetypePassword).val("");
+            $(txtRegisterCaptcha).val("");
+        }
+
+        $('#registerPopupModal').on('show.bs.modal', function (e) {
+            $("#registerPopupModal .msg_popup").html("");
+            $("#registerPopupModal form").show();
+            $("#popup_register_forgetPassword").show();
+            $("#register_popup_button").show();
+
+            resetPopupRegister();
+        })
+
+        $(".registerPopupBtn").click(function () {
+            $('#registerPopupModal').modal('show');
+        });
+    });
+</script>
+
+<div id="registerPopupModal" class="modal fade fast_modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">ĐĂNG KÝ</h4>
+            </div>
+            <div class="modal-body">
+                <div class="msg_popup"></div>
+                <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label">Tài khoản:</label>
+                        <input type="text" class="form-control popup_register_username" id="recipient-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="control-label">Mật khẩu:</label>
+                        <input type="password" class="form-control popup_register_password" id="recipient-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="control-label">Xác nhận mật khẩu:</label>
+                        <input type="password" class="form-control popup_register_retype_password" id="recipient-name">
+                    </div>
+                    <div class="form-group">
+                        <img id="img-captcha-register" src='/Captcha/Register' />
+                        <a class="btn-captcha-register" onclick="return ReloadCaptcha('img-captcha-register', '/Captcha/Register');">
+                            <img src="/Content/images/website/change.png" alt="Thay hình khác" />
+                        </a>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="control-label">Mã xác nhận:</label>
+                        @Html.TextBox("Captcha", "", new { @class = "form-control shot popup_register_captcha", required = "" })
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary" id="register_popup_button">Đăng ký</button>
+                <br /><br />
+                <div>
+                    @Html.ActionLink("Quên mật khẩu ?", "ForgetPasword", "Account", routeValues: null, htmlAttributes: new { id = "popup_register_forgetPassword" })
+                </div>
+            </div>
+
+            <div class="bg_loading">
+                <img src="/Content/images/website/loading.gif" />
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>

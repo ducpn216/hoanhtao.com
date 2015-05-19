@@ -1,0 +1,101 @@
+﻿@using Web.FrontEnd.App_Code
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @Html.Partial("Partials/_MetaTagPartial")
+
+
+    @*<link href="/Content/libraries/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/libraries/bootstrap-3.3.4/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="/Content/views/landing/style.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="/Content/js/jquery-1.11.2.min.js"></script>
+    <script src="/Content/js/MyLibrary.js"></script>*@
+
+    @System.Web.Optimization.Styles.Render("~/teaser/css")
+    @System.Web.Optimization.Scripts.Render("~/teaser/js")
+
+    <script>
+        $(document).ready(function () {
+            $(".wrapper-top").click(function () {
+                $(".wrapper-top").css("opacity", "0");
+                $(".wrapper-top").css("z-index", "0");
+
+                $(".wrapper").css("opacity", "1");
+                $(".wrapper").css("z-index", "100");
+            });
+
+            $(".close").click(function () {
+                $(".wrapper").css("opacity", "0");
+                $(".wrapper").css("z-index", "0");
+
+                $(".wrapper-top").css("opacity", "1");
+                $(".wrapper-top").css("z-index", "100");
+            });
+
+            $(".submit").click(function () {
+                var params = {}
+                params.Username = $(".txt-username").val();
+                params.Password = $(".txt-password").val();
+                params.RetypePassword = $(".txt-repassword").val();
+                params.Captcha = $(".txt-captcha").val();
+                params.Pid = qs["pid"];
+
+                $.getJSON('/FrontEndApi/Register', params, function (result) {
+                    if (result != null) {
+                        if (result.Flag === 1) {
+                            window.location.href = "http://hoanhtao.com";
+                        } else {
+                            var mesg = replace(result.Message, "<br/>", "\n");
+                            alert(mesg);
+                        }
+                    }
+
+                    ReloadCaptcha("img-captcha", "/Captcha/Register");
+                });
+
+                
+                event.preventDefault();
+            });
+        });
+        
+        var qs = (function (a) {
+            if (a == "") return {};
+            var b = {};
+            for (var i = 0; i < a.length; ++i) {
+                var p = a[i].split('=', 2);
+                if (p.length == 1)
+                    b[p[0]] = "";
+                else
+                    b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+            }
+            return b;
+        })(window.location.search.substr(1).split('&'));
+    </script>
+</head>
+<body>
+    <div class="wrapper-top">
+
+    </div>
+    <div class="wrapper">
+        <div id="container">
+            <a class="register"></a>
+            <div id="register-box">
+                <input type="text" class="txt-username txt" />
+                <input type="password" class="txt-password txt" />
+                <input type="password" class="txt-repassword txt" />
+                <input type="text" class="txt-captcha txt" />
+                <a class="submit"></a>
+                <a class="close"></a>
+                <img id="img-captcha" src='/Captcha/Register' />
+                <a id="btn-captcha" onclick="return ReloadCaptcha('img-captcha', '/Captcha/Register');">
+                    <img src="/Content/images/website/change.png" alt="Thay hình khác" />
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    @Html.Partial("Partials/_GoogleAnalyticsPartial")
+</body>
+</html>

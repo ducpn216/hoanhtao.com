@@ -1,0 +1,234 @@
+﻿#vote {
+position:relative;
+}
+#vote input[type=radio] {
+    position:absolute;
+    opacity:0;
+    margin-top:2px;
+                                
+    }
+    #vote input[type=radio]+span {
+    background-image:url(/images/radio.png);
+    background-position:-3px -4px;
+    background-repeat:no-repeat;
+    padding-left:15px;
+    width:19px;
+                                   
+    height:19px;
+    }
+    #vote input[type=checkbox] + span {
+    padding-left:8px;
+    }                               
+
+    #vote input[type=radio]:hover + span {
+        background-position:-3px -29px;
+    }
+        #vote input[type=radio]:checked + span {
+        background-position:-3px -54px;
+    }
+    .chart {
+    background:#0A1424;
+    width:420px;
+    margin:10px;
+    text-align:right;
+                               
+    }
+    .percent {
+    position:absolute;
+    height:16px;
+    width:100px;
+    background:#EC9432;
+    border:1px solid #330D0D;
+    }
+
+
+/*SignUp*/
+    #overcontain {
+    display:none;
+
+    }
+    #SigninPopup_wrap {
+    width:300px;
+    height:130px;
+    display:none;
+    position:fixed;
+    top:50%;
+    left:50%;
+    z-index:1001;
+    border:8px solid rgba(0, 0, 0,0.3);
+    border-radius:8px;
+    }
+    .popup_content {
+                                                                
+    background:#fff;
+    height:85px;
+    border-radius:5px;
+    padding:25px 20px 20px 20px;
+    line-height:20px;
+    color:red;
+    font-family:Tahoma;
+    font-size:9pt;
+    }
+    .close_wrap {
+    cursor:pointer;
+    width:18px;
+    height:18px;
+    position:absolute;
+    margin-top:-126px;
+    margin-left:278px;
+                                                               
+    }
+    .form_signin{width: 231px; height: 192px; background: url(../images/bg_dk_nhanh.png) no-repeat 0 0; margin-top: -8px; margin-left: 9px; position:relative; z-index: 99; display: none; overflow: hidden;}
+    .form_signin .form_dk{width: 220px; margin: 0 auto; padding: 20px 0 0 8px;}
+    .form_signin label{ float: left; width: 100px; margin: 0 0 5px 0; color: #7e4432;}
+    .form_signin .input_dk{width: 110px; height: 20px; line-heighT: 20px; padding: 0 5px; background: url(../images/input_dk.jpg) no-repeat 0 0; border: none; margin: 0 0 5px 0; color: #f0b29f; -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	    box-sizing: border-box; }
+    .form_signin .form_dk .capcha{margin-left: 101px;}
+    .form_signin .form_dk .submit_dk{width: 90px; height: 27px; background: url(../images/dk_nhanh_btn.png) no-repeat 0 0; border: none; cursor: pointer; margin-top: 5px;}
+    .form_signin .form_dk .submit_dk:hover{background-position: 0 -28px;}
+    .form_signin .form_dk .submit_dn{width: 90px; height: 27px; background: url(../images/dk_nhanh_btn.png) no-repeat 0 0; border: none; cursor: pointer; margin-top: 5px;}
+    .form_signin .form_dk .submit_dn:hover{background-position: 0 -28px;}
+
+
+    /*Survey*/
+
+     .numberCount {
+        position:relative;z-index:1000;
+        margin-right:10px;
+        }
+        .surveyChart {
+        width:400px;
+        position:relative;
+        background:#0A1424;
+        height:16px;
+        margin:10px;
+        text-align:right;
+        color:#fff;
+        border:1px solid #263242;
+        font-size:10pt;
+        }
+        .surveyPercent {
+        position:absolute;
+        background:#EC9432;
+        height:16px;
+        font-size:10pt;
+        !float:left;
+        }
+        .survey_title {
+       
+        margin-left:10px;
+        font-size:10pt;
+        font-weight:bold;
+        }
+        .surveyAnswer {
+        color:#6d737c;
+        font-size:9pt;
+        }
+        .result_wrapper {
+        display:none;
+        }
+        /**POPUP THAM DO Y KIEN**/
+#pop_survey
+{
+	width: 511px;
+    height: 422px; background: url(/images/bg_popup.png) no-repeat top center;
+    padding: 0 20px;
+    float: left;
+   
+    position: fixed;
+    top: 25%;
+    left: 50%;
+    z-index: 999; /*--CSS3 Box Shadows--*/
+    overflow: hidden;
+    font-family: Tahoma;
+	visibility:hidden;
+}
+
+#pop_survey #content{ height: 352px; overflow-x: hidden; overflow-y: auto; width: 477px; margin: 30px 10px 10px 30px;}
+ 
+#content .detail{width: 450px;position:relative;}
+#thewindowbackground {left: 0; position: fixed;	top: 0;	width: 100%; z-index: 990;display:none; text-align:center; background:url(/images/bgd-opacity.png) 0 0 repeat;}	
+.content_popup{padding: 12px 0 0 0; width: 100%; height: 100%; color: #b7dcec; position: relative;}
+.content_popup ul{padding: 5px 0;}
+.content_popup ul li{margin: 7px 0 7px 10px; font-size: 12px; color: #6d737c; height: 18px; line-height: 23px;}
+.checkbox, .radio {
+  width: 19px;
+  height: 16px;
+  padding: 0 5px 0 0;
+  background: url(/images/checkbox.png) no-repeat;
+  display: block;
+  clear: left;
+  float: left;
+}
+.radio {
+  background: url(/images/radio.png) no-repeat;
+}
+
+.content_popup p{color: #6d737c; margin: 10px 0; font-size: 12px; font-weight: normal;}
+.content_popup .title{width: 100%; color: #c2c2c2; font-size: 18px; font-weight: bold; padding-left: 30px;}
+.content_popup .submit_xn{width: 90px; height: 27px; background: url(/images/xac_nhan_btn.png) no-repeat 0 0; border: none; cursor: pointer;}
+.content_popup .submit_xn:hover{background-position: 0 -28px;}
+
+.content_popup .submit_kq{width: 90px; height: 27px; background: url(/images/ketqua.png) no-repeat 0 0; border: none; cursor: pointer;}
+.content_popup .submit_kq:hover{background-position: 0 -28px;}
+
+.content_popup .submit_back{width: 90px; height: 27px; background: url(/images/trolai.png) no-repeat 0 0; border: none; cursor: pointer;}
+.content_popup .submit_back:hover{background-position: 0 -28px;}
+
+a.close-poll{position: absolute; top: 12px; right: 10px; width: 16px; height: 18px; background: url(/images/close_popup.png) no-repeat 0 0;}
+.content_popup textarea{width: 391px; height: 60px; background: url(/images/text_area.png) no-repeat 0 0; border: none;}
+.content_popup p.question{font-weight: bold;}
+.survey_button {
+padding-top:10px 0px;
+text-align:center;
+}
+                        
+
+.numberCount {
+    position:relative;z-index:1000;
+    margin-right:10px;
+    }
+    .surveyChart {
+    width:400px;
+    position:relative;
+    background:#0A1424;
+    height:17px;
+    margin:10px;
+    text-align:right;
+    color:#fff;
+    border:1px solid #263242;
+    font-size:10pt;
+    }
+    .surveyPercent {
+    position:absolute;
+    background:#EC9432;
+    height:17px;
+    font-size:10pt;
+    !float:left;
+    }
+    p.survey_title {
+       
+    margin-left:0px;
+    font-size:10pt;
+    font-weight:bold;
+    }
+    p.surveyAnswer {
+    margin-left:10px;
+    font-size:9pt;
+    }
+    .result_wrapper {
+    display:none;
+    }
+            
+ #pop-survey
+{
+	width: 91px;
+height: 27px;
+background: url(../images/thamdo.png) no-repeat 0 0;
+border: none;
+cursor: pointer;
+}     
+ 
+ /*Mount*/
+                  

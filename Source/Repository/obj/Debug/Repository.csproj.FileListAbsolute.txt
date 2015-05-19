@@ -1,0 +1,5 @@
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Repository\bin\Debug\Repository.dll.config
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Repository\bin\Debug\Repository.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Repository\bin\Debug\Repository.pdb
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Repository\obj\Debug\Repository.dll
+D:\Cloud\Copy ducpn216@gmail.com\Games\HT\Source\HT\Repository\obj\Debug\Repository.pdb
